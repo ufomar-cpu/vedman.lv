@@ -6,34 +6,263 @@
     <title>AMAPU | Tehnika un Materiāli</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #00b341; --dark: #121212; --text: #ffffff; }
+        :root { --primary: #00b341; --dark-grey: #121212; --text: #ffffff; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background: var(--dark); color: var(--text); overflow-x: hidden; line-height: 1.6; }
-        
-        /* Galvene */
-        header { padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; background: rgba(18,18,18,0.9); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #333; }
-        .logo { font-weight: 900; font-size: 1.5rem; text-decoration: none; color: white; letter-spacing: -1px; }
+        body, html { height: 100%; background: var(--dark-grey); color: var(--text); overflow-x: hidden; }
+
+        header { padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; height: 60px; background: rgba(18,18,18,0.9); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 1000; }
+        .logo { font-weight: 900; font-size: 1.2rem; color: var(--text); text-decoration: none; }
         .logo span { color: var(--primary); }
+        .lang-menu { display: flex; gap: 4px; }
+        .lang-btn { color: #888; font-size: 0.75rem; font-weight: 700; padding: 4px 8px; border: 1px solid #444; border-radius: 4px; cursor: pointer; }
+        .lang-btn.active { color: var(--primary); border-color: var(--primary); }
 
-        /* Galvenā daļa */
-        main { display: flex; flex-direction: column; align-items: center; padding: 40px 20px; text-align: center; min-height: 80vh; }
-        h1 { font-size: 2.2rem; font-weight: 900; margin-bottom: 10px; text-transform: uppercase; letter-spacing: -1px; }
-        .sub-text { color: #aaa; font-size: 1rem; max-width: 500px; margin-bottom: 30px; }
+        main { display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: calc(100vh - 100px); text-align: center; padding: 20px; }
+        
+        .story-slider { height: 35px; margin-bottom: 10px; overflow: hidden; }
+        .story-slide { font-size: 1.4rem; font-weight: 900; text-transform: uppercase; display: none; color: var(--primary); }
+        .story-slide.active { display: block; animation: fadeIn 0.5s; }
+        
+        .hero-desc { max-width: 450px; font-size: 0.9rem; color: #bbb; margin-bottom: 20px; }
+        
+        /* SLAIDERIS */
+        .slider-wrap { width: 100%; max-width: 500px; height: 350px; position: relative; overflow: hidden; border-radius: 20px; margin-bottom: 25px; border: 2px solid #333; background: #000; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .slide-img { position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: 1.2s ease-in-out; top:0; left:0; }
+        .slide-img.active { opacity: 1; }
 
-        /* Slaidrāde */
-        .slider-box { width: 100%; max-width: 550px; height: 350px; position: relative; border-radius: 20px; overflow: hidden; border: 2px solid #333; box-shadow: 0 20px 50px rgba(0,0,0,0.6); }
-        .slide { position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.2s ease-in-out; top: 0; left: 0; }
-        .slide.active { opacity: 1; }
+        .btn-trigger { background: var(--primary); color: white; padding: 18px 36px; border-radius: 50px; font-weight: 900; text-transform: uppercase; font-size: 1rem; border: none; cursor: pointer; box-shadow: 0 8px 20px rgba(0, 179, 65, 0.4); transition: 0.3s; }
+        .btn-trigger:active { transform: scale(0.95); }
 
-        /* Poga */
-        .cta-btn { background: var(--primary); color: white; padding: 20px 45px; border-radius: 100px; font-weight: 900; text-transform: uppercase; border: none; font-size: 1.1rem; margin-top: 35px; cursor: pointer; transition: 0.3s; box-shadow: 0 10px 20px rgba(0, 179, 65, 0.3); }
-        .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0, 179, 65, 0.4); }
+        /* KONTAKTI */
+        .contact-container { position: fixed; right: 20px; bottom: 20px; z-index: 9999; display: flex; flex-direction: column; align-items: flex-end; }
+        .sticky-contact { background: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 20px rgba(0,0,0,0.4); cursor: pointer; border: 3px solid var(--primary); }
+        .contact-popover { display: none; flex-direction: column; gap: 8px; margin-bottom: 15px; animation: slideUp 0.3s ease-out; width: 180px; }
+        .contact-popover.active { display: flex; }
+        .c-bubble { background: white; padding: 12px 18px; border-radius: 12px; text-decoration: none; font-weight: 800; font-size: 0.85rem; display: flex; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); color: #1a1a1a; }
+        .c-bubble.wa { border-left: 5px solid #25D366; }
 
-        /* Kontakti */
-        .contact-bar { position: fixed; bottom: 25px; right: 25px; display: flex; flex-direction: column; gap: 12px; z-index: 2000; }
-        .c-icon { width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.5rem; box-shadow: 0 10px 25px rgba(0,0,0,0.5); border: 2px solid rgba(255,255,255,0.1); }
-        .c-wa { background: #25D366; color: white; }
-        .c-tel { background: white; color: black; }
+        /* MODĀLAIS LOGS */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 2000; align-items: center; justify-content: center; padding: 10px; }
+        .modal-content { background: white; color: #1a1a1a; width: 100%; max-width: 450px; border-radius: 20px; padding: 25px; position: relative; text-align: left; }
+        .close-modal { position: absolute; top: 10px; right: 15px; font-size: 1.8rem; cursor: pointer; color: #999; }
+        
+        .unit-toggle { display: flex; background: #eee; border-radius: 8px; padding: 3px; margin: 10px 0; }
+        .u-btn { flex: 1; border: none; padding: 10px; border-radius: 6px; cursor: pointer; font-weight: 700; font-size: 0.8rem; transition: 0.2s; }
+        .u-btn.active { background: white; color: var(--primary); box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        
+        .vol-box { display: flex; align-items: center; justify-content: space-between; background: #f9f9f9; padding: 12px; border-radius: 12px; border: 1px solid #eee; margin-bottom: 10px; }
+        .v-btn { width: 45px; height: 45px; border-radius: 50%; border: none; background: #1a1a1a; color: white; font-size: 1.5rem; cursor: pointer; }
+        
+        select, input, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px; margin: 6px 0; font-size: 0.95rem; outline: none; background: #fff; color: #1a1a1a; }
+        .btn-final { width: 100%; padding: 16px; border-radius: 10px; border: none; font-weight: 800; text-transform: uppercase; cursor: pointer; margin-top: 10px; background: var(--primary); color: white; font-size: 1rem; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="#" class="logo">AMA<span>PU</span></a>
+    <div class="lang-menu">
+        <div class="lang-btn active" onclick="changeLang('lv', this)">LV</div>
+        <div class="lang-btn" onclick="changeLang('ru', this)">RU</div>
+        <div class="lang-btn" onclick="changeLang('eng', this)">ENG</div>
+    </div>
+</header>
+
+<main>
+    <div class="story-slider">
+        <div class="story-slide active">Beramās kravas</div>
+        <div class="story-slide">Tehnikas noma</div>
+        <div class="story-slide">Demontāža</div>
+    </div>
+    <p class="hero-desc" id="hero-desc">Piegādājam pamatu Jūsu jaunajai mājai, ceļam un nākotnei.</p>
+    
+    <div class="slider-wrap">
+        <img src="skemba1.jpeg" class="slide-img active"> 
+        <img src="manipul1.jpeg" class="slide-img">
+        <img src="melnz1.jpeg" class="slide-img">
+        <img src="transp1.jpeg" class="slide-img">
+        <img src="zari1.jpeg" class="slide-img">
+        <img src="skembas77.jpeg" class="slide-img">
+        <img src="lapas.jpeg" class="slide-img">
+        <img src="F1765E75-F7B2-4E80-8633-874C4000378E_1_105_c.jpeg" class="slide-img">
+        <img src="F5082ED9-8131-4890-8800-2441C250E24D_1_105_c.jpeg" class="slide-img">
+        <img src="FA09DEF2-9133-4003-886F-08F797963A0F_1_105_c.jpeg" class="slide-img">
+        <img src="FD70BD52-EFA9-482B-ACE0-C7E3574CAFAF_1_105_c.jpeg" class="slide-img">
+    </div>
+
+    <button class="btn-trigger" onclick="openModal()" id="btn-main">Sākt pasūtījumu</button>
+</main>
+
+<div class="contact-container">
+    <div id="contactPopover" class="contact-popover">
+        <a href="https://wa.me/37122312828" target="_blank" class="c-bubble wa">💬 WhatsApp</a>
+        <a href="tel:+37122312828" class="c-bubble call">📞 <span id="c-phone">Zvanīt</span></a>
+        <a href="sms:+37122312828" class="c-bubble sms">✉️ <span id="c-sms">SMS</span></a>
+    </div>
+    <div class="sticky-contact" onclick="togglePopover()">
+        <span style="font-size: 1.6rem;">📞</span>
+    </div>
+</div>
+
+<div id="orderModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2 id="m-title" style="font-size:1.1rem; margin-bottom:15px; font-weight:900;">Konfigurēt piegādi</h2>
+        
+        <div class="unit-toggle">
+            <button id="um" class="u-btn active" onclick="setUnit('m³')">M3</button>
+            <button id="ut" class="u-btn" onclick="setUnit('t')">TONNAS</button>
+        </div>
+        
+        <div class="vol-box">
+            <button class="v-btn" onclick="chV(-1)">−</button>
+            <div id="vol-display" style="font-weight:900; font-size:1.2rem;">1 m³</div>
+            <button class="v-btn" onclick="chV(1)">+</button>
+        </div>
+
+        <select id="main-cat" onchange="updateSub()"></select>
+        <select id="sub-cat" style="display:none;"></select>
+        
+        <input type="text" id="adr" placeholder="Adrese">
+        <input type="text" id="user" placeholder="Vārds">
+        <input type="tel" id="tel" value="+371 ">
+        <textarea id="comm"></textarea>
+        
+        <button class="btn-final" onclick="send()" id="b-o">Nosūtīt pasūtījumu</button>
+    </div>
+</div>
+
+<script>
+    const translations = {
+        lv: {
+            desc: "Piegādājam pamatu Jūsu jaunajai mājai, ceļam un nākotnei.",
+            btn: "Sākt pasūtījumu",
+            mats: {
+                "Dolomīta šķembas (maisījums)": ["0-16 mm", "0-32 mm", "0-45 mm", "0-56 mm", "0-63 mm"],
+                "Dolomīta šķembas (šķirotas)": ["8-32 mm", "5-40 mm", "16-40 mm", "40-70 mm"],
+                "Dolomīta šķembas (mazgātas)": ["0-2 mm", "0-5 mm", "2-8 mm", "8-16 mm", "16-32 mm"],
+                "Granīta šķembas": ["2-8 mm", "8-16 mm", "5-20 mm", "20-40 mm", "Atsijas"],
+                "Drupināti būvgruži": ["0-16 mm", "0-32 mm", "0-45 mm", "0-56 mm", "0-63 mm", "20-40 mm", "40-70 mm"],
+                "Oļi": ["5-8 mm", "8-16 mm", "16-32 mm"],
+                "Smilts": ["Mazgāta 0-2 mm", "Mazgāta 0-4 mm", "Nemazgāta", "Pieberamā"],
+                "Grants": ["Skalota 0-4 mm", "Neskalota 0-4 mm", "Dabīgā"],
+                "Melnzeme": ["Sijāta", "Nesijāta"],
+                "Grunts": ["Pieberamā"], "Kūtsmēsli": ["Svaigi"], "Asfalts": ["Frēzēts"], "Akmeņi": ["Laukakmeņi"],
+                "Pakalpojumi": ["Pašizgāzējs", "Manipulators", "Demontāža", "Rakšana", "Transportēšana"]
+            },
+            comm: "Papildus info (piekļuve, laiks utt.)",
+            c_phone: "Zvanīt", c_sms: "SMS", order_btn: "Sūtīt uz WhatsApp"
+        },
+        ru: {
+            desc: "Доставляем основу для вашего дома, дороги и будущего.",
+            btn: "Начать заказ",
+            mats: {
+                "Доломитовый щебень": ["0-16 mm", "0-40 mm", "Фракции"],
+                "Песок": ["Мытый", "Природный"],
+                "Чернозем": ["Просеянный", "Обычный"],
+                "Услуги": ["Самосвал", "Манипулятор", "Демонтаж"]
+            },
+            comm: "Дополнительная информация",
+            c_phone: "Звонить", c_sms: "SMS", order_btn: "Заказать в WhatsApp"
+        },
+        eng: {
+            desc: "We deliver the foundation for your house, road and future.",
+            btn: "Start Order",
+            mats: {
+                "Dolomite chips": ["0-16 mm", "0-40 mm", "Mixed"],
+                "Sand": ["Washed", "Natural"],
+                "Black soil": ["Sieved", "Natural"],
+                "Services": ["Tipper", "Manipulator", "Demolition"]
+            },
+            comm: "Additional information",
+            c_phone: "Call", c_sms: "SMS", order_btn: "Order via WhatsApp"
+        }
+    };
+
+    let curLang = 'lv';
+    let vol = 1;
+    let unit = 'm³';
+
+    function changeLang(l, btn) {
+        curLang = l;
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const t = translations[l];
+        document.getElementById('hero-desc').innerText = t.desc;
+        document.getElementById('btn-main').innerText = t.btn;
+        document.getElementById('comm').placeholder = t.comm;
+        document.getElementById('c-phone').innerText = t.c_phone;
+        document.getElementById('c-sms').innerText = t.c_sms;
+        document.getElementById('b-o').innerText = t.order_btn;
+        
+        const mSel = document.getElementById('main-cat');
+        mSel.innerHTML = `<option disabled selected>${l==='lv'?'Materiāls':l==='ru'?'Материал':'Material'}</option>`;
+        Object.keys(t.mats).forEach(k => { let o = document.createElement('option'); o.value = k; o.innerText = k; mSel.appendChild(o); });
+        document.getElementById('sub-cat').style.display = 'none';
+    }
+
+    function togglePopover() { document.getElementById('contactPopover').classList.toggle('active'); }
+    function setUnit(u) { unit = u; document.getElementById('um').classList.toggle('active', u==='m³'); document.getElementById('ut').classList.toggle('active', u==='t'); updateDisplay(); }
+    function chV(s) { vol = Math.max(1, vol + s); updateDisplay(); }
+    function updateDisplay() { document.getElementById('vol-display').innerText = `${vol} ${unit}`; }
+
+    function updateSub() {
+        const main = document.getElementById('main-cat').value;
+        const sub = document.getElementById('sub-cat');
+        const items = translations[curLang].mats[main];
+        sub.innerHTML = '';
+        if(items && items.length > 0) {
+            items.forEach(i => { let o = document.createElement('option'); o.value = i; o.innerText = i; sub.appendChild(o); });
+            sub.style.display = 'block';
+        } else {
+            sub.style.display = 'none';
+        }
+    }
+
+    function openModal() { document.getElementById('orderModal').style.display = 'flex'; }
+    function closeModal() { document.getElementById('orderModal').style.display = 'none'; }
+
+    function send() {
+        const m = document.getElementById('main-cat').value;
+        const s = document.getElementById('sub-cat').value || "";
+        const a = document.getElementById('adr').value;
+        const u = document.getElementById('user').value;
+        const ph = document.getElementById('tel').value;
+        const co = document.getElementById('comm').value;
+        if(!m || !a) { alert('Lūdzu aizpildiet materiālu un adresi!'); return; }
+        const msg = `*JAUNS PASŪTĪJUMS*%0A⚖️ Daudzums: ${vol} ${unit}%0A📦 Prece: ${m} ${s?'('+s+')':''}%0A📍 Adrese: ${a}%0A👤 Klients: ${u}%0A📞 Tel: ${ph}%0A💬 Info: ${co}`;
+        window.open(`https://wa.me/37122312828?text=${msg}`, '_blank');
+    }
+
+    // Animāciju cikli
+    let sIdx = 0;
+    setInterval(() => {
+        const s = document.querySelectorAll('.story-slide');
+        if(s.length) {
+            s[sIdx].classList.remove('active');
+            sIdx = (sIdx + 1) % s.length;
+            s[sIdx].classList.add('active');
+        }
+    }, 3000);
+
+    let gIdx = 0;
+    setInterval(() => {
+        const g = document.querySelectorAll('.slide-img');
+        if(g.length) {
+            g[gIdx].classList.remove('active');
+            gIdx = (gIdx + 1) % g.length;
+            g[gIdx].classList.add('active');
+        }
+    }, 4000);
+
+    // Inicializācija
+    changeLang('lv', document.querySelector('.lang-btn.active'));
+</script>
+</body>
+</html>
 
         /* Modālais logs */
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 3000; align-items: center; justify-content: center; padding: 20px; }
