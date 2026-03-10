@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>AMAPU | Tehnika un Materiāli</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Playfair+Display:italic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #00b341; --dark-grey: #1c1c1c; --text: #ffffff; }
+        :root { --primary: #00b341; --dark-grey: #121212; --text: #ffffff; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         body, html { height: 100%; background: var(--dark-grey); color: var(--text); overflow-x: hidden; }
 
-        header { padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; height: 60px; }
+        header { padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; height: 60px; background: rgba(18,18,18,0.9); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 1000; }
         .logo { font-weight: 900; font-size: 1.2rem; color: var(--text); text-decoration: none; }
         .logo span { color: var(--primary); }
         .lang-menu { display: flex; gap: 4px; }
@@ -23,17 +23,307 @@
         .story-slide { font-size: 1.4rem; font-weight: 900; text-transform: uppercase; display: none; color: var(--primary); }
         .story-slide.active { display: block; animation: fadeIn 0.5s; }
         
-        .hero-desc { max-width: 450px; font-size: 0.85rem; color: #bbb; margin-bottom: 20px; }
+        .hero-desc { max-width: 450px; font-size: 0.9rem; color: #bbb; margin-bottom: 20px; }
         
-        /* SLAIDRĀDES DIZAINS */
-        .slider-wrap { width: 100%; max-width: 400px; height: 250px; position: relative; overflow: hidden; border-radius: 12px; margin-bottom: 20px; border: 1px solid #444; background: #000; }
+        .slider-wrap { width: 100%; max-width: 500px; height: 350px; position: relative; overflow: hidden; border-radius: 20px; margin-bottom: 25px; border: 2px solid #333; background: #000; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         .slide-img { position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: 1.2s ease-in-out; top:0; left:0; }
         .slide-img.active { opacity: 1; }
 
-        .btn-trigger { background: var(--primary); color: white; padding: 16px 32px; border-radius: 50px; font-weight: 900; text-transform: uppercase; font-size: 0.9rem; border: none; cursor: pointer; box-shadow: 0 8px 20px rgba(0, 179, 65, 0.3); }
+        .btn-trigger { background: var(--primary); color: white; padding: 18px 36px; border-radius: 50px; font-weight: 900; text-transform: uppercase; font-size: 1rem; border: none; cursor: pointer; box-shadow: 0 8px 20px rgba(0, 179, 65, 0.4); transition: 0.3s; }
+        .btn-trigger:active { transform: scale(0.95); }
 
-        /* KONTAKTU POPOVER */
         .contact-container { position: fixed; right: 20px; bottom: 20px; z-index: 9999; display: flex; flex-direction: column; align-items: flex-end; }
+        .sticky-contact { background: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 20px rgba(0,0,0,0.4); cursor: pointer; border: 3px solid var(--primary); }
+        .contact-popover { display: none; flex-direction: column; gap: 8px; margin-bottom: 15px; animation: slideUp 0.3s ease-out; width: 180px; }
+        .contact-popover.active { display: flex; }
+        .c-bubble { background: white; padding: 12px 18px; border-radius: 12px; text-decoration: none; font-weight: 800; font-size: 0.85rem; display: flex; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); color: #1a1a1a; }
+        .c-bubble.wa { border-left: 5px solid #25D366; }
+
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 2000; align-items: center; justify-content: center; padding: 10px; }
+        .modal-content { background: white; color: #1a1a1a; width: 100%; max-width: 450px; border-radius: 20px; padding: 25px; position: relative; text-align: left; }
+        .close-modal { position: absolute; top: 10px; right: 15px; font-size: 1.8rem; cursor: pointer; color: #999; }
+        
+        .unit-toggle { display: flex; background: #eee; border-radius: 8px; padding: 3px; margin: 10px 0; }
+        .u-btn { flex: 1; border: none; padding: 10px; border-radius: 6px; cursor: pointer; font-weight: 700; font-size: 0.8rem; transition: 0.2s; }
+        .u-btn.active { background: white; color: var(--primary); box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        
+        .vol-box { display: flex; align-items: center; justify-content: space-between; background: #f9f9f9; padding: 12px; border-radius: 12px; border: 1px solid #eee; margin-bottom: 10px; }
+        .v-btn { width: 45px; height: 45px; border-radius: 50%; border: none; background: #1a1a1a; color: white; font-size: 1.5rem; cursor: pointer; }
+        
+        select, input, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px; margin: 6px 0; font-size: 0.95rem; outline: none; background: #fff; color: #1a1a1a; }
+        .btn-final { width: 100%; padding: 16px; border-radius: 10px; border: none; font-weight: 800; text-transform: uppercase; cursor: pointer; margin-top: 10px; background: var(--primary); color: white; font-size: 1rem; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="#" class="logo">AMA<span>PU</span></a>
+    <div class="lang-menu">
+        <div class="lang-btn active" onclick="changeLang('lv', this)">LV</div>
+        <div class="lang-btn" onclick="changeLang('ru', this)">RU</div>
+        <div class="lang-btn" onclick="changeLang('eng', this)">ENG</div>
+    </div>
+</header>
+
+<main>
+    <div class="story-slider" id="story-slider-container">
+        <div class="story-slide active">Beramās kravas</div>
+        <div class="story-slide">Tehnikas noma</div>
+        <div class="story-slide">Demontāža</div>
+    </div>
+    <p class="hero-desc" id="hero-desc">Piegādājam pamatu Jūsu jaunajai mājai, ceļam un nākotnei.</p>
+    
+    <div class="slider-wrap">
+        <img src="skemba1.jpeg" class="slide-img active"> 
+        <img src="manipul1.jpeg" class="slide-img">
+        <img src="melnz1.jpeg" class="slide-img">
+        <img src="transp1.jpeg" class="slide-img">
+        <img src="zari1.jpeg" class="slide-img">
+        <img src="skembas77.jpeg" class="slide-img">
+        <img src="lapas.jpeg" class="slide-img">
+        <img src="F1765E75-F7B2-4E80-8633-874C4000378E_1_105_c.jpeg" class="slide-img">
+        <img src="F5082ED9-8131-4890-8800-2441C250E24D_1_105_c.jpeg" class="slide-img">
+        <img src="FA09DEF2-9133-4003-886F-08F797963A0F_1_105_c.jpeg" class="slide-img">
+        <img src="FD70BD52-EFA9-482B-ACE0-C7E3574CAFAF_1_105_c.jpeg" class="slide-img">
+    </div>
+
+    <button class="btn-trigger" onclick="openModal()" id="btn-main">Sākt pasūtījumu</button>
+</main>
+
+<div class="contact-container">
+    <div id="contactPopover" class="contact-popover">
+        <a href="https://wa.me/37122312828" target="_blank" class="c-bubble wa">💬 WhatsApp</a>
+        <a href="tel:+37122312828" class="c-bubble call">📞 <span id="c-phone">Zvanīt</span></a>
+        <a href="sms:+37122312828" class="c-bubble sms">✉️ <span id="c-sms">SMS</span></a>
+    </div>
+    <div class="sticky-contact" onclick="togglePopover()">
+        <span style="font-size: 1.6rem;">📞</span>
+    </div>
+</div>
+
+<div id="orderModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2 id="m-title" style="font-size:1.1rem; margin-bottom:15px; font-weight:900;">Konfigurēt piegādi</h2>
+        
+        <div class="unit-toggle">
+            <button id="um" class="u-btn active" onclick="setUnit('m³')">M3</button>
+            <button id="ut" class="u-btn" onclick="setUnit('t')">TONNAS</button>
+        </div>
+        
+        <div class="vol-box">
+            <button class="v-btn" onclick="chV(-1)">−</button>
+            <div id="vol-display" style="font-weight:900; font-size:1.2rem;">1 m³</div>
+            <button class="v-btn" onclick="chV(1)">+</button>
+        </div>
+
+        <select id="main-cat" onchange="updateSub()"></select>
+        <select id="sub-cat" style="display:none;"></select>
+        
+        <input type="text" id="adr" placeholder="Adrese">
+        <input type="text" id="user" placeholder="Vārds">
+        <input type="tel" id="tel" value="+371 ">
+        <textarea id="comm"></textarea>
+        
+        <button class="btn-final" onclick="send()" id="b-o">Nosūtīt pasūtījumu</button>
+    </div>
+</div>
+
+<script>
+    const translations = {
+        lv: {
+            titles: ["Beramās kravas", "Tehnikas noma", "Demontāža"],
+            desc: "Piegādājam pamatu Jūsu jaunajai mājai, ceļam un nākotnei.",
+            btn: "Sākt pasūtījumu",
+            mats_label: "Materiāls",
+            mats: {
+                "Dolomīta šķembas (maisījums)": ["0-16 mm", "0-32 mm", "0-45 mm", "0-56 mm", "0-63 mm"],
+                "Dolomīta šķembas (šķirotas)": ["8-32 mm", "5-40 mm", "16-40 mm", "40-70 mm"],
+                "Dolomīta šķembas (mazgātas)": ["0-2 mm", "0-5 mm", "2-8 mm", "8-16 mm", "16-32 mm"],
+                "Granīta šķembas": ["2-8 mm", "8-16 mm", "5-20 mm", "20-40 mm", "Atsijas"],
+                "Drupināti būvgruži": ["0-16 mm", "0-32 mm", "0-45 mm", "0-56 mm", "0-63 mm", "20-40 mm", "40-70 mm"],
+                "Oļi": ["8-16 mm", "16-32 mm"],
+                "Smilts": ["Mazgāta 0-2 mm", "Mazgāta 0-4 mm", "Nemazgāta", "Pieberamā"],
+                "Grants": ["Skalota 0-4 mm", "Neskalota 0-4 mm", "Dabīgā"],
+                "Melnzeme": ["Sijāta", "Nesijāta"],
+                "Grunts": ["Pieberamā"], 
+                "Kūtsmēsli": ["Svaigi"], 
+                "Asfalts": ["Frēzēts", "Karstais"], 
+                "Akmeņi": ["Laukakmeņi"],
+                "Pakalpojumi": ["Pašizgāzējs", "Manipulators", "Demontāža", "Rakšana", "Transportēšana", "Lapu/ celmu/ zaru/ sniega izvešana"]
+            },
+            adr: "Adrese", user: "Vārds", comm: "Papildus info (piekļuve, laiks utt.)",
+            c_phone: "Zvanīt", c_sms: "SMS", order_btn: "Sūtīt uz WhatsApp",
+            m_title: "Konfigurēt piegādi"
+        },
+        ru: {
+            titles: ["Сыпучие грузы", "Аренда техники", "Демонтаж"],
+            desc: "Доставляем основу для вашего дома, дороги и будущего.",
+            btn: "Начать заказ",
+            mats_label: "Материал",
+            mats: {
+                "Доломитовый щебень (смесь)": ["0-16 мм", "0-32 мм", "0-45 мм", "0-56 мм", "0-63 мм"],
+                "Доломитовый щебень (фракция)": ["8-32 мм", "5-40 мм", "16-40 мм", "40-70 мм"],
+                "Доломитовый щебень (мытый)": ["0-2 мм", "0-5 мм", "2-8 мм", "8-16 мм", "16-32 мм"],
+                "Гранитный щебень": ["2-8 мм", "8-16 мм", "5-20 мм", "20-40 мм", "Отсев"],
+                "Строительный мусор (дробленый)": ["0-16 мм", "0-32 мм", "0-45 мм", "0-56 мм", "0-63 мм", "20-40 мм", "40-70 мм"],
+                "Галька": ["8-16 мм", "16-32 мм"],
+                "Песок": ["Мытый 0-2 мм", "Мытый 0-4 мм", "Не мытый", "Для подсыпки"],
+                "Гравий": ["Мытый 0-4 мм", "Не мытый 0-4 мм", "Природный"],
+                "Чернозем": ["Просеянный", "Не просеянный"],
+                "Грунт": ["Для подсыпки"],
+                "Навоз": ["Свежий"],
+                "Асфальт": ["Фрезерованный", "Горячий"],
+                "Камни": ["Валуны"],
+                "Услуги": ["Самосвал", "Манипулятор", "Демонтаж", "Раскопки", "Транспортировка", "Вывоз листьев/пней/веток/снега"]
+            },
+            adr: "Адрес", user: "Имя", comm: "Доп. информация (доступ, время и т.д.)",
+            c_phone: "Звонить", c_sms: "SMS", order_btn: "Отправить в WhatsApp",
+            m_title: "Конфигурация доставки"
+        },
+        eng: {
+            titles: ["Bulk Cargo", "Equipment Rental", "Demolition"],
+            desc: "Delivering the foundation for your house, road and future.",
+            btn: "Start Order",
+            mats_label: "Material",
+            mats: {
+                "Dolomite crushed stone (mix)": ["0-16 mm", "0-32 mm", "0-45 mm", "0-56 mm", "0-63 mm"],
+                "Dolomite crushed stone (sorted)": ["8-32 mm", "5-40 mm", "16-40 mm", "40-70 mm"],
+                "Dolomite crushed stone (washed)": ["0-2 mm", "0-5 mm", "2-8 mm", "8-16 mm", "16-32 mm"],
+                "Granite crushed stone": ["2-8 mm", "8-16 mm", "5-20 mm", "20-40 mm", "Screenings"],
+                "Crushed construction waste": ["0-16 mm", "0-32 mm", "0-45 mm", "0-56 mm", "0-63 mm", "20-40 mm", "40-70 mm"],
+                "Pebbles": ["8-16 mm", "16-32 mm"],
+                "Sand": ["Washed 0-2 mm", "Washed 0-4 mm", "Unwashed", "Filling sand"],
+                "Gravel": ["Washed 0-4 mm", "Unwashed 0-4 mm", "Natural"],
+                "Black soil": ["Sieved", "Unsieved"],
+                "Ground": ["For filling"],
+                "Manure": ["Fresh"],
+                "Asphalt": ["Milled", "Hot mix"],
+                "Stones": ["Boulders"],
+                "Services": ["Dump truck", "Crane truck", "Demolition", "Digging", "Transport", "Removal of leaves/stumps/branches/snow"]
+            },
+            adr: "Address", user: "Name", comm: "Additional info (access, timing, etc.)",
+            c_phone: "Call", c_sms: "SMS", order_btn: "Send via WhatsApp",
+            m_title: "Configure delivery"
+        }
+    };
+
+    let curLang = 'lv';
+    let vol = 1;
+    let unit = 'm³';
+
+    function changeLang(l, btn) {
+        curLang = l;
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const t = translations[l];
+        
+        // Nomainām slīdošos virsrakstus
+        const sliderContainer = document.getElementById('story-slider-container');
+        sliderContainer.innerHTML = '';
+        t.titles.forEach((title, index) => {
+            const div = document.createElement('div');
+            div.className = 'story-slide' + (index === 0 ? ' active' : '');
+            div.innerText = title;
+            sliderContainer.appendChild(div);
+        });
+
+        document.getElementById('hero-desc').innerText = t.desc;
+        document.getElementById('btn-main').innerText = t.btn;
+        document.getElementById('m-title').innerText = t.m_title;
+        document.getElementById('adr').placeholder = t.adr;
+        document.getElementById('user').placeholder = t.user;
+        document.getElementById('comm').placeholder = t.comm;
+        document.getElementById('c-phone').innerText = t.c_phone;
+        document.getElementById('c-sms').innerText = t.c_sms;
+        document.getElementById('b-o').innerText = t.order_btn;
+        
+        const mSel = document.getElementById('main-cat');
+        mSel.innerHTML = `<option disabled selected>${t.mats_label}</option>`;
+        Object.keys(t.mats).forEach(k => { 
+            let o = document.createElement('option'); 
+            o.value = k; 
+            o.innerText = k; 
+            mSel.appendChild(o); 
+        });
+        document.getElementById('sub-cat').style.display = 'none';
+        updateDisplay();
+        
+        // Atiestatām slaidu indeksu, lai jaunā valoda sākas no pirmā slaida
+        sIdx = 0;
+    }
+
+    function togglePopover() { document.getElementById('contactPopover').classList.toggle('active'); }
+    function setUnit(u) { unit = u; document.getElementById('um').classList.toggle('active', u==='m³'); document.getElementById('ut').classList.toggle('active', u==='t'); updateDisplay(); }
+    function chV(s) { vol = Math.max(1, vol + s); updateDisplay(); }
+    function updateDisplay() { 
+        const uText = (unit === 'm³') ? (curLang === 'ru' ? 'м³' : 'm³') : (curLang === 'ru' ? 'тонн' : curLang === 'eng' ? 'tons' : 't');
+        document.getElementById('vol-display').innerText = `${vol} ${uText}`; 
+    }
+
+    function updateSub() {
+        const main = document.getElementById('main-cat').value;
+        const sub = document.getElementById('sub-cat');
+        const items = translations[curLang].mats[main];
+        sub.innerHTML = '';
+        if(items && items.length > 0) {
+            items.forEach(i => { let o = document.createElement('option'); o.value = i; o.innerText = i; sub.appendChild(o); });
+            sub.style.display = 'block';
+        } else {
+            sub.style.display = 'none';
+        }
+    }
+
+    function openModal() { document.getElementById('orderModal').style.display = 'flex'; }
+    function closeModal() { document.getElementById('orderModal').style.display = 'none'; }
+
+    function send() {
+        const m = document.getElementById('main-cat').value;
+        const s = document.getElementById('sub-cat').value || "";
+        const a = document.getElementById('adr').value;
+        const u = document.getElementById('user').value;
+        const ph = document.getElementById('tel').value;
+        const co = document.getElementById('comm').value;
+        if(!m || m === translations[curLang].mats_label || !a) { 
+            const alertMsg = curLang === 'lv' ? 'Lūdzu aizpildiet materiālu un adresi!' : curLang === 'ru' ? 'Пожалуйста, заполните материал и адрес!' : 'Please fill in material and address!';
+            alert(alertMsg); 
+            return; 
+        }
+        const orderTitle = curLang === 'lv' ? 'JAUNS PASŪTĪJUMS' : curLang === 'ru' ? 'НОВЫЙ ЗАКАЗ' : 'NEW ORDER';
+        const msg = `*${orderTitle}*%0A⚖️ ${vol} ${unit}%0A📦 ${m} ${s?'('+s+')':''}%0A📍 ${a}%0A👤 ${u}%0A📞 ${ph}%0A💬 ${co}`;
+        window.open(`https://wa.me/37122312828?text=${msg}`, '_blank');
+    }
+
+    // Slīdošo tekstu loģika
+    let sIdx = 0;
+    setInterval(() => {
+        const s = document.querySelectorAll('.story-slide');
+        if(s.length > 0) {
+            s[sIdx].classList.remove('active');
+            sIdx = (sIdx + 1) % s.length;
+            s[sIdx].classList.add('active');
+        }
+    }, 3000);
+
+    // Attēlu slaidrāde
+    let gIdx = 0;
+    setInterval(() => {
+        const g = document.querySelectorAll('.slide-img');
+        if(g.length) {
+            g[gIdx].classList.remove('active');
+            gIdx = (gIdx + 1) % g.length;
+            g[gIdx].classList.add('active');
+        }
+    }, 4000);
+
+    // Sākuma inicializācija
+    changeLang('lv', document.querySelector('.lang-btn.active'));
+</script>
+</body>
+</html>
         .sticky-contact { background: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 20px rgba(0,0,0,0.4); cursor: pointer; border: 3px solid var(--primary); }
         .contact-popover { display: none; flex-direction: column; gap: 8px; margin-bottom: 15px; animation: slideUp 0.3s ease-out; width: 180px; }
         .contact-popover.active { display: flex; }
