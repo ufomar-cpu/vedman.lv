@@ -237,8 +237,8 @@
 <script>
     var translations = {
         lv: {
-            titles: ["Šķembas & Grants", "Melnzeme & Smilts", "Manipulators", "Demontāža", "Koku Serviss", "Zemes Darbi"],
-            desc: "Beramās kravas ar piegādi Rīgā, Ogrē un visā Latvijā. Šķembas, smilts, grants, melnzeme — ātri un izdevīgi!",
+            titles: ["Šķembas & Grants", "Melnzeme & Smilts", "Kokmateriāli", "Manipulators", "Demontāža", "Koku Serviss", "Zemes Darbi"],
+            desc: "Beramās kravas ar piegādi Rīgā, Ogrē un visā Latvijā. Šķembas, smilts, grants, melnzeme, kokmateriāli — ātri un izdevīgi!",
             btn: "Sākt pasūtījumu",
             mats_label: "Izvēlieties materiālu / pakalpojumu",
             mats: {
@@ -253,15 +253,16 @@
                 "Melnzeme": ["Sijāta", "Nesijāta"],
                 "Asfalts": ["Frēzēts", "Karstais"],
                 "Kūtsmēsli / Komposts": ["Kūtsmēsli", "Komposts"],
+                "Kokmateriāli": ["Dēļi", "Baļķi", "Sijas", "Finiera loksnes", "OSB plates", "Cits"],
                 "Pakalpojumi": ["Pašizgāzējs", "Manipulators ar greiferi", "Demontāža", "Grunts izvešana", "Grodu ierakšana", "Dīķu/grāvju rakšana", "Zaru/baļķu izzāģēšana", "Koku pārstādīšana", "Teritorijas sakopšana", "Stikla loksnes transports"]
             },
             adr: "Piegādes adrese (iela, māja, pilsēta)", user: "Vārds", comm: "Papildus informācija",
             call: "Zvanīt", order_btn: "SŪTĪT WHATSAPP", m_title: "Konfigurēt pasūtījumu", tons: "TONNAS",
-            chips: ["🪨 Šķembas", "🏖️ Smilts", "🟤 Grants", "🌱 Melnzeme", "🚛 Pašizgāzējs", "🏗️ Manipulators", "🌳 Koku serviss", "💥 Demontāža"]
+            chips: ["🪨 Šķembas", "🏖️ Smilts", "🟤 Grants", "🌱 Melnzeme", "🪵 Kokmateriāli", "🚛 Pašizgāzējs", "🏗️ Manipulators", "💥 Demontāža"]
         },
         ru: {
-            titles: ["Щебень & Гравий", "Чернозем & Песок", "Манипулятор", "Демонтаж", "Уход за деревьями", "Земляные работы"],
-            desc: "Доставка сыпучих материалов по Риге, Огре и всей Латвии. Щебень, песок, гравий, чернозём — быстро и выгодно!",
+            titles: ["Щебень & Гравий", "Чернозем & Песок", "Пиломатериалы", "Манипулятор", "Демонтаж", "Уход за деревьями", "Земляные работы"],
+            desc: "Доставка сыпучих материалов и пиломатериалов по Риге, Огре и всей Латвии. Щебень, песок, гравий, чернозём — быстро и выгодно!",
             btn: "Начать заказ",
             mats_label: "Выберите материал / услугу",
             mats: {
@@ -276,15 +277,16 @@
                 "Чернозем": ["Просеянный", "Не просеянный"],
                 "Асфальт": ["Фрезерованный", "Горячий"],
                 "Навоз / Компост": ["Навоз", "Компост"],
+                "Пиломатериалы": ["Доски", "Брёвна", "Балки", "Фанера", "OSB плиты", "Другое"],
                 "Услуги": ["Самосвал", "Манипулятор с грейфером", "Демонтаж", "Вывоз грунта", "Закладка колодцев", "Копка прудов/канав", "Спил деревьев", "Пересадка деревьев", "Уборка территории", "Перевозка стекла"]
             },
             adr: "Адрес доставки (улица, дом, город)", user: "Имя", comm: "Дополнительная информация",
             call: "Позвонить", order_btn: "ОТПРАВИТЬ В WA", m_title: "Конфигурация заказа", tons: "ТОННЫ",
-            chips: ["🪨 Щебень", "🏖️ Песок", "🟤 Гравий", "🌱 Чернозём", "🚛 Самосвал", "🏗️ Манипулятор", "🌳 Уход за деревьями", "💥 Демонтаж"]
+            chips: ["🪨 Щебень", "🏖️ Песок", "🟤 Гравий", "🌱 Чернозём", "🪵 Пиломатериалы", "🚛 Самосвал", "🏗️ Манипулятор", "💥 Демонтаж"]
         },
         eng: {
-            titles: ["Stones & Gravel", "Black Soil & Sand", "Crane Truck", "Demolition", "Tree Service", "Earthworks"],
-            desc: "Bulk material delivery in Riga, Ogre and all Latvia. Stones, sand, gravel, black soil — fast and affordable!",
+            titles: ["Stones & Gravel", "Black Soil & Sand", "Timber", "Crane Truck", "Demolition", "Tree Service", "Earthworks"],
+            desc: "Bulk materials & timber delivery in Riga, Ogre and all Latvia. Stones, sand, gravel, black soil — fast and affordable!",
             btn: "Start Order",
             mats_label: "Choose material / service",
             mats: {
@@ -299,11 +301,12 @@
                 "Black soil": ["Sieved", "Unsieved"],
                 "Asphalt": ["Milled", "Hot mix"],
                 "Manure / Compost": ["Manure", "Compost"],
+                "Timber": ["Boards", "Logs", "Beams", "Plywood", "OSB boards", "Other"],
                 "Services": ["Dump truck", "Manipulator with grapple", "Demolition", "Soil removal", "Well installation", "Pond/ditch digging", "Tree cutting", "Tree transplanting", "Site cleanup", "Glass transport"]
             },
             adr: "Delivery address (street, house, city)", user: "Name", comm: "Additional info",
             call: "Call", order_btn: "SEND TO WHATSAPP", m_title: "Configure Order", tons: "TONS",
-            chips: ["🪨 Stones", "🏖️ Sand", "🟤 Gravel", "🌱 Black soil", "🚛 Dump truck", "🏗️ Crane truck", "🌳 Tree service", "💥 Demolition"]
+            chips: ["🪨 Stones", "🏖️ Sand", "🟤 Gravel", "🌱 Black soil", "🪵 Timber", "🚛 Dump truck", "🏗️ Crane truck", "💥 Demolition"]
         }
     };
 
