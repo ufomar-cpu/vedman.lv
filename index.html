@@ -25,7 +25,7 @@
 <meta property="og:url" content="https://vedman.lv/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="lv_LV">
-<meta property="og:image" content="https://vedman.lv/skemba1.jpeg">
+<meta property="og:image" content="https://vedman.lv/skemba1.webp">
 
 <!-- ✅ STRUKTURĒTIE DATI — Google Local Business -->
 <script type="application/ld+json">
@@ -54,6 +54,9 @@
 }
 </script>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="skemba1.webp" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', Arial, sans-serif; }
@@ -96,7 +99,7 @@
     .social-link { width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; border: 1px solid #333; background: #1e1e1e; transition: transform 0.2s; }
     .social-link:active { transform: scale(0.92); }
 
-    .btn-trigger { background: #00b341; color: white; padding: 20px 40px; border-radius: 50px; font-weight: 900; text-transform: uppercase; font-size: 1.1rem; border: none; cursor: pointer; width: 100%; max-width: 320px; box-shadow: 0 5px 15px rgba(0, 179, 65, 0.3); }
+    .btn-trigger { background: #00b341; color: white; padding: 20px 40px; border-radius: 50px; font-weight: 900; text-transform: uppercase; font-size: 1.1rem; border: none; cursor: pointer; width: 100%; max-width: 320px; box-shadow: 0 5px 15px rgba(0, 179, 65, 0.3); margin-bottom: 30px; }
 
     .nav-bar { position: fixed; bottom: 0; left: 0; width: 100%; background: #1a1a1a; display: flex; justify-content: space-around; padding: 12px 0; border-top: 1px solid #333; z-index: 9999; box-shadow: 0 -5px 20px rgba(0,0,0,0.5); }
     .nav-link { text-decoration: none; color: white; text-align: center; font-size: 0.75rem; font-weight: 800; flex: 1; display: flex; flex-direction: column; align-items: center; }
@@ -162,31 +165,33 @@
 
 <p class="hero-desc" id="hero-desc"></p>
 
+<button class="btn-trigger" onclick="openModal()" id="btn-main"></button>
+
 <div class="slider-wrap">
     <!-- ✅ SEO: alt="" apraksti attēliem — Google tos lasa -->
-    <img src="skemba1.jpeg" class="slide-img active" alt="Dolomīta šķembas piegāde Rīgā">
-    <img src="skembas4.jpeg" class="slide-img" alt="Šķembas ar pašizgāzēju">
-    <img src="skembas77.jpeg" class="slide-img" alt="Šķembas pasūtīt Latvijā">
-    <img src="manipul1.jpeg" class="slide-img" alt="Manipulators Rīgā">
-    <img src="manipul2.jpeg" class="slide-img" alt="Manipulators ar greiferi">
-    <img src="manipul4.jpeg" class="slide-img" alt="Manipulatora pakalpojumi">
-    <img src="manipul5.jpeg" class="slide-img" alt="Kravas pārvadājumi Latvijā">
-    <img src="manipul6.jpeg" class="slide-img" alt="Tehnikas noma Rīgā">
-    <img src="manipul7.jpeg" class="slide-img" alt="Manipulators koku serviss">
-    <img src="melnz1.jpeg" class="slide-img" alt="Melnzeme sijāta piegāde">
-    <img src="melnz2.jpeg" class="slide-img" alt="Melnzeme Rīgā">
-    <img src="melnz3.jpeg" class="slide-img" alt="Melnzeme nesijāta piegāde">
-    <img src="melnz5.jpeg" class="slide-img" alt="Melnzeme ar pašizgāzēju">
-    <img src="melnz9.jpeg" class="slide-img" alt="Beramās kravas Latvijā">
-    <img src="granst.jpeg" class="slide-img" alt="Grants piegāde Rīgā">
-    <img src="grants6.jpeg" class="slide-img" alt="Grants un smilts piegāde">
-    <img src="lapas.jpeg" class="slide-img" alt="Teritorijas sakopšana">
-    <img src="zari1.jpeg" class="slide-img" alt="Zaru izzāģēšana un izvešana">
-    <img src="zari2.jpeg" class="slide-img" alt="Koku serviss Rīgā">
-    <img src="transp1.jpeg" class="slide-img" alt="Kravas transports Latvijā">
-    <img src="transp5.jpeg" class="slide-img" alt="Pašizgāzējs Rīgā">
-    <img src="transp9.jpeg" class="slide-img" alt="Beramās kravas piegāde">
-    <img src="stikls2.jpeg" class="slide-img" alt="Stikla loksnes transport">
+    <img src="skemba1.webp" class="slide-img active" width="500" height="320" fetchpriority="high" alt="Dolomīta šķembas piegāde Rīgā">
+    <img src="skembas4.webp" class="slide-img" width="500" height="320" loading="lazy" decoding="async" alt="Šķembas ar pašizgāzēju">
+    <img src="skembas77.webp" class="slide-img" width="500" height="320" loading="lazy" decoding="async" alt="Šķembas pasūtīt Latvijā">
+    <img src="manipul1.webp" class="slide-img" width="500" height="320" loading="lazy" decoding="async" alt="Manipulators Rīgā">
+    <img src="manipul2.webp" class="slide-img" width="500" height="320" loading="lazy" decoding="async" alt="Manipulators ar greiferi">
+    <img src="manipul4.webp" class="slide-img" width="500" height="320" loading="lazy" decoding="async" alt="Manipulatora pakalpojumi">
+    <img src="manipul5.webp" class="slide-img" width="500" height="320" loading="lazy" decoding="async" alt="Kravas pārvadājumi Latvijā">
+    <img src="manipul6.webp" class="slide-img" width="500" height="320" loading="lazy" decoding="async" alt="Tehnikas noma Rīgā">
+    <img src="manipul7.webp" class="slide-img" width="500" height="320" loading="lazy" decoding="async" alt="Manipulators koku serviss">
+    <img src="melnz1.webp" class="slide-img" width="500" height="320" loading="lazy" decoding="async" alt="Melnzeme sijāta piegāde">
+    <img src="melnz2.webp" class="slide-img" width="500" height="320" loading="lazy" decoding="async" alt="Melnzeme Rīgā">
+    <img src="melnz3.webp" class="slide-img" width="500" height="320" loading="lazy" decoding="async" alt="Melnzeme nesijāta piegāde">
+    <img src="melnz5.webp" class="slide-img" width="500" height="320" loading="lazy" decoding="async" alt="Melnzeme ar pašizgāzēju">
+    <img src="melnz9.webp" class="slide-img" width="500" height="320" loading="lazy" decoding="async" alt="Beramās kravas Latvijā">
+    <img src="granst.webp" class="slide-img" width="500" height="320" loading="lazy" decoding="async" alt="Grants piegāde Rīgā">
+    <img src="grants6.webp" class="slide-img" width="500" height="320" loading="lazy" decoding="async" alt="Grants un smilts piegāde">
+    <img src="lapas.webp" class="slide-img" width="500" height="320" loading="lazy" decoding="async" alt="Teritorijas sakopšana">
+    <img src="zari1.webp" class="slide-img" width="500" height="320" loading="lazy" decoding="async" alt="Zaru izzāģēšana un izvešana">
+    <img src="zari2.webp" class="slide-img" width="500" height="320" loading="lazy" decoding="async" alt="Koku serviss Rīgā">
+    <img src="transp1.webp" class="slide-img" width="500" height="320" loading="lazy" decoding="async" alt="Kravas transports Latvijā">
+    <img src="transp5.webp" class="slide-img" width="500" height="320" loading="lazy" decoding="async" alt="Pašizgāzējs Rīgā">
+    <img src="transp9.webp" class="slide-img" width="500" height="320" loading="lazy" decoding="async" alt="Beramās kravas piegāde">
+    <img src="stikls2.webp" class="slide-img" width="500" height="320" loading="lazy" decoding="async" alt="Stikla loksnes transport">
 </div>
 
 <!-- ✅ SOCIĀLIE TĪKLI -->
@@ -202,7 +207,6 @@
     </a>
 </div>
 
-<button class="btn-trigger" onclick="openModal()" id="btn-main"></button>
 ```
 
 </main>
@@ -258,7 +262,7 @@
         lv: {
             titles: ["Šķembas & Grants", "Melnzeme & Smilts", "Kokmateriāli", "Manipulators", "Demontāža", "Koku Serviss", "Zemes Darbi"],
             desc: "Beramās kravas ar piegādi Rīgā, Ogrē un visā Latvijā. Šķembas, smilts, grants, melnzeme, kokmateriāli — ātri un izdevīgi!",
-            btn: "Sākt pasūtījumu",
+            btn: "Pasūtīt / Uzzini cenu",
             mats_label: "Izvēlieties materiālu / pakalpojumu",
             mats: {
                 "Dolomīta šķembas (maisījums)": ["0-16 mm", "0-32 mm", "0-45 mm", "0-56 mm", "0-63 mm"],
@@ -282,7 +286,7 @@
         ru: {
             titles: ["Щебень & Гравий", "Чернозем & Песок", "Пиломатериалы", "Манипулятор", "Демонтаж", "Уход за деревьями", "Земляные работы"],
             desc: "Доставка сыпучих материалов и пиломатериалов по Риге, Огре и всей Латвии. Щебень, песок, гравий, чернозём — быстро и выгодно!",
-            btn: "Начать заказ",
+            btn: "Заказать / Узнать цену",
             mats_label: "Выберите материал / услугу",
             mats: {
                 "Доломитовый щебень (смесь)": ["0-16 мм", "0-32 мм", "0-45 мм", "0-56 мм", "0-63 мм"],
@@ -306,7 +310,7 @@
         eng: {
             titles: ["Stones & Gravel", "Black Soil & Sand", "Timber", "Crane Truck", "Demolition", "Tree Service", "Earthworks"],
             desc: "Bulk materials & timber delivery in Riga, Ogre and all Latvia. Stones, sand, gravel, black soil — fast and affordable!",
-            btn: "Start Order",
+            btn: "Order / Get Price",
             mats_label: "Choose material / service",
             mats: {
                 "Dolomite stones (mix)": ["0-16 mm", "0-32 mm", "0-45 mm", "0-56 mm", "0-63 mm"],
