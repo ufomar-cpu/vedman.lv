@@ -6,85 +6,978 @@
 <title>VEDMAN — Šķembas, Smilts, Grants, Melnzeme</title>
 <meta name="description" content="Šķembas, smilts, grants, melnzeme, asfalts un manipulatora pakalpojumi ar piegādi Rīgā, Ogrē un visā Latvijā.">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
 <style>
-:root{--black:#050806;--green:#10b72e;--green2:#07821d;--gold:#d4aa32;--line:#dfe5df;--max:1180px}
-*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:#fff;color:#111;overflow-x:hidden}a{text-decoration:none;color:inherit}button,input,select,textarea{font:inherit}img,svg{display:block;max-width:100%}.container{width:min(var(--max),calc(100% - 36px));margin:auto}
-.logo-svg{width:250px}.footer .logo-svg{width:245px}.logo-ved{fill:#fff;stroke:#000;stroke-width:1.35;paint-order:stroke fill}.logo-man{fill:#0c9e34;stroke:#000;stroke-width:1.35;paint-order:stroke fill}.gold-stroke{stroke:var(--gold);stroke-width:6.2;paint-order:stroke fill}.crown{transform-origin:355px 28px;transform:rotate(-30deg)}
-.header{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08)}.header-inner{min-height:86px;display:flex;align-items:center;justify-content:space-between;gap:18px}.nav{display:flex;gap:27px;color:#fff;font-size:14px;font-weight:900;text-transform:uppercase}.nav a.active,.nav a:hover{color:#10d53b}.nav a.active{border-bottom:2px solid #10d53b}.head-actions{display:flex;align-items:center;gap:14px}.phone{color:#fff;font-size:22px;font-weight:900}.btn{border:0;border-radius:7px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:900;min-height:48px;padding:0 20px;white-space:nowrap}.btn-green{background:linear-gradient(#20c53c,#07951f);color:white;box-shadow:0 8px 18px rgba(0,170,30,.32)}.btn-dark{background:#121512;color:#fff;border:1px solid rgba(255,255,255,.35)}
-.hero{background:radial-gradient(circle at 78% 38%,rgba(23,165,44,.18),transparent 34%),linear-gradient(135deg,#020302,#0b100d 55%,#050806);color:#fff;padding:42px 0 34px}.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}.eyebrow{color:#10d53b;text-transform:uppercase;letter-spacing:.07em;font-size:16px;font-weight:900;margin-bottom:16px}h1{margin:0 0 16px;font-size:clamp(48px,5.6vw,78px);line-height:.98;font-weight:900;letter-spacing:-.055em;text-transform:uppercase}.green-word{color:#10d53b}.hero-copy{max-width:585px;margin:0 0 25px;color:#fff;font-size:21px;line-height:1.42}.benefits{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin:0 0 30px}.benefit{display:grid;grid-template-columns:30px 1fr;gap:8px;align-items:center;color:#fff}.benefit i{width:28px;height:28px;display:grid;place-items:center;color:#10d53b;border:2px solid #10d53b;border-radius:6px;font-style:normal}.benefit b{font-size:12px;text-transform:uppercase;display:block}.benefit span{font-size:10px;color:#dce4dc}.hero-actions{display:flex;gap:20px;flex-wrap:wrap}.hero-actions .btn{min-height:64px;font-size:22px;padding:0 38px}.hero-visual{position:relative;border-radius:22px;min-height:510px;overflow:hidden;background:linear-gradient(180deg,#e9ece8,#aaa);box-shadow:0 12px 32px rgba(0,0,0,.18)}.hero-visual:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 72% 75%,#222 0 5%,transparent 5.5%),radial-gradient(circle at 50% 75%,#222 0 5%,transparent 5.5%),linear-gradient(15deg,transparent 0 35%,#202520 35% 62%,transparent 63%),linear-gradient(120deg,transparent 0 22%,#111 22% 53%,transparent 54%)}.truck-label{position:absolute;right:24px;bottom:24px;background:rgba(0,0,0,.72);border-radius:13px;color:#fff;padding:20px 24px;font-size:18px;font-weight:900;line-height:1.35}.truck-label span{color:#10d53b;font-size:30px}
-.service-strip{background:linear-gradient(#151716,#0b0d0c);padding:22px 0}.service-tabs{display:flex;gap:10px;overflow:auto;scrollbar-width:none}.service-tab{min-width:132px;border:1px solid rgba(255,255,255,.13);background:linear-gradient(#1f2220,#111311);color:#fff;border-radius:9px;padding:13px 14px;display:flex;align-items:center;gap:10px;font-weight:900;font-size:14px;text-transform:uppercase;cursor:pointer}.service-tab span{font-size:25px}
-.section{padding:34px 0;background:#fff}.section-title{text-align:center;margin:0 0 24px;font-size:28px;font-weight:900;text-transform:uppercase}.materials-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}.material-card{border:1px solid #dcdedc;border-radius:8px;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.08);overflow:hidden;display:flex;flex-direction:column}.mat-img{height:112px;border-bottom:1px solid #eee}.stones{background:radial-gradient(circle at 20% 30%,#9a9a94 0 8%,transparent 9%),radial-gradient(circle at 45% 50%,#5f625d 0 7%,transparent 8%),linear-gradient(135deg,#b7bbb4,#4c504d)}.sand{background:radial-gradient(circle,#c99d55 0 2px,transparent 3px),linear-gradient(135deg,#d7bb7a,#a27b43);background-size:12px 12px,cover}.gravel{background:radial-gradient(circle at 18% 42%,#777 0 5%,transparent 6%),radial-gradient(circle at 48% 25%,#aaa 0 6%,transparent 7%),linear-gradient(135deg,#d1d1ca,#6a6d68)}.soil{background:radial-gradient(circle,#4b2d16 0 2px,transparent 3px),linear-gradient(135deg,#59331a,#1d120a);background-size:11px 11px,cover}.asphalt{background:radial-gradient(circle,#2a2a29 0 4px,transparent 5px),linear-gradient(135deg,#454642,#111);background-size:16px 16px,cover}.manip{background:linear-gradient(135deg,#9ed4ff,#e9f6ff)}.mat-body{padding:14px 15px 15px;display:flex;flex-direction:column;gap:12px;flex:1}.mat-body h3{margin:0;font-size:17px;line-height:1.25;font-weight:900}.chips{display:flex;gap:7px;flex-wrap:wrap}.chip{border:1px solid #d7dad7;background:#fff;border-radius:7px;font-size:11px;padding:5px 7px;font-weight:800;cursor:pointer}.mat-card-btn{margin-top:auto;min-height:36px;border:0;border-radius:6px;background:linear-gradient(#11b62d,#058a1c);color:#fff;font-weight:900;cursor:pointer}.all{text-align:center;margin-top:22px}.outline{border:1.5px solid var(--green2);border-radius:6px;background:white;color:var(--green2);padding:11px 22px;font-weight:900;text-transform:uppercase}
-.process{background:#f6f6f4;padding:34px 0 48px}.process-box{border-radius:16px;background:#fff;padding:28px 30px 14px;box-shadow:0 4px 20px rgba(0,0,0,.06)}.process-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:28px}.process-card{position:relative;border:1px solid #cfd4cf;border-radius:8px;padding:42px 18px 20px;text-align:center;min-height:172px}.process-card:not(:last-child):after{content:"";position:absolute;right:-28px;top:50%;width:28px;border-top:2px dotted var(--green2)}.num{position:absolute;top:-21px;left:50%;transform:translateX(-50%);width:42px;height:42px;border-radius:50%;background:linear-gradient(#13b634,#03891c);color:white;display:grid;place-items:center;font-weight:900;font-size:20px}.picon{font-size:40px;color:var(--green2);margin-bottom:10px}.process-card h3{margin:0 0 9px;font-size:17px}.process-card p{margin:0;color:#333;font-size:14px;line-height:1.45}
-.cta-strip{background:linear-gradient(90deg,#00871b,#0ec336,#006a17);color:#fff;padding:18px 0}.cta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.cta-item{display:flex;align-items:center;gap:14px;justify-content:center;color:#fff;font-weight:900}.cta-circle{width:58px;height:58px;border-radius:50%;border:2px solid rgba(255,255,255,.85);display:grid;place-items:center;font-size:30px}.cta-item small{display:block;font-size:13px;text-transform:uppercase}.cta-item b{display:block;font-size:25px}
-.footer{background:#030504;color:#fff;padding:30px 0 18px}.footer-grid{display:grid;grid-template-columns:1.35fr 1fr 1fr 1fr;gap:35px;border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:28px}.socials{display:flex;gap:14px;margin-top:16px}.socials a{width:38px;height:38px;border-radius:50%;background:white;color:#000;display:grid;place-items:center;font-weight:900}.footer h3{margin:0 0 13px;font-size:15px;text-transform:uppercase}.footer p,.footer a{color:#e9eee9;font-weight:700;line-height:1.7;font-size:14px;display:block}.copy{display:flex;justify-content:space-between;gap:12px;padding-top:14px;color:#d7dcd7;font-size:13px;flex-wrap:wrap}
-.modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:15px;background:rgba(0,0,0,.68);backdrop-filter:blur(8px)}.modal.open{display:flex}.panel{width:min(660px,96vw);max-height:88vh;overflow:auto;background:white;border-radius:22px;padding:20px;box-shadow:0 30px 90px rgba(0,0,0,.35);color:#111}.modal-top{display:flex;justify-content:space-between;gap:12px;margin-bottom:12px}.modal h2{margin:0;font-size:34px;line-height:1;font-weight:900}.modal-desc{margin:7px 0 0;color:#667268;font-weight:700}.close{width:42px;height:42px;border-radius:50%;border:0;background:#f1f1f1;font-size:24px;cursor:pointer}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field{display:grid;gap:5px;margin-bottom:8px}.full{grid-column:1/-1}label{font-weight:900;font-size:14px}input,select,textarea{width:100%;border:1px solid #d8ddd8;border-radius:10px;background:white;min-height:46px;padding:10px 12px;font-size:16px;outline:none}textarea{min-height:64px;resize:vertical}.qty-row{display:grid;grid-template-columns:46px 1fr 46px;gap:8px;align-items:center}.qty-btn{width:46px;height:46px;border:0;border-radius:10px;background:#101318;color:white;font-size:26px;font-weight:900;cursor:pointer}#amount{text-align:center;font-size:24px;font-weight:900;padding:0 8px}.help{font-size:12px;color:#667268;font-weight:700}.unit-cards{display:grid;grid-template-columns:1fr 1fr;gap:8px}.unit-card{min-height:48px;border:2px solid #d8ddd8;background:white;border-radius:12px;font-weight:900;cursor:pointer}.unit-card.active{background:linear-gradient(#11b62d,#078e1e);border-color:#078e1e;color:white}.calc-toggle{min-height:44px;width:100%;border:1px solid #c7e6ce;background:#eaf8ef;color:#08741b;border-radius:11px;font-weight:900;cursor:pointer;margin-top:7px}.calc-box{display:none;margin-top:8px;border:1px solid #d8eadb;background:#f8fcf8;border-radius:12px;padding:10px}.calc-box.open{display:block}.calc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.calc-result{font-weight:900;color:#08741b;margin:8px 0 0}.apply-calc{margin-top:8px;width:100%;min-height:42px;border:0;border-radius:10px;background:var(--green);color:white;font-weight:900}.addons{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.addon{border:1px solid #d8ddd8;background:white;border-radius:12px;padding:8px 5px;font-weight:900;font-size:12px;line-height:1.1;cursor:pointer;text-align:center}.addon span{display:block;font-size:19px;margin-bottom:3px}.addon.active{background:var(--green);color:white;border-color:var(--green)}.send{width:100%;min-height:52px;border:0;border-radius:11px;background:linear-gradient(#12c633,#068c1d);color:white;font-size:17px;font-weight:900;cursor:pointer}
-@media(max-width:1050px){.logo-svg{width:200px}.nav{display:none}.hero-grid{grid-template-columns:1fr}.benefits{grid-template-columns:repeat(2,1fr)}.materials-grid{grid-template-columns:repeat(3,1fr)}.process-grid{grid-template-columns:1fr 1fr}.process-card:after{display:none!important}.footer-grid{grid-template-columns:1fr 1fr}.cta-grid{grid-template-columns:1fr}}
-@media(max-width:720px){body{padding-bottom:72px}.container{width:min(100% - 24px,var(--max))}.header-inner{min-height:64px}.logo-svg{width:155px}.head-actions .btn-green,.phone{display:none}.hero{padding:22px 0 18px}h1{font-size:42px}.hero-copy{font-size:16px}.benefits{gap:10px}.hero-actions .btn{width:100%;min-height:52px;font-size:18px}.hero-visual{min-height:250px}.service-strip{padding:13px 0}.service-tab{min-width:118px;font-size:12px;padding:10px}.materials-grid{grid-template-columns:1fr 1fr;gap:12px}.mat-img{height:88px}.mat-body{padding:11px}.mat-body h3{font-size:15px}.chip{font-size:10px}.section{padding:25px 0}.process-grid{grid-template-columns:1fr;gap:24px}.process-box{padding:24px 12px 12px}.footer-grid{grid-template-columns:1fr}.form-grid,.calc-grid{grid-template-columns:1fr}.addons{grid-template-columns:1fr 1fr}.bottom-bar{position:fixed;left:10px;right:10px;bottom:10px;z-index:120;background:white;border-radius:22px;box-shadow:0 14px 46px rgba(0,0,0,.22);display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:7px;padding:8px}.bottom-bar a,.bottom-bar button{border:0;border-radius:16px;background:#f5f5f5;font-size:12px;font-weight:900;min-height:52px;display:flex;align-items:center;justify-content:center;gap:4px;color:#111}.bottom-bar .main{background:var(--green);color:white;border:2px solid var(--gold)}}@media(min-width:721px){.bottom-bar{display:none}}
+:root{
+  --black:#050806;
+  --green:#18bf3f;
+  --green2:#0a8d24;
+  --green3:#20d948;
+  --gold:#d4aa32;
+  --line:#dfe5df;
+  --bg:#f4f6f2;
+  --max:1180px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;overflow-x:hidden}
+body{
+  font-family:Inter,Arial,sans-serif;
+  background:var(--bg);
+  color:#111;
+  -webkit-font-smoothing:antialiased;
+}
+a{text-decoration:none;color:inherit}
+button,input,select,textarea{font:inherit}
+svg,img{display:block;max-width:100%}
+.container{width:min(var(--max),calc(100% - 32px));margin:auto}
+
+/* LOGO */
+.logo-svg{width:220px;height:auto}
+.footer .logo-svg{width:220px}
+.logo-ved{fill:#fff;stroke:#000;stroke-width:1.35;paint-order:stroke fill}
+.logo-man{fill:#0b9d33;stroke:#000;stroke-width:1.35;paint-order:stroke fill}
+.gold-stroke{stroke:var(--gold);stroke-width:6.1;paint-order:stroke fill}
+.crown{transform-origin:355px 28px;transform:rotate(-30deg)}
+
+/* HEADER */
+.header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(244,246,242,.96);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(0,0,0,.08);
+}
+.header-inner{
+  min-height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+}
+.nav{display:flex;gap:22px;font-size:14px;font-weight:900;text-transform:uppercase}
+.nav a.active,.nav a:hover{color:var(--green2)}
+.head-actions{display:flex;align-items:center;gap:12px}
+.phone{font-weight:900;color:#111;white-space:nowrap}
+.btn{
+  border:0;
+  border-radius:999px;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  font-weight:900;
+  min-height:44px;
+  padding:0 18px;
+  white-space:nowrap;
+}
+.btn-green{
+  background:linear-gradient(#22cf4d,#0a9b27);
+  color:white;
+  border:2px solid var(--gold);
+  box-shadow:0 8px 18px rgba(24,191,63,.22);
+}
+.btn-light{background:#fff;border:1px solid var(--line);color:#111}
+
+/* HERO */
+.hero{
+  background:linear-gradient(180deg,#fff 0%,#f7f8f4 100%);
+  padding:28px 0 20px;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:28px;
+  align-items:center;
+}
+.eyebrow{
+  display:inline-flex;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:8px 13px;
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:.04em;
+  color:var(--green2);
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
+h1{
+  margin:0 0 12px;
+  font-size:clamp(42px,5.4vw,72px);
+  line-height:.96;
+  font-weight:900;
+  letter-spacing:-.055em;
+  text-transform:uppercase;
+}
+.green-word{color:var(--green2)}
+.hero-sub{
+  margin:0 0 12px;
+  font-size:clamp(22px,2.4vw,32px);
+  line-height:1.05;
+  font-weight:900;
+  color:var(--green2);
+  letter-spacing:-.035em;
+}
+.hero-copy{
+  margin:0 0 16px;
+  max-width:600px;
+  color:#606963;
+  font-size:17px;
+  line-height:1.44;
+  font-weight:700;
+}
+.benefits{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:0 0 16px;
+}
+.benefit{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:8px 12px;
+  font-size:13px;
+  font-weight:900;
+  box-shadow:0 5px 14px rgba(0,0,0,.04);
+}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap}
+.hero-actions .btn{min-height:52px;font-size:18px;padding:0 28px}
+.hero-visual{
+  min-height:340px;
+  border-radius:22px;
+  background:
+    radial-gradient(circle at 72% 76%,#222 0 5%,transparent 5.6%),
+    radial-gradient(circle at 48% 76%,#222 0 5%,transparent 5.6%),
+    linear-gradient(15deg,transparent 0 35%,#202520 35% 62%,transparent 63%),
+    linear-gradient(120deg,transparent 0 22%,#111 22% 53%,transparent 54%),
+    linear-gradient(180deg,#e9ece8,#b8bcb5);
+  box-shadow:0 12px 28px rgba(0,0,0,.14);
+  position:relative;
+  overflow:hidden;
+}
+.truck-label{
+  position:absolute;
+  right:18px;
+  bottom:18px;
+  background:rgba(0,0,0,.72);
+  color:#fff;
+  border-radius:13px;
+  padding:14px 16px;
+  font-size:16px;
+  font-weight:900;
+}
+
+/* QUICK STRIP */
+.service-strip{
+  background:#111511;
+  padding:12px 0;
+}
+.service-tabs{
+  display:flex;
+  gap:8px;
+  overflow:auto;
+  scrollbar-width:none;
+}
+.service-tabs::-webkit-scrollbar{display:none}
+.service-tab{
+  min-width:112px;
+  border:1px solid rgba(255,255,255,.12);
+  background:#1a1e1a;
+  color:#fff;
+  border-radius:9px;
+  padding:9px 10px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  font-weight:900;
+  font-size:12px;
+  text-transform:uppercase;
+  cursor:pointer;
+}
+.service-tab svg{width:20px;height:20px;flex:none;stroke:var(--green3)}
+
+/* SECTIONS */
+.section{padding:22px 0;background:var(--bg)}
+.section-title{
+  margin:0 0 16px;
+  font-size:clamp(28px,3vw,38px);
+  font-weight:900;
+  letter-spacing:-.04em;
+}
+.section-kicker{
+  margin:0 0 4px;
+  color:var(--green2);
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-size:13px;
+}
+
+/* MATERIALS */
+.materials-grid{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:12px;
+}
+.material-card{
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:#fff;
+  box-shadow:0 6px 18px rgba(0,0,0,.06);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+}
+.mat-img{height:94px;border-bottom:1px solid #eee}
+.stones{background:radial-gradient(circle at 20% 30%,#9a9a94 0 8%,transparent 9%),radial-gradient(circle at 45% 50%,#5f625d 0 7%,transparent 8%),linear-gradient(135deg,#b7bbb4,#4c504d)}
+.sand{background:radial-gradient(circle,#c99d55 0 2px,transparent 3px),linear-gradient(135deg,#d7bb7a,#a27b43);background-size:12px 12px,cover}
+.gravel{background:radial-gradient(circle at 18% 42%,#777 0 5%,transparent 6%),radial-gradient(circle at 48% 25%,#aaa 0 6%,transparent 7%),linear-gradient(135deg,#d1d1ca,#6a6d68)}
+.soil{background:radial-gradient(circle,#4b2d16 0 2px,transparent 3px),linear-gradient(135deg,#59331a,#1d120a);background-size:11px 11px,cover}
+.asphalt{background:radial-gradient(circle,#2a2a29 0 4px,transparent 5px),linear-gradient(135deg,#454642,#111);background-size:16px 16px,cover}
+.manip{background:linear-gradient(135deg,#9ed4ff,#e9f6ff)}
+.mat-body{
+  padding:11px;
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+  flex:1;
+}
+.mat-body h3{margin:0;font-size:15px;line-height:1.2;font-weight:900}
+.chips{display:flex;gap:5px;flex-wrap:wrap}
+.chip{
+  border:1px solid #d7dad7;
+  background:#fff;
+  border-radius:999px;
+  font-size:10.5px;
+  padding:4px 7px;
+  font-weight:800;
+  cursor:pointer;
+}
+.mat-card-btn{
+  margin-top:auto;
+  min-height:34px;
+  border:0;
+  border-radius:999px;
+  background:linear-gradient(#17c642,#07931f);
+  color:#fff;
+  font-weight:900;
+  cursor:pointer;
+}
+
+/* SERVICE CARDS - compact, no emoji */
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+.service-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:18px;
+  box-shadow:0 6px 18px rgba(0,0,0,.055);
+}
+.service-icon{
+  width:28px;
+  height:28px;
+  margin-bottom:8px;
+  stroke:var(--green2);
+}
+.service-card h3{
+  margin:0 0 6px;
+  font-size:20px;
+  font-weight:900;
+}
+.service-card p{
+  margin:0;
+  color:#606963;
+  font-weight:750;
+  font-size:15px;
+  line-height:1.35;
+}
+
+/* PROCESS */
+.process{padding:22px 0 28px;background:var(--bg)}
+.process-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+.process-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:16px;
+  min-height:118px;
+  box-shadow:0 6px 18px rgba(0,0,0,.055);
+}
+.num{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:linear-gradient(#20d74c,#0a9b27);
+  color:white;
+  font-weight:900;
+  display:grid;
+  place-items:center;
+  margin-bottom:9px;
+}
+.process-card h3{
+  margin:0 0 6px;
+  font-size:19px;
+  font-weight:900;
+}
+.process-card p{
+  margin:0;
+  color:#606963;
+  font-size:15px;
+  line-height:1.35;
+  font-weight:750;
+}
+
+/* CTA */
+.cta-strip{
+  padding:14px 0;
+  background:linear-gradient(90deg,#07821d,#18bf3f,#07821d);
+  color:#fff;
+}
+.cta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.cta-item{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  font-weight:900;
+  color:#fff;
+}
+.cta-circle{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  border:2px solid rgba(255,255,255,.8);
+  display:grid;
+  place-items:center;
+}
+.cta-circle svg{width:22px;height:22px;stroke:white}
+.cta-item small{display:block;font-size:12px;text-transform:uppercase}
+.cta-item b{font-size:20px}
+
+/* FOOTER */
+.footer{
+  background:#030504;
+  color:#fff;
+  padding:26px 0 18px;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.25fr 1fr 1fr 1fr;
+  gap:26px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  padding-bottom:22px;
+}
+.footer h3{margin:0 0 10px;font-size:14px;text-transform:uppercase}
+.footer p,.footer a{color:#e9eee9;font-weight:700;line-height:1.6;font-size:14px;display:block}
+.copy{display:flex;justify-content:space-between;gap:10px;padding-top:12px;color:#d7dcd7;font-size:13px;flex-wrap:wrap}
+
+/* MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  z-index:200;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:12px;
+  background:rgba(0,0,0,.68);
+  backdrop-filter:blur(8px);
+}
+.modal.open{display:flex}
+.panel{
+  width:min(640px,96vw);
+  max-height:88vh;
+  overflow:auto;
+  background:white;
+  border-radius:20px;
+  padding:16px;
+  box-shadow:0 30px 90px rgba(0,0,0,.35);
+  color:#111;
+}
+.modal-top{display:flex;justify-content:space-between;gap:10px;margin-bottom:10px}
+.modal h2{margin:0;font-size:30px;line-height:1;font-weight:900}
+.modal-desc{margin:5px 0 0;color:#667268;font-weight:700;font-size:14px}
+.close{width:38px;height:38px;border-radius:50%;border:0;background:#f1f1f1;font-size:23px;cursor:pointer}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.field{display:grid;gap:4px;margin-bottom:7px}
+.full{grid-column:1/-1}
+label{font-weight:900;font-size:13px}
+input,select,textarea{
+  width:100%;
+  border:1px solid #d8ddd8;
+  border-radius:10px;
+  background:white;
+  min-height:42px;
+  padding:9px 11px;
+  font-size:15px;
+  outline:none;
+}
+textarea{min-height:58px;resize:vertical}
+.qty-row{display:grid;grid-template-columns:42px 1fr 42px;gap:7px}
+.qty-btn{
+  width:42px;
+  height:42px;
+  border:0;
+  border-radius:10px;
+  background:#101318;
+  color:white;
+  font-size:23px;
+  font-weight:900;
+  cursor:pointer;
+}
+#amount{text-align:center;font-size:22px;font-weight:900;padding:0 8px}
+.help{font-size:11.5px;color:#667268;font-weight:700}
+.unit-cards{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.unit-card{
+  min-height:44px;
+  border:2px solid #d8ddd8;
+  background:white;
+  border-radius:12px;
+  font-weight:900;
+  cursor:pointer;
+}
+.unit-card.active{background:linear-gradient(#18c943,#07931f);border-color:#07931f;color:white}
+.calc-toggle{
+  min-height:40px;
+  width:100%;
+  border:1px solid #c7e6ce;
+  background:#eaf8ef;
+  color:#08741b;
+  border-radius:10px;
+  font-weight:900;
+  cursor:pointer;
+  margin-top:6px;
+}
+.calc-box{display:none;margin-top:7px;border:1px solid #d8eadb;background:#f8fcf8;border-radius:12px;padding:9px}
+.calc-box.open{display:block}
+.calc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.calc-result{font-weight:900;color:#08741b;margin:7px 0 0;font-size:13px}
+.apply-calc{margin-top:7px;width:100%;min-height:40px;border:0;border-radius:10px;background:var(--green);color:white;font-weight:900}
+.addons{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}
+.addon{border:1px solid #d8ddd8;background:white;border-radius:12px;padding:7px 4px;font-weight:900;font-size:11.5px;line-height:1.1;cursor:pointer;text-align:center}
+.addon span{display:block;font-size:17px;margin-bottom:2px}
+.addon.active{background:var(--green);color:white;border-color:var(--green)}
+.send{width:100%;min-height:48px;border:0;border-radius:11px;background:linear-gradient(#18c943,#07931f);color:white;font-size:16px;font-weight:900;cursor:pointer}
+
+/* MOBILE */
+@media(max-width:1050px){
+  .logo-svg{width:180px}
+  .nav{display:none}
+  .hero-grid{grid-template-columns:1fr}
+  .materials-grid{grid-template-columns:repeat(3,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:720px){
+  body{padding-bottom:88px}
+  .container{width:min(100% - 24px,var(--max))}
+  .header-inner{min-height:56px}
+  .logo-svg{width:145px}
+  .head-actions .btn-green,.phone{display:none}
+  .hero{padding:18px 0 12px}
+  .hero-grid{gap:14px}
+  h1{font-size:39px;margin-bottom:8px}
+  .hero-sub{font-size:22px;margin-bottom:8px}
+  .hero-copy{font-size:15.5px;margin-bottom:10px}
+  .eyebrow{font-size:11px;padding:7px 10px;margin-bottom:10px}
+  .benefits{gap:7px;margin-bottom:10px}
+  .benefit{font-size:12px;padding:7px 10px}
+  .hero-actions .btn{width:100%;min-height:48px;font-size:17px}
+  .hero-visual{min-height:210px;border-radius:18px}
+  .truck-label{font-size:13px;padding:10px 12px;right:12px;bottom:12px}
+
+  .service-strip{padding:9px 0}
+  .service-tab{min-width:104px;padding:8px 9px;font-size:11px}
+  .service-tab svg{width:18px;height:18px}
+
+  .section{padding:16px 0}
+  .section-title{font-size:31px;margin-bottom:12px}
+  .section-kicker{font-size:12px;margin-bottom:3px}
+
+  .materials-grid{grid-template-columns:1fr 1fr;gap:9px}
+  .mat-img{height:72px}
+  .mat-body{padding:9px;gap:7px}
+  .mat-body h3{font-size:14px}
+  .chip{font-size:9.5px;padding:4px 6px}
+  .mat-card-btn{min-height:32px;font-size:13px}
+
+  .services-grid{grid-template-columns:1fr;gap:8px}
+  .service-card{padding:13px 16px;border-radius:16px}
+  .service-icon{width:23px;height:23px;margin-bottom:6px}
+  .service-card h3{font-size:19px}
+  .service-card p{font-size:14px}
+
+  .process{padding:16px 0 20px}
+  .process-grid{grid-template-columns:1fr;gap:8px}
+  .process-card{padding:12px 16px;min-height:92px;border-radius:16px}
+  .num{width:31px;height:31px;margin-bottom:7px}
+  .process-card h3{font-size:18px}
+  .process-card p{font-size:14px}
+
+  .cta-grid{grid-template-columns:1fr}
+  .cta-strip{padding:10px 0}
+  .cta-circle{width:36px;height:36px}
+
+  .footer-grid{grid-template-columns:1fr;gap:16px}
+  .footer .logo-svg{width:180px}
+
+  .form-grid,.calc-grid{grid-template-columns:1fr}
+  .addons{grid-template-columns:1fr 1fr}
+  .panel{padding:14px;border-radius:18px}
+  .modal h2{font-size:27px}
+
+  .bottom-bar{
+    position:fixed;
+    left:10px;
+    right:10px;
+    bottom:10px;
+    z-index:120;
+    background:white;
+    border-radius:22px;
+    box-shadow:0 14px 46px rgba(0,0,0,.22);
+    display:grid;
+    grid-template-columns:1fr 1.2fr 1fr;
+    gap:7px;
+    padding:8px;
+  }
+  .bottom-bar a,.bottom-bar button{
+    border:0;
+    border-radius:16px;
+    background:#f5f5f5;
+    font-size:12px;
+    font-weight:900;
+    min-height:52px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:4px;
+    color:#111;
+  }
+  .bottom-bar .main{
+    background:var(--green);
+    color:white;
+    border:2px solid var(--gold);
+  }
+}
+@media(min-width:721px){.bottom-bar{display:none}}
 </style>
 </head>
+
 <body>
-<header class="header"><div class="container header-inner">
-<a href="#"><svg class="logo-svg" viewBox="0 0 420 96"><text x="8" y="66" font-size="58" font-weight="900" font-family="Inter,Arial" class="gold-stroke logo-ved">VED</text><text x="135" y="66" font-size="58" font-weight="900" font-family="Inter,Arial" class="gold-stroke logo-man">MAN</text><g class="crown"><path d="M323 24 L333 7 L346 24 L359 7 L370 24 L370 38 L323 38 Z" fill="#d5ad3f" stroke="#060606" stroke-width="2"/><path d="M326 34 H367" stroke="#8b6b1d" stroke-width="3"/></g></svg></a>
-<nav class="nav"><a class="active" href="#">Sākums</a><a href="#materiali">Materiāli</a><a href="#pakalpojumi">Pakalpojumi</a><a href="#kontakti">Kontakti</a></nav>
-<div class="head-actions"><a class="btn btn-green" href="https://wa.me/37122312828">💬 WhatsApp</a><a class="phone" href="tel:+37122312828">📞 22312828</a></div>
-</div></header>
+<header class="header">
+  <div class="container header-inner">
+    <a href="#">
+      <svg class="logo-svg" viewBox="0 0 420 96" aria-label="VEDMAN">
+        <text x="8" y="66" font-size="58" font-weight="900" font-family="Inter,Arial" class="gold-stroke logo-ved">VED</text>
+        <text x="135" y="66" font-size="58" font-weight="900" font-family="Inter,Arial" class="gold-stroke logo-man">MAN</text>
+        <g class="crown">
+          <path d="M323 24 L333 7 L346 24 L359 7 L370 24 L370 38 L323 38 Z" fill="#d5ad3f" stroke="#060606" stroke-width="2"/>
+          <path d="M326 34 H367" stroke="#8b6b1d" stroke-width="3"/>
+        </g>
+      </svg>
+    </a>
+    <nav class="nav">
+      <a class="active" href="#">Sākums</a>
+      <a href="#materiali">Materiāli</a>
+      <a href="#pakalpojumi">Pakalpojumi</a>
+      <a href="#kontakti">Kontakti</a>
+    </nav>
+    <div class="head-actions">
+      <a class="btn btn-green" href="https://wa.me/37122312828">WhatsApp</a>
+      <a class="phone" href="tel:+37122312828">22312828</a>
+    </div>
+  </div>
+</header>
 
 <main>
-<section class="hero"><div class="container hero-grid"><div>
-<div class="eyebrow">Beramie materiāli • Tehnika • Pakalpojumi</div>
-<h1>PIEGĀDĀJAM<br><span class="green-word">VAIRĀK</span><br>NEKĀ GAIDĪJI</h1>
-<p class="hero-copy">Šķembas, smilts, grants, melnzeme un citi materiāli ar piegādi Rīgā, Ogrē un visā Latvijā.</p>
-<div class="benefits"><div class="benefit"><i>🚚</i><div><b>Ātra piegāde</b><span>1–3 dienu laikā</span></div></div><div class="benefit"><i>🛡</i><div><b>Kvalitāte</b><span>Pārbaudīti materiāli</span></div></div><div class="benefit"><i>📍</i><div><b>Visā Latvijā</b><span>Rīga, Ogre, Pierīga</span></div></div><div class="benefit"><i>💳</i><div><b>Maksājumi</b><span>Skaidrā / pārskaitījums</span></div></div></div>
-<div class="hero-actions"><button class="btn btn-green js-open">🧮 Uzzini cenu</button><a class="btn btn-dark" href="tel:+37122312828">📞 Zvanīt</a></div>
-</div><div class="hero-visual"><div class="truck-label"><span>📍</span> RĪGA · OGRE<br>VISĀ LATVIJĀ</div></div></div></section>
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">Beramie materiāli • Tehnika • Piegāde</div>
+      <h1>PIEGĀDĀJAM<br>VAIRĀK,<br>NEKĀ GAIDĪJI</h1>
+      <div class="hero-sub">Viens zvans. Pilns risinājums.</div>
+      <p class="hero-copy">No šķembām un melnzemes līdz manipulatoram, zemes darbiem un pilniem risinājumiem visā Latvijā.</p>
+      <div class="benefits">
+        <span class="benefit">🛡 Uzticami</span>
+        <span class="benefit">⚡ Operatīvi</span>
+        <span class="benefit">📍 Visa Latvija</span>
+        <span class="benefit">✅ Skaidra cena</span>
+      </div>
+      <div class="hero-actions">
+        <button class="btn btn-green js-open">Uzzini cenu</button>
+        <a class="btn btn-light" href="tel:+37122312828">Zvanīt 22312828</a>
+        <a class="btn btn-green" href="https://wa.me/37122312828">WhatsApp</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="truck-label">RĪGA · OGRE<br>VISĀ LATVIJĀ</div>
+    </div>
+  </div>
+</section>
 
-<section class="service-strip"><div class="container service-tabs">
-<button class="service-tab" data-material="Dolomīta šķembas"><span>🪨</span>Šķembas</button><button class="service-tab" data-material="Smilts"><span>🏖️</span>Smilts</button><button class="service-tab" data-material="Grants"><span>⚪</span>Grants</button><button class="service-tab" data-material="Melnzeme"><span>🌿</span>Melnzeme</button><button class="service-tab" data-material="Pakalpojumi" data-sub="Pašizgāzējs"><span>🚚</span>Pašizgāzējs</button><button class="service-tab" data-material="Pakalpojumi" data-sub="Manipulators ar greiferi"><span>🏗️</span>Manipulators</button><button class="service-tab" data-material="Pakalpojumi" data-sub="Koku serviss"><span>🌳</span>Koku serviss</button>
-</div></section>
+<section class="service-strip">
+  <div class="container service-tabs">
+    <button class="service-tab" data-material="Dolomīta šķembas"><svg viewBox="0 0 24 24" fill="none"><path d="M5 17l5-11 9 11H5z" stroke-width="2"/></svg>Šķembas</button>
+    <button class="service-tab" data-material="Smilts"><svg viewBox="0 0 24 24" fill="none"><path d="M4 18h16L12 6 4 18z" stroke-width="2"/></svg>Smilts</button>
+    <button class="service-tab" data-material="Grants"><svg viewBox="0 0 24 24" fill="none"><circle cx="8" cy="14" r="3" stroke-width="2"/><circle cx="15" cy="10" r="4" stroke-width="2"/></svg>Grants</button>
+    <button class="service-tab" data-material="Melnzeme"><svg viewBox="0 0 24 24" fill="none"><path d="M12 20V7M12 7c-4 0-6 2-7 6 4 0 6-2 7-6zm0 0c4 0 6 2 7 6-4 0-6-2-7-6z" stroke-width="2"/></svg>Melnzeme</button>
+    <button class="service-tab" data-material="Pakalpojumi" data-sub="Pašizgāzējs"><svg viewBox="0 0 24 24" fill="none"><path d="M3 16h13V7H3v9zm13-5h3l2 3v2h-5v-5z" stroke-width="2"/><circle cx="7" cy="18" r="2" stroke-width="2"/><circle cx="18" cy="18" r="2" stroke-width="2"/></svg>Pašizgāzējs</button>
+    <button class="service-tab" data-material="Pakalpojumi" data-sub="Manipulators ar greiferi"><svg viewBox="0 0 24 24" fill="none"><path d="M4 19h16M7 19V8l6 5 5-8" stroke-width="2"/></svg>Manipulators</button>
+  </div>
+</section>
 
-<section class="section" id="materiali"><div class="container"><h2 class="section-title">Populārākie materiāli</h2><div class="materials-grid">
-<article class="material-card"><div class="mat-img stones"></div><div class="mat-body"><h3>Dolomīta šķembas<br>(maisījums)</h3><div class="chips"><button class="chip" data-material="Dolomīta šķembas" data-sub="0-16">0-16</button><button class="chip" data-material="Dolomīta šķembas" data-sub="0-32">0-32</button><button class="chip" data-material="Dolomīta šķembas" data-sub="0-45">0-45</button><button class="chip" data-material="Dolomīta šķembas" data-sub="0-56">0-56</button><button class="chip" data-material="Dolomīta šķembas" data-sub="0-63">0-63</button></div><button class="mat-card-btn js-open" data-material="Dolomīta šķembas">Uzzini cenu</button></div></article>
-<article class="material-card"><div class="mat-img sand"></div><div class="mat-body"><h3>Smilts</h3><div class="chips"><button class="chip" data-material="Smilts" data-sub="Mazgāta 0-2">Mazgāta 0-2</button><button class="chip" data-material="Smilts" data-sub="Mazgāta 0-4">Mazgāta 0-4</button><button class="chip" data-material="Smilts" data-sub="Nemazgāta">Nemazgāta</button></div><button class="mat-card-btn js-open" data-material="Smilts">Uzzini cenu</button></div></article>
-<article class="material-card"><div class="mat-img gravel"></div><div class="mat-body"><h3>Grants</h3><div class="chips"><button class="chip" data-material="Grants" data-sub="Skalota 0-4">Skalota 0-4</button><button class="chip" data-material="Grants" data-sub="Neskalota 0-4">Neskalota 0-4</button><button class="chip" data-material="Grants" data-sub="Dabīgā">Dabīgā</button></div><button class="mat-card-btn js-open" data-material="Grants">Uzzini cenu</button></div></article>
-<article class="material-card"><div class="mat-img soil"></div><div class="mat-body"><h3>Melnzeme</h3><div class="chips"><button class="chip" data-material="Melnzeme" data-sub="Sijāta">Sijāta</button><button class="chip" data-material="Melnzeme" data-sub="Nesijāta">Nesijāta</button></div><button class="mat-card-btn js-open" data-material="Melnzeme">Uzzini cenu</button></div></article>
-<article class="material-card"><div class="mat-img asphalt"></div><div class="mat-body"><h3>Asfalts</h3><div class="chips"><button class="chip" data-material="Asfalts" data-sub="Frēzēts">Frēzēts</button><button class="chip" data-material="Asfalts" data-sub="Karstais">Karstais</button></div><button class="mat-card-btn js-open" data-material="Asfalts">Uzzini cenu</button></div></article>
-<article class="material-card"><div class="mat-img manip"></div><div class="mat-body"><h3>Manipulators<br>ar greiferi</h3><button class="mat-card-btn js-open" data-material="Pakalpojumi" data-sub="Manipulators ar greiferi">Uzzini cenu</button></div></article>
-</div><div class="all"><button class="outline js-open">Skatīt visus materiālus un pakalpojumus</button></div></div></section>
+<section class="section" id="materiali">
+  <div class="container">
+    <h2 class="section-title">Populārākie materiāli</h2>
+    <div class="materials-grid">
+      <article class="material-card">
+        <div class="mat-img stones"></div>
+        <div class="mat-body">
+          <h3>Dolomīta šķembas</h3>
+          <div class="chips">
+            <button class="chip" data-material="Dolomīta šķembas" data-sub="0-16">0-16</button>
+            <button class="chip" data-material="Dolomīta šķembas" data-sub="0-32">0-32</button>
+            <button class="chip" data-material="Dolomīta šķembas" data-sub="0-45">0-45</button>
+            <button class="chip" data-material="Dolomīta šķembas" data-sub="0-56">0-56</button>
+            <button class="chip" data-material="Dolomīta šķembas" data-sub="0-63">0-63</button>
+          </div>
+          <button class="mat-card-btn js-open" data-material="Dolomīta šķembas">Uzzini cenu</button>
+        </div>
+      </article>
 
-<section class="process" id="pakalpojumi"><div class="container process-box"><h2 class="section-title">Kā tas strādā</h2><div class="process-grid">
-<div class="process-card"><div class="num">1</div><div class="picon">☷</div><h3>Izvēlies</h3><p>Materiālu, pakalpojumu un daudzumu</p></div><div class="process-card"><div class="num">2</div><div class="picon">🧮</div><h3>Nosūti pieprasījumu</h3><p>Aizpildi formu vai sazinies ar mums</p></div><div class="process-card"><div class="num">3</div><div class="picon">🚚</div><h3>Piegāde</h3><p>Ātri piegādājam norādītajā adresē</p></div><div class="process-card"><div class="num">4</div><div class="picon">✓</div><h3>Izgāžam</h3><p>Ērti un precīzi vajadzīgajā vietā</p></div><div class="process-card"><div class="num">5</div><div class="picon">👍</div><h3>Apmierināts</h3><p>Kvalitāte un serviss</p></div>
-</div></div></section>
+      <article class="material-card">
+        <div class="mat-img sand"></div>
+        <div class="mat-body">
+          <h3>Smilts</h3>
+          <div class="chips">
+            <button class="chip" data-material="Smilts" data-sub="Mazgāta 0-2">Mazgāta 0-2</button>
+            <button class="chip" data-material="Smilts" data-sub="Mazgāta 0-4">Mazgāta 0-4</button>
+            <button class="chip" data-material="Smilts" data-sub="Nemazgāta">Nemazgāta</button>
+          </div>
+          <button class="mat-card-btn js-open" data-material="Smilts">Uzzini cenu</button>
+        </div>
+      </article>
 
-<section class="cta-strip"><div class="container cta-grid"><a class="cta-item" href="tel:+37122312828"><span class="cta-circle">📞</span><span><small>Zvanīt</small><b>22312828</b></span></a><a class="cta-item" href="https://wa.me/37122312828"><span class="cta-circle">💬</span><span><small>WhatsApp</small><b>22312828</b></span></a><button class="cta-item js-open" style="border:0;background:transparent;cursor:pointer"><span class="cta-circle">📋</span><span><small>Prasīt piedāvājumu</small><b>Aizpildi formu</b></span></button></div></section>
+      <article class="material-card">
+        <div class="mat-img gravel"></div>
+        <div class="mat-body">
+          <h3>Grants</h3>
+          <div class="chips">
+            <button class="chip" data-material="Grants" data-sub="Skalota 0-4">Skalota 0-4</button>
+            <button class="chip" data-material="Grants" data-sub="Neskalota 0-4">Neskalota 0-4</button>
+            <button class="chip" data-material="Grants" data-sub="Dabīgā">Dabīgā</button>
+          </div>
+          <button class="mat-card-btn js-open" data-material="Grants">Uzzini cenu</button>
+        </div>
+      </article>
+
+      <article class="material-card">
+        <div class="mat-img soil"></div>
+        <div class="mat-body">
+          <h3>Melnzeme</h3>
+          <div class="chips">
+            <button class="chip" data-material="Melnzeme" data-sub="Sijāta">Sijāta</button>
+            <button class="chip" data-material="Melnzeme" data-sub="Nesijāta">Nesijāta</button>
+          </div>
+          <button class="mat-card-btn js-open" data-material="Melnzeme">Uzzini cenu</button>
+        </div>
+      </article>
+
+      <article class="material-card">
+        <div class="mat-img asphalt"></div>
+        <div class="mat-body">
+          <h3>Asfalts</h3>
+          <div class="chips">
+            <button class="chip" data-material="Asfalts" data-sub="Frēzēts">Frēzēts</button>
+            <button class="chip" data-material="Asfalts" data-sub="Karstais">Karstais</button>
+          </div>
+          <button class="mat-card-btn js-open" data-material="Asfalts">Uzzini cenu</button>
+        </div>
+      </article>
+
+      <article class="material-card">
+        <div class="mat-img manip"></div>
+        <div class="mat-body">
+          <h3>Manipulators</h3>
+          <button class="mat-card-btn js-open" data-material="Pakalpojumi" data-sub="Manipulators ar greiferi">Uzzini cenu</button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="pakalpojumi">
+  <div class="container">
+    <p class="section-kicker">Pakalpojumi</p>
+    <h2 class="section-title">Vairāk nekā piegāde</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none"><path d="M3 16h13V7H3v9zm13-5h3l2 3v2h-5v-5z" stroke-width="2"/><circle cx="7" cy="18" r="2" stroke-width="2"/><circle cx="18" cy="18" r="2" stroke-width="2"/></svg>
+        <h3>Beramo kravu piegāde</h3>
+        <p>Šķembas, grants, smilts, melnzeme.</p>
+      </div>
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none"><path d="M4 20l7-7M14 4l6 6M12 6l6 6-5 5-6-6 5-5z" stroke-width="2"/></svg>
+        <h3>Zemes darbi</h3>
+        <p>Rakšana, līdzināšana un teritoriju sagatavošana.</p>
+      </div>
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none"><path d="M12 21V8M12 8c-4 0-7 2-8 6 4 0 7-2 8-6zm0 0c4 0 7 2 8 6-4 0-7-2-8-6z" stroke-width="2"/></svg>
+        <h3>Koku serviss</h3>
+        <p>Zaru, celmu un baļķu izvešana.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="container">
+    <p class="section-kicker">Kā tas strādā</p>
+    <h2 class="section-title">Ātrs process</h2>
+    <div class="process-grid">
+      <div class="process-card"><div class="num">1</div><h3>Izvēlies</h3><p>Materiālu vai pakalpojumu.</p></div>
+      <div class="process-card"><div class="num">2</div><h3>Nosūti</h3><p>Pieprasījums sagatavojas WhatsApp.</p></div>
+      <div class="process-card"><div class="num">3</div><h3>Saņem cenu</h3><p>Precizējam piegādi un darbu.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-strip">
+  <div class="container cta-grid">
+    <a class="cta-item" href="tel:+37122312828">
+      <span class="cta-circle"><svg viewBox="0 0 24 24" fill="none"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1A19.5 19.5 0 0 1 5.2 13 19.8 19.8 0 0 1 2.1 4.3 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6.4 6.4l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z" stroke-width="2"/></svg></span>
+      <span><small>Zvanīt</small><b>22312828</b></span>
+    </a>
+    <a class="cta-item" href="https://wa.me/37122312828">
+      <span class="cta-circle"><svg viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 21l2.1-5.5A8.5 8.5 0 1 1 21 11.5z" stroke-width="2"/></svg></span>
+      <span><small>WhatsApp</small><b>22312828</b></span>
+    </a>
+    <button class="cta-item js-open" style="border:0;background:transparent;cursor:pointer">
+      <span class="cta-circle"><svg viewBox="0 0 24 24" fill="none"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" stroke-width="2"/></svg></span>
+      <span><small>Prasīt piedāvājumu</small><b>Aizpildi formu</b></span>
+    </button>
+  </div>
+</section>
 </main>
 
-<footer class="footer" id="kontakti"><div class="container footer-grid"><div><svg class="logo-svg" viewBox="0 0 420 96"><text x="8" y="66" font-size="58" font-weight="900" font-family="Inter,Arial" class="gold-stroke logo-ved">VED</text><text x="135" y="66" font-size="58" font-weight="900" font-family="Inter,Arial" class="gold-stroke logo-man">MAN</text><g class="crown"><path d="M323 24 L333 7 L346 24 L359 7 L370 24 L370 38 L323 38 Z" fill="#d5ad3f" stroke="#060606" stroke-width="2"/><path d="M326 34 H367" stroke="#8b6b1d" stroke-width="3"/></g></svg><div class="socials"><a>f</a><a>◎</a><a>♪</a></div></div><div><h3>Kontakti</h3><a href="tel:+37122312828">📞 22312828</a><a href="tel:+37120080098">📞 20080098</a><a href="mailto:info@vedman.lv">info@vedman.lv</a></div><div><h3>Darbības laiks</h3><p>P.–Pk. 07:00 – 18:00<br>Sest. 08:00 – 16:00<br>Svētd. – pēc vienošanās</p></div><div><h3>Apmaksas veidi</h3><p>✓ Skaidra nauda<br>✓ Bankas pārskaitījums<br>✓ Ar PVN / Bez PVN</p></div></div><div class="container copy"><span>© 2025 VEDMAN.LV</span><span>Visas tiesības aizsargātas</span><span>Rīga • Ogre • Visa Latvija</span></div></footer>
+<footer class="footer" id="kontakti">
+  <div class="container footer-grid">
+    <div>
+      <svg class="logo-svg" viewBox="0 0 420 96" aria-label="VEDMAN">
+        <text x="8" y="66" font-size="58" font-weight="900" font-family="Inter,Arial" class="gold-stroke logo-ved">VED</text>
+        <text x="135" y="66" font-size="58" font-weight="900" font-family="Inter,Arial" class="gold-stroke logo-man">MAN</text>
+        <g class="crown">
+          <path d="M323 24 L333 7 L346 24 L359 7 L370 24 L370 38 L323 38 Z" fill="#d5ad3f" stroke="#060606" stroke-width="2"/>
+          <path d="M326 34 H367" stroke="#8b6b1d" stroke-width="3"/>
+        </g>
+      </svg>
+    </div>
+    <div><h3>Kontakti</h3><a href="tel:+37122312828">22312828</a><a href="tel:+37120080098">20080098</a></div>
+    <div><h3>Darbības laiks</h3><p>P.–Pk. 07:00–18:00<br>Sest. 08:00–16:00</p></div>
+    <div><h3>Apmaksa</h3><p>Skaidra nauda<br>Bankas pārskaitījums<br>Ar PVN / Bez PVN</p></div>
+  </div>
+  <div class="container copy"><span>© VEDMAN.LV</span><span>Rīga • Ogre • Visa Latvija</span></div>
+</footer>
 
-<div class="bottom-bar"><a href="tel:+37122312828">📞 Zvans</a><button class="main js-open">Uzzini cenu</button><a href="https://wa.me/37122312828">💬 WhatsApp</a></div>
+<div class="bottom-bar">
+  <a href="tel:+37122312828">📞 Zvans</a>
+  <button class="main js-open">Uzzini cenu</button>
+  <a href="https://wa.me/37122312828">💬 WhatsApp</a>
+</div>
 
-<div class="modal" id="quoteModal"><div class="panel"><div class="modal-top"><div><h2>Uzzini cenu</h2><p class="modal-desc">Aizpildi īsi — pieprasījums sagatavosies WhatsApp.</p></div><button class="close" id="closeModal">×</button></div><div class="form-grid">
-<div class="field"><label>Materiāls / pakalpojums</label><select id="mainCat"></select></div><div class="field"><label>Frakcija / tips</label><select id="subCat"></select></div>
-<div class="field full"><label>Daudzums</label><div class="qty-row"><button class="qty-btn" id="minusBtn" type="button">−</button><input id="amount" type="number" inputmode="decimal" min="0" step="0.1" value="0"><button class="qty-btn" id="plusBtn" type="button">+</button></div><div class="help">+ / − maina par 1. Ievades lauka mazās bultiņas precizē par 0.1.</div></div>
-<div class="field full"><label>Mērvienība</label><div class="unit-cards"><button type="button" class="unit-card active" data-unit="m³">📦 m³</button><button type="button" class="unit-card" data-unit="t">⚖️ tonnas</button></div><button type="button" class="calc-toggle" id="calcToggle">🧮 Nezinu daudzumu — aprēķināt m³ pēc izmēriem</button><div class="calc-box" id="calcBox"><div class="calc-grid"><div><label>Garums, m</label><input id="calcL" type="number" step="0.1" placeholder="piem. 10"></div><div><label>Platums, m</label><input id="calcW" type="number" step="0.1" placeholder="piem. 4"></div><div><label>Biezums, cm</label><input id="calcD" type="number" step="1" placeholder="piem. 15"></div></div><div class="calc-result" id="calcResult">m³ = garums × platums × biezums / 100</div><button type="button" class="apply-calc" id="applyCalc">Ielikt aprēķinu daudzumā</button></div></div>
-<div class="field full"><label>Objekta adrese</label><input id="address" placeholder="Iela, māja, pilsēta"></div>
-<div class="field full"><label>Papildus</label><div class="addons"><button type="button" class="addon" data-extra="Pāri žogam"><span>🏗️</span>Pāri<br>žogam</button><button type="button" class="addon" data-extra="Šaura vieta"><span>🚧</span>Šaura<br>vieta</button><button type="button" class="addon" data-extra="Izlīdzināt"><span>📏</span>Izlīdzināt</button><button type="button" class="addon" data-extra="Steidzami"><span>⚡</span>Steidzami</button><button type="button" class="addon" data-extra="Vajag konsultāciju"><span>☎️</span>Vajag<br>konsultāciju</button></div></div>
-<div class="field"><label>Vārds</label><input id="name"></div><div class="field"><label>Telefons</label><input id="phone" type="tel" value="+371 "></div><div class="field full"><label>Komentārs</label><textarea id="comment"></textarea></div><div class="field full"><button class="send" id="sendBtn">Sūtīt WhatsApp</button></div>
-</div></div></div>
+<div class="modal" id="quoteModal">
+  <div class="panel">
+    <div class="modal-top">
+      <div>
+        <h2>Uzzini cenu</h2>
+        <p class="modal-desc">Aizpildi īsi — pieprasījums sagatavosies WhatsApp.</p>
+      </div>
+      <button class="close" id="closeModal">×</button>
+    </div>
+
+    <div class="form-grid">
+      <div class="field"><label>Materiāls / pakalpojums</label><select id="mainCat"></select></div>
+      <div class="field"><label>Frakcija / tips</label><select id="subCat"></select></div>
+
+      <div class="field full">
+        <label>Daudzums</label>
+        <div class="qty-row">
+          <button class="qty-btn" id="minusBtn" type="button">−</button>
+          <input id="amount" type="number" inputmode="decimal" min="0" step="0.1" value="0">
+          <button class="qty-btn" id="plusBtn" type="button">+</button>
+        </div>
+        <div class="help">+ / − maina par 1. Ievades lauka mazās bultiņas precizē par 0.1.</div>
+      </div>
+
+      <div class="field full">
+        <label>Mērvienība</label>
+        <div class="unit-cards">
+          <button type="button" class="unit-card active" data-unit="m³">📦 m³</button>
+          <button type="button" class="unit-card" data-unit="t">⚖️ tonnas</button>
+        </div>
+        <button type="button" class="calc-toggle" id="calcToggle">🧮 Nezinu daudzumu — aprēķināt m³ pēc izmēriem</button>
+        <div class="calc-box" id="calcBox">
+          <div class="calc-grid">
+            <div><label>Garums, m</label><input id="calcL" type="number" step="0.1" placeholder="10"></div>
+            <div><label>Platums, m</label><input id="calcW" type="number" step="0.1" placeholder="4"></div>
+            <div><label>Biezums, cm</label><input id="calcD" type="number" step="1" placeholder="15"></div>
+          </div>
+          <div class="calc-result" id="calcResult">m³ = garums × platums × biezums / 100</div>
+          <button type="button" class="apply-calc" id="applyCalc">Ielikt aprēķinu daudzumā</button>
+        </div>
+      </div>
+
+      <div class="field full"><label>Objekta adrese</label><input id="address" placeholder="Iela, māja, pilsēta"></div>
+
+      <div class="field full">
+        <label>Papildus</label>
+        <div class="addons">
+          <button type="button" class="addon" data-extra="Pāri žogam"><span>🏗️</span>Pāri<br>žogam</button>
+          <button type="button" class="addon" data-extra="Šaura vieta"><span>🚧</span>Šaura<br>vieta</button>
+          <button type="button" class="addon" data-extra="Izlīdzināt"><span>📏</span>Izlīdzināt</button>
+          <button type="button" class="addon" data-extra="Steidzami"><span>⚡</span>Steidzami</button>
+          <button type="button" class="addon" data-extra="Vajag konsultāciju"><span>☎️</span>Vajag<br>konsultāciju</button>
+        </div>
+      </div>
+
+      <div class="field"><label>Vārds</label><input id="name"></div>
+      <div class="field"><label>Telefons</label><input id="phone" type="tel" value="+371 "></div>
+      <div class="field full"><label>Komentārs</label><textarea id="comment"></textarea></div>
+      <div class="field full"><button class="send" id="sendBtn">Sūtīt WhatsApp</button></div>
+    </div>
+  </div>
+</div>
 
 <script>
-const DATA={"Dolomīta šķembas":["0-16","0-32","0-45","0-56","0-63"],"Dolomīta šķembas (šķirotas)":["8-32","5-40","16-40","40-70"],"Dolomīta šķembas (mazgātas)":["0-2","0-5","2-8","8-16","16-32"],"Granīta šķembas":["2-8","8-16","5-20","20-40","Atsijas"],"Drupināti būvgruži":["0-16","0-32","0-45","0-56","0-63","20-40","40-70"],"Oļi":["8-16","16-32"],"Smilts":["Mazgāta 0-2","Mazgāta 0-4","Nemazgāta","Pieberamā"],"Grants":["Skalota 0-4","Neskalota 0-4","Dabīgā"],"Melnzeme":["Sijāta","Nesijāta"],"Asfalts":["Frēzēts","Karstais"],"Kūtsmēsli / Komposts":["Kūtsmēsli","Komposts"],"Pakalpojumi":["Pašizgāzējs","Manipulators ar greiferi","Demontāža","Grunts izvešana","Grodu ierakšana","Dīķu/grāvju rakšana","Zaru/baļķu izzāģēšana","Koku pārstādīšana","Teritorijas sakopšana","Stikla loksnes transports","Ceļu remonts","Pagalma un dārza dizains"]};
-const modal=document.getElementById("quoteModal"),mainCat=document.getElementById("mainCat"),subCat=document.getElementById("subCat"),amount=document.getElementById("amount");let unit="m³";
-function fillMain(){mainCat.innerHTML='<option value="">Izvēlies</option>'+Object.keys(DATA).map(k=>`<option value="${k}">${k}</option>`).join("");updateSub()}
-function updateSub(sel=""){const arr=DATA[mainCat.value]||[];subCat.innerHTML=arr.length?arr.map(v=>`<option value="${v}">${v}</option>`).join(""):'<option value="">Nav jāizvēlas</option>';if(sel)subCat.value=sel}
-function openQuote(material="",sub=""){modal.classList.add("open");if(material){mainCat.value=material;updateSub(sub)}}
-function closeQuote(){modal.classList.remove("open")}
-document.querySelectorAll(".js-open,[data-material]").forEach(el=>el.addEventListener("click",()=>openQuote(el.dataset.material||"",el.dataset.sub||"")));document.getElementById("closeModal").onclick=closeQuote;modal.addEventListener("click",e=>{if(e.target===modal)closeQuote()});mainCat.onchange=()=>updateSub();
-document.getElementById("plusBtn").onclick=()=>amount.value=String(Math.max(0,(parseFloat(amount.value||"0")||0)+1));document.getElementById("minusBtn").onclick=()=>amount.value=String(Math.max(0,(parseFloat(amount.value||"0")||0)-1));
-document.querySelectorAll(".unit-card").forEach(btn=>btn.onclick=()=>{document.querySelectorAll(".unit-card").forEach(b=>b.classList.remove("active"));btn.classList.add("active");unit=btn.dataset.unit});document.querySelectorAll(".addon").forEach(btn=>btn.onclick=()=>btn.classList.toggle("active"));
-const calcBox=document.getElementById("calcBox"),calcL=document.getElementById("calcL"),calcW=document.getElementById("calcW"),calcD=document.getElementById("calcD"),calcResult=document.getElementById("calcResult");document.getElementById("calcToggle").onclick=()=>calcBox.classList.toggle("open");
-function calcM3(){const m3=(parseFloat(calcL.value||"0")||0)*(parseFloat(calcW.value||"0")||0)*((parseFloat(calcD.value||"0")||0)/100);calcResult.textContent=m3>0?`Aptuveni: ${m3.toFixed(2)} m³`:"m³ = garums × platums × biezums / 100";return m3}[calcL,calcW,calcD].forEach(i=>i.oninput=calcM3);
-document.getElementById("applyCalc").onclick=()=>{const m3=calcM3();if(m3>0){amount.value=m3.toFixed(2);document.querySelectorAll(".unit-card").forEach(b=>b.classList.remove("active"));document.querySelector('.unit-card[data-unit="m³"]').classList.add("active");unit="m³";calcBox.classList.remove("open")}};
-document.getElementById("sendBtn").onclick=()=>{const material=mainCat.value,sub=subCat.value,address=document.getElementById("address").value.trim(),name=document.getElementById("name").value.trim(),phone=document.getElementById("phone").value.trim(),comment=document.getElementById("comment").value.trim(),extras=[...document.querySelectorAll(".addon.active")].map(x=>x.dataset.extra);if(!material){alert("Izvēlies materiālu vai pakalpojumu.");return}const msg=`*PASŪTĪJUMS — vedman.lv*\n\n📦 Materiāls / pakalpojums:\n${material}${sub?" — "+sub:""}\n\n📏 Daudzums:\n${amount.value||"0"} ${unit}\n\n📍 Adrese:\n${address||"Nav norādīta"}\n\n⚠ Papildus:\n${extras.length?extras.join(", "):"Nav"}\n\n👤 Vārds:\n${name||"Nav norādīts"}\n\n📞 Telefons:\n${phone||"Nav norādīts"}\n\n📝 Komentārs:\n${comment||"Nav"}`;window.open("https://wa.me/37122312828?text="+encodeURIComponent(msg),"_blank")};
+const DATA={
+  "Dolomīta šķembas":["0-16","0-32","0-45","0-56","0-63"],
+  "Dolomīta šķembas (šķirotas)":["8-32","5-40","16-40","40-70"],
+  "Dolomīta šķembas (mazgātas)":["0-2","0-5","2-8","8-16","16-32"],
+  "Granīta šķembas":["2-8","8-16","5-20","20-40","Atsijas"],
+  "Drupināti būvgruži":["0-16","0-32","0-45","0-56","0-63","20-40","40-70"],
+  "Oļi":["8-16","16-32"],
+  "Smilts":["Mazgāta 0-2","Mazgāta 0-4","Nemazgāta","Pieberamā"],
+  "Grants":["Skalota 0-4","Neskalota 0-4","Dabīgā"],
+  "Melnzeme":["Sijāta","Nesijāta"],
+  "Asfalts":["Frēzēts","Karstais"],
+  "Kūtsmēsli / Komposts":["Kūtsmēsli","Komposts"],
+  "Pakalpojumi":["Pašizgāzējs","Manipulators ar greiferi","Demontāža","Grunts izvešana","Grodu ierakšana","Dīķu/grāvju rakšana","Zaru/baļķu izzāģēšana","Koku pārstādīšana","Teritorijas sakopšana","Stikla loksnes transports","Ceļu remonts","Pagalma un dārza dizains"]
+};
+
+const modal=document.getElementById("quoteModal");
+const mainCat=document.getElementById("mainCat");
+const subCat=document.getElementById("subCat");
+const amount=document.getElementById("amount");
+let unit="m³";
+
+function fillMain(){
+  mainCat.innerHTML='<option value="">Izvēlies</option>'+Object.keys(DATA).map(k=>`<option value="${k}">${k}</option>`).join("");
+  updateSub();
+}
+function updateSub(sel=""){
+  const arr=DATA[mainCat.value]||[];
+  subCat.innerHTML=arr.length?arr.map(v=>`<option value="${v}">${v}</option>`).join(""):'<option value="">Nav jāizvēlas</option>';
+  if(sel) subCat.value=sel;
+}
+function openQuote(material="",sub=""){
+  modal.classList.add("open");
+  if(material){mainCat.value=material;updateSub(sub);}
+}
+function closeQuote(){modal.classList.remove("open");}
+
+document.querySelectorAll(".js-open,[data-material]").forEach(el=>{
+  el.addEventListener("click",()=>openQuote(el.dataset.material||"",el.dataset.sub||""));
+});
+document.getElementById("closeModal").onclick=closeQuote;
+modal.addEventListener("click",e=>{if(e.target===modal)closeQuote();});
+mainCat.onchange=()=>updateSub();
+
+document.getElementById("plusBtn").onclick=()=>amount.value=String(Math.max(0,(parseFloat(amount.value||"0")||0)+1));
+document.getElementById("minusBtn").onclick=()=>amount.value=String(Math.max(0,(parseFloat(amount.value||"0")||0)-1));
+
+document.querySelectorAll(".unit-card").forEach(btn=>{
+  btn.onclick=()=>{
+    document.querySelectorAll(".unit-card").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    unit=btn.dataset.unit;
+  };
+});
+document.querySelectorAll(".addon").forEach(btn=>btn.onclick=()=>btn.classList.toggle("active"));
+
+const calcBox=document.getElementById("calcBox");
+const calcL=document.getElementById("calcL");
+const calcW=document.getElementById("calcW");
+const calcD=document.getElementById("calcD");
+const calcResult=document.getElementById("calcResult");
+
+document.getElementById("calcToggle").onclick=()=>calcBox.classList.toggle("open");
+
+function calcM3(){
+  const m3=(parseFloat(calcL.value||"0")||0)*(parseFloat(calcW.value||"0")||0)*((parseFloat(calcD.value||"0")||0)/100);
+  calcResult.textContent=m3>0?`Aptuveni: ${m3.toFixed(2)} m³`:"m³ = garums × platums × biezums / 100";
+  return m3;
+}
+[calcL,calcW,calcD].forEach(i=>i.oninput=calcM3);
+
+document.getElementById("applyCalc").onclick=()=>{
+  const m3=calcM3();
+  if(m3>0){
+    amount.value=m3.toFixed(2);
+    document.querySelectorAll(".unit-card").forEach(b=>b.classList.remove("active"));
+    document.querySelector('.unit-card[data-unit="m³"]').classList.add("active");
+    unit="m³";
+    calcBox.classList.remove("open");
+  }
+};
+
+document.getElementById("sendBtn").onclick=()=>{
+  const material=mainCat.value;
+  const sub=subCat.value;
+  const address=document.getElementById("address").value.trim();
+  const name=document.getElementById("name").value.trim();
+  const phone=document.getElementById("phone").value.trim();
+  const comment=document.getElementById("comment").value.trim();
+  const extras=[...document.querySelectorAll(".addon.active")].map(x=>x.dataset.extra);
+
+  if(!material){alert("Izvēlies materiālu vai pakalpojumu.");return;}
+
+  const msg=`*PASŪTĪJUMS — vedman.lv*
+
+📦 Materiāls / pakalpojums:
+${material}${sub?" — "+sub:""}
+
+📏 Daudzums:
+${amount.value||"0"} ${unit}
+
+📍 Adrese:
+${address||"Nav norādīta"}
+
+⚠ Papildus:
+${extras.length?extras.join(", "):"Nav"}
+
+👤 Vārds:
+${name||"Nav norādīts"}
+
+📞 Telefons:
+${phone||"Nav norādīts"}
+
+📝 Komentārs:
+${comment||"Nav"}`;
+
+  window.open("https://wa.me/37122312828?text="+encodeURIComponent(msg),"_blank");
+};
+
 fillMain();
 </script>
 </body>
