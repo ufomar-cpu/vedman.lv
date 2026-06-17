@@ -1,9 +1,9 @@
-# VEDMAN V3.1 Compact Mobile Fix
+# VEDMAN V3.2 Compact + Logo + Button Fix
 
 Labots:
-- Samazinātas atstarpes visās sekcijās.
-- Bottom bar vairs nepārklāj saturu tik agresīvi: body mobile padding-bottom 88px.
-- Pakalpojumu ikonas aizstātas ar SVG ikonām, ne emoji.
-- Process kartes kompaktākas.
+- Uzzini cenu pogas strādā visās vietās, nav inline onclick problēmu.
+- Kompaktākas atstarpes: hero, materiāli, pakalpojumi, process, footer.
+- Jauns inline SVG logo — nav logo faila/keša problēmas.
 - Grants satur tikai: Skalota 0-4, Neskalota 0-4, Dabīgā.
-- Pasūtījuma formā grants 0-16 un 0-32 nav.
+- Apakšējā josla samazināta.
+- Pakalpojumu ikonas SVG, ne emoji.
