@@ -49,14 +49,17 @@ function formatQty(num) {
   if (Number.isInteger(num)) return String(num);
   return String(Number(num.toFixed(2)));
 }
-$('#qtyPlus')?.addEventListener('click', () => { qtyInput.value = formatQty(normaliseQty(qtyInput.value) + 0.1); });
-$('#qtyMinus')?.addEventListener('click', () => { qtyInput.value = formatQty(Math.max(0, normaliseQty(qtyInput.value) - 0.1)); });
+$('#qtyPlus')?.addEventListener('click', () => { qtyInput.value = formatQty(normaliseQty(qtyInput.value) + 1); });
+$('#qtyMinus')?.addEventListener('click', () => { qtyInput.value = formatQty(Math.max(0, normaliseQty(qtyInput.value) - 1)); });
 qtyInput?.addEventListener('input', () => { if (Number(qtyInput.value) < 0) qtyInput.value = 0; });
 
 $('#quoteForm')?.addEventListener('submit', e => {
   e.preventDefault();
   const unit = $('input[name="unit"]:checked')?.value || 'm³';
-  const extras = $$('.extras input:checked').map(i => i.value).join(', ') || 'Nav norādīts';
+  const unknownVolume = $('#unknownVolume')?.checked ? 'Nezinu daudzumu / vajag palīdzēt aprēķināt' : '';
+  const extrasList = $$('.extras input:checked').map(i => i.value);
+  if (unknownVolume) extrasList.unshift(unknownVolume);
+  const extras = extrasList.join(', ') || 'Nav norādīts';
   const qty = normaliseQty(qtyInput.value);
   const qtyText = qty > 0 ? `${formatQty(qty)} ${unit}` : `Nav precizēts (${unit})`;
   const msg = `*PASŪTĪJUMS — mainamies.lv / VEDMAN*\n\n` +

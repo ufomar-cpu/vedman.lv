@@ -1,17 +1,14 @@
-# VEDMAN V2 uz mainamies.lv
+# VEDMAN V2.2 Compact
 
-Zīmols: VEDMAN  
-Testa domēns: https://www.mainamies.lv  
-Produkcijas mērķis vēlāk: https://vedman.lv
+Uzlabojumi:
+- dzīvāka zaļā krāsa (#16C24A);
+- kompaktāks hero un sekciju augstums;
+- salabots horizontālais scroll mobilajos;
+- kompaktāks “Uzzini cenu” logs;
+- m³ un t atdalīti no “Nezinu daudzumu”;
+- +/- pogas maina pa veseliem cipariem;
+- manuāli laukā var ievadīt 0.1, 3.2 utt.;
+- papildpakalpojumi pārvērsti ikonās ar uzrakstiem;
+- labāka iPhone, Android, Mac, Windows saderība.
 
-## Faili
-- `index.html` — sākumlapa ar Hero, materiāliem, pakalpojumiem, objektiem, FAQ un Uzzini cenu modāli.
-- `style.css` — C+ gaišais premium dizains ar zaļu un zelta akcentu.
-- `app.js` — Uzzini cenu, WhatsApp ģenerators, filtri, daudzuma ievade.
-- `admin/` — Firebase admin login un objektu pievienošana.
-- `firebase/firebase.js` — Firebase konfigurācijas vieta.
-- `seo/` — robots un sitemap.
-- `backup-v1/` — esošie V1 HTML faili, ko saglabāju kā backup.
-
-## Svarīgi
-Firebase failā jāaizvieto `XXXX` ar īstajiem projekta datiem.
+Augšupielādē GitHub repo saknē visu mapes saturu.
