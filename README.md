@@ -1,19 +1,13 @@
-# VEDMAN V2.4 Polished
+# VEDMAN V2.5 Compact Logo Polish
 
-Gala pulēšanas versija pirms publiskas vērtēšanas.
+Gatavs publicēšanai GitHub Pages repo root.
 
-Izmaiņas:
-- pareizais VEDMAN logo kā atsevišķs logo fails, nevis ekrānšāviņš;
-- kompaktāks hero un sekcijas;
-- samazinātas tukšās atstarpes;
-- salabots horizontālais overflow iPhone/Android/Mac/Windows pārlūkiem;
-- dzīvāks zaļais tonis;
-- kompakta “Uzzini cenu” forma;
-- m³ un tonnas kā atsevišķas vienības, “Nezinu daudzumu” atsevišķi;
-- +/− maina par veselu 1, bultiņas precizē par 0.1;
-- papildpakalpojumi kā ikonu kartītes.
+## Izmaiņas pret V2.4
+- Logo fails `assets/logo/vedman-logo.png` pārstrādāts: noņemts baltais fons/tukšais laukums, atstāts VEDMAN + kronis.
+- Kronis saglabāts tajā pašā vizuālajā vietā kā esošajā mājaslapā.
+- Samazinātas tukšās atstarpes header, hero, sadaļās, kartītēs un footer.
+- Pievienota aizsardzība pret horizontālo scroll.
+- Saglabāta esošā V2.4 struktūra un funkcionalitāte.
 
-Augšupielāde GitHub:
-1. Izpako ZIP.
-2. Repo saknē aizvieto esošos failus ar šīs mapes saturu.
-3. Commit: `VEDMAN V2.4 polished`.
+## Upload
+Iekopē šīs mapes saturu repo root un publicē no `main / root`.
