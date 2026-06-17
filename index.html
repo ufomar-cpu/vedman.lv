@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VEDMAN — beramie materiāli, tehnika un piegāde</title>
   <meta name="description" content="VEDMAN — šķembas, grants, melnzeme, smilts, manipulators, zemes darbi un piegāde visā Latvijā. Uzzini cenu WhatsApp." />
-  <link rel="canonical" href="https://www.mainamies.lv/" />
+  <link rel="canonical" href="https://vedman.lv/" />
   <meta property="og:title" content="VEDMAN — piegādājam vairāk, nekā gaidīji" />
   <meta property="og:description" content="Beramie materiāli, tehnika un pilni risinājumi visā Latvijā." />
-  <meta property="og:url" content="https://www.mainamies.lv/" />
+  <meta property="og:url" content="https://vedman.lv/" />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://www.mainamies.lv/assets/images/hero-reference.png" />
+  <meta property="og:image" content="https://vedman.lv/assets/images/hero-reference.png" />
   <meta name="theme-color" content="#2d6b45" />
   <link rel="manifest" href="manifest.json" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -22,7 +22,7 @@
     "@context":"https://schema.org",
     "@type":"LocalBusiness",
     "name":"VEDMAN",
-    "url":"https://www.mainamies.lv",
+    "url":"https://vedman.lv",
     "telephone":"+37122312828",
     "areaServed":"Latvia",
     "description":"Beramie materiāli, tehnika un piegāde visā Latvijā"
@@ -33,7 +33,7 @@
   <header class="site-header" id="top">
     <div class="container header-inner">
       <a href="#top" class="brand" aria-label="VEDMAN sākums">
-        <div class="brand-word"><span>VED</span><strong>MAN</strong><em>♕</em></div>
+        <img class="brand-logo" src="assets/logo/vedman-logo-optimized.png" alt="VEDMAN" />
         <small>Beramie materiāli • Tehnika • Piegāde</small>
       </a>
       <nav class="desktop-nav" aria-label="Galvenā navigācija">
@@ -310,13 +310,22 @@
           <option value="Dolomīta šķembas"><option value="Granīta šķembas"><option value="Grants"><option value="Melnzeme"><option value="Smilts"><option value="Akmens"><option value="Oļi"><option value="Betona šķembas"><option value="Frēzēts asfalts"><option value="Kūtsmēsli"><option value="Betons"><option value="Manipulatora pakalpojumi"><option value="Zemes darbi"><option value="Koku serviss"><option value="Ceļu remonts"><option value="Sniega tīrīšana">
         </datalist>
         <label>Frakcija / tips<input id="quoteFraction" placeholder="0–32, sijāta, nesijāta..." /></label>
-        <div class="qty-section">
-          <span>Daudzums</span>
-          <div class="qty-controls"><button type="button" id="qtyMinus">−</button><input id="quoteQty" type="number" step="any" min="0" value="0" /><button type="button" id="qtyPlus">+</button></div>
-          <div class="unit-row"><label><input type="radio" name="unit" value="m³" checked /> m³</label><label><input type="radio" name="unit" value="tonnas" /> Tonnas</label><label><input type="radio" name="unit" value="nezinu" /> Nezinu</label></div>
+        <div class="qty-section compact-qty">
+          <div class="form-line-title">Daudzums</div>
+          <div class="qty-controls"><button type="button" id="qtyMinus" aria-label="Samazināt daudzumu">−</button><input id="quoteQty" type="number" inputmode="decimal" step="0.1" min="0" value="0" /><button type="button" id="qtyPlus" aria-label="Palielināt daudzumu">+</button></div>
+          <small class="qty-help">Raksti arī 0.1 / 3.2. Pogas +/- maina pa veselam ciparam.</small>
+          <div class="unit-label">Mērvienība</div>
+          <div class="unit-row unit-row-2"><label><input type="radio" name="unit" value="m³" checked /> m³</label><label><input type="radio" name="unit" value="tonnas" /> t</label></div>
+          <label class="unknown-volume"><input type="checkbox" id="unknownVolume" value="Nezinu tilpumu" /> ❓ Nezinu daudzumu / vajag palīdzēt aprēķināt</label>
         </div>
         <label>Objekta adrese<input id="quoteAddress" placeholder="Iela, māja, pilsēta" /></label>
-        <fieldset class="extras"><legend>Papildus</legend><label><input type="checkbox" value="Pāri žogam" /> Pāri žogam</label><label><input type="checkbox" value="Šaura vieta" /> Šaura vieta</label><label><input type="checkbox" value="Izlīdzināt" /> Izlīdzināt</label><label><input type="checkbox" value="Steidzami" /> Steidzami</label><label><input type="checkbox" value="Vajag konsultāciju" /> Vajag konsultāciju</label></fieldset>
+        <fieldset class="extras extras-icons"><legend>Papildus pakalpojumi</legend>
+          <label><input type="checkbox" value="Pāri žogam" /><span class="extra-icon">🚧</span><span>Pāri žogam</span></label>
+          <label><input type="checkbox" value="Šaura vieta" /><span class="extra-icon">📍</span><span>Šaura vieta</span></label>
+          <label><input type="checkbox" value="Izlīdzināt" /><span class="extra-icon">🚜</span><span>Izlīdzināt</span></label>
+          <label><input type="checkbox" value="Steidzami" /><span class="extra-icon">⏱</span><span>Steidzami</span></label>
+          <label><input type="checkbox" value="Vajag konsultāciju" /><span class="extra-icon">☎️</span><span>Konsultācija</span></label>
+        </fieldset>
         <label>Vārds<input id="quoteName" placeholder="Vārds" /></label>
         <label>Telefons<input id="quotePhone" placeholder="+371" /></label>
         <label>Komentārs<textarea id="quoteComment" placeholder="Papildus informācija"></textarea></label>
