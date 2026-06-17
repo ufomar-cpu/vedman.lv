@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="AMAPU SIA vedman.lv foto galerija — šķembas, grants, manipulators, melnzeme piegāde Rīgā."/>
+  <link rel="canonical" href="https://vedman.lv/galerija.html"/>
+  <title>Galerija — VEDMAN.LV | AMAPU SIA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body data-page="home">
+<div id="nav-root"></div>
+
+<div class="breadcrumb"><div class="container"><div class="breadcrumb-inner">
+  <a href="index.html">Sākums</a><span>›</span><span class="current">Galerija</span>
+</div></div></div>
+
+<section style="padding:60px 0">
+  <div class="container">
+    <div class="tag">Foto</div>
+    <h1 class="section-title">Mūsu darbu <span>galerija</span></h1>
+    <p class="section-sub">AMAPU SIA tehnika un darbi Rīgā, Ogrē un Latvijā</p>
+
+    <div class="gallery-grid" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr))">
+      <div class="gallery-item" onclick="openLb(0)"><img src="skemba1.jpeg" alt="Dolomīta šķembas piegāde" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLb(1)"><img src="skembas4.jpeg" alt="Šķembas ar pašizgāzēju" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLb(2)"><img src="skembas77.jpeg" alt="Šķembas Latvijā" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLb(3)"><img src="manipul1.jpeg" alt="Manipulators Rīgā" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLb(4)"><img src="manipul2.jpeg" alt="Manipulators ar greiferi" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLb(5)"><img src="manipul4.jpeg" alt="Manipulatora pakalpojumi" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLb(6)"><img src="manipul5.jpeg" alt="Manipulators tehnika" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLb(7)"><img src="manipul6.jpeg" alt="Tehnikas noma Rīgā" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLb(8)"><img src="manipul7.jpeg" alt="Koku serviss ar manipulatoru" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLb(9)"><img src="melnz1.jpeg" alt="Melnzeme sijāta" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLb(10)"><img src="melnz2.jpeg" alt="Melnzeme Rīgā" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLb(11)"><img src="melnz3.jpeg" alt="Melnzeme nesijāta" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLb(12)"><img src="melnz5.jpeg" alt="Melnzeme ar pašizgāzēju" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLb(13)"><img src="melnz9.jpeg" alt="Beramās kravas Latvijā" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLb(14)"><img src="granst.jpeg" alt="Grants piegāde Rīgā" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLb(15)"><img src="grants6.jpeg" alt="Grants un smilts piegāde" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLb(16)"><img src="lapas.jpeg" alt="Teritorijas sakopšana" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLb(17)"><img src="zari1.jpeg" alt="Zaru izzāģēšana un izvešana" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLb(18)"><img src="zari2.jpeg" alt="Koku serviss Rīgā" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLb(19)"><img src="transp1.jpeg" alt="Kravas transports Latvijā" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLb(20)"><img src="transp5.jpeg" alt="Pašizgāzējs Rīgā" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLb(21)"><img src="transp9.jpeg" alt="Beramās kravas piegāde" loading="lazy"/></div>
+      <div class="gallery-item" onclick="openLb(22)"><img src="stikls2.jpeg" alt="Kravas transports" loading="lazy"/></div>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lb">
+  <button class="lightbox-close" onclick="closeLb()">✕</button>
+  <button class="lightbox-prev" onclick="lbPrev()">‹</button>
+  <img src="" alt="" id="lbImg"/>
+  <button class="lightbox-next" onclick="lbNext()">›</button>
+</div>
+
+<div id="footer-root"></div>
+<div id="order-root"></div>
+<script src="js/nav.js"></script>
+<script>
+const imgs=['skemba1.jpeg','skembas4.jpeg','skembas77.jpeg','manipul1.jpeg','manipul2.jpeg','manipul4.jpeg','manipul5.jpeg','manipul6.jpeg','manipul7.jpeg','melnz1.jpeg','melnz2.jpeg','melnz3.jpeg','melnz5.jpeg','melnz9.jpeg','granst.jpeg','grants6.jpeg','lapas.jpeg','zari1.jpeg','zari2.jpeg','transp1.jpeg','transp5.jpeg','transp9.jpeg','stikls2.jpeg'];
+let idx=0;
+function openLb(i){idx=i;document.getElementById('lbImg').src=imgs[i];document.getElementById('lb').classList.add('open');document.body.style.overflow='hidden';}
+function closeLb(){document.getElementById('lb').classList.remove('open');document.body.style.overflow='';}
+function lbPrev(){idx=(idx-1+imgs.length)%imgs.length;document.getElementById('lbImg').src=imgs[idx];}
+function lbNext(){idx=(idx+1)%imgs.length;document.getElementById('lbImg').src=imgs[idx];}
+document.getElementById('lb').addEventListener('click',function(e){if(e.target===this)closeLb();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft')lbPrev();if(e.key==='ArrowRight')lbNext();});
+</script>
+</body>
+</html>

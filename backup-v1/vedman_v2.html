@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VEDMAN V2</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#1d1f21;color:#fff}
+header{position:fixed;top:0;width:100%;background:rgba(20,20,20,.95);padding:15px 5%;display:flex;justify-content:space-between;align-items:center;z-index:100}
+.logo{font-size:36px;font-weight:900}
+.logo span{color:#28a745}
+.logo em{color:#d4af37;font-style:normal}
+nav a{color:#ddd;text-decoration:none;margin:0 10px}
+.hero{height:100vh;background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url('https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=1600') center/cover;
+display:flex;align-items:center;padding:0 8%}
+.hero-box{max-width:700px}
+h1{font-size:58px;margin:0}
+.green{color:#39b54a}
+.gold{color:#d4af37}
+p{color:#ccc;line-height:1.7}
+.buttons a{display:inline-block;margin:10px;padding:14px 24px;border-radius:12px;text-decoration:none;font-weight:bold}
+.btn1{background:#39b54a;color:black}
+.btn2{background:#d4af37;color:black}
+.btn3{border:1px solid #555;color:#fff}
+section{padding:90px 8%}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.card{background:#2b2d30;padding:25px;border-radius:18px;border:1px solid #444}
+.card:hover{transform:translateY(-5px)}
+h2{font-size:40px}
+footer{padding:40px;background:#151515;text-align:center;color:#888}
+.bottombar{position:fixed;bottom:0;left:0;right:0;background:#111;padding:12px;display:flex;gap:10px}
+.bottombar a{flex:1;text-align:center;padding:14px;border-radius:12px;text-decoration:none;font-weight:bold}
+@media(max-width:700px){h1{font-size:40px}nav{display:none}}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">VED<span>MAN</span><em>👑</em></div>
+<nav>
+<a href="#">Sākums</a>
+<a href="#">Materiāli</a>
+<a href="#">Pakalpojumi</a>
+<a href="#">Galerija</a>
+<a href="#">Kontakti</a>
+</nav>
+</header>
+
+<div class="hero">
+<div class="hero-box">
+<h1>Dabīgi <span class="green">materiāli</span> un <span class="gold">tehnika</span> visā Latvijā</h1>
+<p>Šķembas, smilts, melnzeme, manipulators, zemes darbi un piegāde. Ātri. Vienkārši.</p>
+<div class="buttons">
+<a class="btn1" href="#">Pieprasīt piedāvājumu</a>
+<a class="btn2" href="#">WhatsApp</a>
+<a class="btn3" href="#">Zvanīt</a>
+</div>
+</div>
+</div>
+
+<section>
+<h2>Materiāli</h2>
+<div class="cards">
+<div class="card">🪨 Šķembas</div>
+<div class="card">🌱 Melnzeme</div>
+<div class="card">🏖 Smilts</div>
+<div class="card">🚚 Grants</div>
+<div class="card">🧱 Betons</div>
+<div class="card">🛣 Frēzēts asfalts</div>
+</div>
+</section>
+
+<section>
+<h2>Pakalpojumi</h2>
+<div class="cards">
+<div class="card">🏗 Manipulators</div>
+<div class="card">❄ Sniega tīrīšana</div>
+<div class="card">🌳 Koku serviss</div>
+<div class="card">⛏ Zemes darbi</div>
+<div class="card">🚛 Nestandarta transports</div>
+<div class="card">🏡 Dārza dizains</div>
+</div>
+</section>
+
+<section>
+<h2>Realizētie objekti</h2>
+<p>Šeit pievienosi savas īstās tehnikas un objektu bildes no galerijas.</p>
+</section>
+
+<footer>
+VEDMAN.LV • AMAPU SIA • +371 22312828
+</footer>
+
+<div class="bottombar">
+<a class="btn1">📞 Zvanīt</a>
+<a class="btn2">💬 WhatsApp</a>
+<a class="btn3">📋 Piedāvājums</a>
+</div>
+</body>
+</html>

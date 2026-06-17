@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Smilts piegāde Rīgā un Latvijā. Pieberamā, sijātā, mazgātā smilts. Betonēšanai, bērnu laukumiem, drenāžai. AMAPU SIA +371 22312828"/>
+  <link rel="canonical" href="https://vedman.lv/smilts.html"/>
+  <title>Smilts ar piegādi Rīgā — Sijātā, Pieberamā, Mazgātā | VEDMAN.LV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body data-page="smilts">
+<div id="nav-root"></div>
+
+<div class="breadcrumb"><div class="container"><div class="breadcrumb-inner">
+  <a href="index.html">Sākums</a><span>›</span><span class="current">Smilts</span>
+</div></div></div>
+
+<section id="smilts" style="padding:60px 0">
+  <div class="container">
+    <div class="tag">Beramkravas</div>
+    <h1 class="section-title">Smilts ar <span>piegādi</span></h1>
+    <p class="section-sub">Rīgā · Ogrē · Visā Latvijā · +371 22312828</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:48px" class="product-layout">
+      <div>
+        <p style="color:var(--muted);margin-bottom:18px;line-height:1.75">
+          Smiltis ir dabisks materiāls, kas sastāv no maziem akmens graudiņiem un minerāliem. Tas ir neaizstājams būvniecības materiāls, ko izmanto jau tūkstošiem gadu. Atkarībā no apstrādes un frakcijas, smilts ir piemērota ļoti dažādiem mērķiem — no betona gatavošanas līdz bērnu rotaļu laukumu iekārtošanai.
+        </p>
+
+        <h3 style="font-family:var(--font-head);font-size:17px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px">Smilts veidi</h3>
+        <table class="frakcijas-table">
+          <thead><tr><th>Veids</th><th>Frakcija</th><th>Pielietojums</th></tr></thead>
+          <tbody>
+            <tr><td class="green">Pieberamā</td><td>0–4 mm</td><td>Ceļu un pamatu aizbēršana, izlīdzināšana</td></tr>
+            <tr><td class="green">Sijātā</td><td>0–2 mm</td><td>Betonēšana, apmetums, celtniecība</td></tr>
+            <tr><td class="green">Mazgātā</td><td>0–2 mm</td><td>Bērnu laukumi, akvāriji, filtri, dekoratīva</td></tr>
+            <tr><td class="green">Drenāžas</td><td>0–4 mm</td><td>Drenāžas sistēmas, filtri, grunts uzlabošana</td></tr>
+          </tbody>
+        </table>
+
+        <div class="info-grid" style="margin-top:24px;grid-template-columns:1fr 1fr">
+          <div class="info-block">
+            <h3>🏗 Celtniecībai</h3>
+            <p style="font-size:13px">Sijātā smilts betona un apmetuma maisīšanai — standarta prasības LVS EN.</p>
+          </div>
+          <div class="info-block">
+            <h3>🌿 Dārzam</h3>
+            <p style="font-size:13px">Mazgātā smilts drenāžai un bērnu smilšu kastēm — tīra, bez piemaisījumiem.</p>
+          </div>
+        </div>
+
+        <div class="notice" style="margin-top:20px">
+          <strong>💡 Padoms:</strong> 1 m³ smilts sver aptuveni 1,6–1,8 tonnas. Pasūtot bērnu smilšu kastei, ņemiet vērā izmērus: 2×2 m kaste ar 30 cm dziļumu prasa ~1,2 m³.
+        </div>
+
+        <div style="display:flex;gap:10px;margin-top:24px;flex-wrap:wrap">
+          <a href="https://wa.me/37122312828?text=Sveiki!%20Interesē%20smilts%20piegāde." class="btn btn-green" target="_blank" rel="noopener">💬 Pasūtīt</a>
+          <a href="tel:+37122312828" class="btn btn-outline">📞 22 312 828</a>
+        </div>
+      </div>
+
+      <div>
+        <img src="transp9.jpeg" alt="Smilts piegāde ar pašizgāzēju" style="width:100%;height:280px;object-fit:cover;margin-bottom:4px"/>
+        <div class="kalk-wrap" style="margin-top:12px">
+          <div class="kalk-title">🧮 Kalkulators</div>
+          <div class="kalk-row">
+            <div class="kalk-label">Daudzums (m³)</div>
+            <div class="kalk-controls">
+              <button class="kalk-btn" onclick="kalkChange('s_m3',-1)">−</button>
+              <input type="number" class="kalk-val" id="s_m3" value="3" min="1" oninput="kalkCalc('s')"/>
+              <button class="kalk-btn" onclick="kalkChange('s_m3',1)">+</button>
+            </div>
+          </div>
+          <div class="kalk-row">
+            <div class="kalk-label">Smilts veids</div>
+            <select class="kalk-select" id="s_mat" onchange="kalkCalc('s')">
+              <option value="12">Pieberamā smilts 0–4 mm</option>
+              <option value="14">Sijātā smilts 0–2 mm</option>
+              <option value="18">Mazgātā smilts 0–2 mm</option>
+              <option value="13">Drenāžas smilts</option>
+            </select>
+          </div>
+          <div class="kalk-row">
+            <div class="kalk-label">Piegādes zona</div>
+            <select class="kalk-select" id="s_zone" onchange="kalkCalc('s')">
+              <option value="0">Rīga</option><option value="15">Ogre (+15€)</option>
+              <option value="25">Jūrmala / Jelgava (+25€)</option><option value="40">Cita Latvija (+40€)</option>
+            </select>
+          </div>
+          <div class="kalk-result">
+            <div><div class="kalk-result-label">Orientējošā cena</div><div class="kalk-result-price" id="s_price">36€</div></div>
+          </div>
+          <a id="s_wa_link" href="#" class="kalk-wa" target="_blank" rel="noopener">💬 Pasūtīt WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-root"></div>
+<div id="order-root"></div>
+<script src="js/nav.js"></script>
+<script>
+function kalkChange(id,d){const e=document.getElementById(id);e.value=Math.max(1,parseInt(e.value||1)+d);kalkCalc('s');}
+function kalkCalc(p){const m=parseInt(document.getElementById(p+'_m3').value)||1,mat=parseInt(document.getElementById(p+'_mat').value)||12,z=parseInt(document.getElementById(p+'_zone').value)||0,t=m*mat+z;document.getElementById(p+'_price').textContent=t+'€';const mn=document.getElementById(p+'_mat').options[document.getElementById(p+'_mat').selectedIndex].text,zn=document.getElementById(p+'_zone').options[document.getElementById(p+'_zone').selectedIndex].text;document.getElementById(p+'_wa_link').href='https://wa.me/37122312828?text='+encodeURIComponent(`Sveiki! Vēlos pasūtīt:\nMateriāls: ${mn}\nDaudzums: ${m} m³\nPiegāde: ${zn}\nOrientējošā cena: ${t}€\nAdrese: `);}
+kalkCalc('s');
+</script>
+</body>
+</html>
