@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 210" role="img" aria-label="www.VEDMAN.lv logo">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE99A"/><stop offset=".45" stop-color="#D79B22"/><stop offset="1" stop-color="#A86A08"/></linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#18C755"/><stop offset="1" stop-color="#087B34"/></linearGradient>
+    <filter id="shadow" x="-10%" y="-20%" width="120%" height="150%"><feDropShadow dx="0" dy="7" stdDeviation="4" flood-color="#000" flood-opacity=".25"/></filter>
+  </defs>
+  <g filter="url(#shadow)" font-family="Arial Black, Impact, Montserrat, Arial, sans-serif" font-weight="900" font-size="112" letter-spacing="-7">
+    <text x="20" y="145" fill="#fff" stroke="#111" stroke-width="13" paint-order="stroke">www.</text>
+    <text x="20" y="145" fill="#fff" stroke="#fff" stroke-width="5" paint-order="stroke">www.</text>
+    <text x="285" y="145" fill="none" stroke="#080808" stroke-width="16" paint-order="stroke">VED</text>
+    <text x="285" y="145" fill="none" stroke="url(#gold)" stroke-width="12" paint-order="stroke">VED</text>
+    <text x="285" y="145" fill="#fff" stroke="#111" stroke-width="3" paint-order="stroke">VED</text>
+    <text x="605" y="145" fill="none" stroke="#080808" stroke-width="16" paint-order="stroke">MAN</text>
+    <text x="605" y="145" fill="none" stroke="url(#gold)" stroke-width="12" paint-order="stroke">MAN</text>
+    <text x="605" y="145" fill="url(#green)" stroke="#111" stroke-width="3" paint-order="stroke">MAN</text>
+    <text x="930" y="145" fill="#fff" stroke="#111" stroke-width="13" paint-order="stroke">.lv</text>
+    <text x="930" y="145" fill="#fff" stroke="#fff" stroke-width="5" paint-order="stroke">.lv</text>
+  </g>
+  <g transform="translate(835 44) rotate(-30) scale(.72)" filter="url(#shadow)">
+    <path d="M0 63 L12 20 L43 53 L72 12 L102 53 L133 20 L146 63 Z" fill="url(#gold)" stroke="#111" stroke-width="5" stroke-linejoin="round"/>
+    <rect x="-2" y="62" width="150" height="25" rx="8" fill="url(#gold)" stroke="#111" stroke-width="5"/>
+    <circle cx="12" cy="18" r="11" fill="url(#gold)" stroke="#111" stroke-width="4"/><circle cx="72" cy="10" r="11" fill="url(#gold)" stroke="#111" stroke-width="4"/><circle cx="133" cy="18" r="11" fill="url(#gold)" stroke="#111" stroke-width="4"/>
+  </g>
+</svg>

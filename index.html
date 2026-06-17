@@ -22,7 +22,7 @@
   <header class="site-header" id="top">
     <div class="container header-inner">
       <a href="#top" class="brand" aria-label="VEDMAN sākums">
-        <img class="brand-logo" src="assets/logo/vedman-logo.png" alt="VEDMAN" />
+        <img class="brand-logo" src="assets/logo/vedman-logo.svg" alt="VEDMAN" />
         <span>Beramie materiāli • Tehnika • Piegāde</span>
       </a>
       <nav class="desktop-nav" aria-label="Galvenā navigācija">
@@ -217,7 +217,7 @@
 
   <footer class="site-footer" id="kontakti">
     <div class="container footer-grid">
-      <div><img class="footer-logo" src="assets/logo/vedman-logo.png" alt="VEDMAN" /><p>Beramie materiāli, tehnika un piegāde visā Latvijā.</p></div>
+      <div><img class="footer-logo" src="assets/logo/vedman-logo.svg" alt="VEDMAN" /><p>Beramie materiāli, tehnika un piegāde visā Latvijā.</p></div>
       <div><h3>Kontakti</h3><a href="tel:+37122312828">22312828</a><a href="tel:+37120080098">20080098</a><a href="https://wa.me/37122312828" target="_blank" rel="noopener">WhatsApp</a></div>
       <div><h3>Pakalpojumi</h3><p>Šķembas • Smilts • Grants • Melnzeme • Manipulators</p></div>
     </div>
@@ -230,32 +230,46 @@
       <p class="modal-sub">Aizpildi īsi — pieprasījums sagatavosies WhatsApp.</p>
       <form id="quoteForm">
         <label>Materiāls / pakalpojums
-          <input id="quoteMaterial" value="Dolomīta šķembas" autocomplete="off" />
+          <select id="quoteMaterial"></select>
         </label>
         <label>Frakcija / tips
-          <input id="quoteFraction" value="0–32" autocomplete="off" />
+          <select id="quoteFraction"></select>
         </label>
 
         <div class="qty-section">
           <div class="form-line-title">Daudzums</div>
-          <div class="qty-controls">
-            <button type="button" id="qtyMinus" aria-label="Samazināt par 1">−</button>
-            <div class="qty-input-wrap">
-              <input id="quoteQty" type="number" min="0" step="0.1" value="0" inputmode="decimal" />
-              <div class="fine-controls" aria-label="Precīza korekcija">
-                <button type="button" id="qtyFinePlus" aria-label="Palielināt par 0.1">▲</button>
-                <button type="button" id="qtyFineMinus" aria-label="Samazināt par 0.1">▼</button>
-              </div>
-            </div>
-            <button type="button" id="qtyPlus" aria-label="Palielināt par 1">+</button>
+          <div class="qty-controls compact-qty">
+            <button type="button" class="qty-btn" id="qtyMinus" aria-label="Samazināt par 1">−</button>
+            <input id="quoteQty" type="number" min="0" step="0.1" value="0" inputmode="decimal" />
+            <button type="button" class="qty-btn" id="qtyPlus" aria-label="Palielināt par 1">+</button>
           </div>
-          <div class="qty-help">+ / − maina par 1. Bultiņas precizē par 0.1.</div>
+          <div class="qty-help">+ / − maina par 1. Ievades lauka mazās bultiņas precizē par 0.1.</div>
+
           <div class="unit-label">Mērvienība</div>
-          <div class="unit-row">
-            <label><input type="radio" name="unit" value="m³" checked /><span>m³</span></label>
-            <label><input type="radio" name="unit" value="t" /><span>tonnas</span></label>
+          <div class="unit-cards" role="radiogroup" aria-label="Mērvienība">
+            <label class="unit-card">
+              <input type="radio" name="unit" value="m³" checked />
+              <span class="unit-icon">📦</span><span>m³</span>
+            </label>
+            <label class="unit-card">
+              <input type="radio" name="unit" value="t" />
+              <span class="unit-icon">⚖️</span><span>Tonnas</span>
+            </label>
           </div>
-          <label class="unknown-volume"><input type="checkbox" id="unknownVolume" value="Nezinu daudzumu" /> <span>Nezinu daudzumu — vajag palīdzēt aprēķināt</span></label>
+
+          <button type="button" class="calc-toggle" id="calcToggle" aria-expanded="false" aria-controls="volumeCalculator">
+            🧮 Nezinu daudzumu — aprēķināt m³ pēc izmēriem
+          </button>
+
+          <div class="volume-calculator" id="volumeCalculator" hidden>
+            <div class="calc-grid">
+              <label>Garums, m<input id="calcLength" type="number" min="0" step="0.1" inputmode="decimal" placeholder="piem. 10" /></label>
+              <label>Platums, m<input id="calcWidth" type="number" min="0" step="0.1" inputmode="decimal" placeholder="piem. 4" /></label>
+              <label>Biezums, cm<input id="calcDepth" type="number" min="0" step="1" inputmode="decimal" placeholder="piem. 15" /></label>
+            </div>
+            <div class="calc-result" id="calcResult">m³ = garums × platums × biezums / 100</div>
+            <button type="button" class="calc-apply" id="calcApply">Ielikt aprēķinu daudzumā</button>
+          </div>
         </div>
 
         <label>Objekta adrese

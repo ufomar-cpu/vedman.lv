@@ -18,11 +18,153 @@ a{text-decoration:none;color:inherit}button,input,textarea{font:inherit}button{c
 @media(max-width:700px){.container{width:min(100% - 28px,1140px)}.header-inner{height:56px}.brand{min-width:0}.brand-logo{width:124px}.brand span{display:none}.mobile-menu{top:62px}.hero{padding:20px 0 26px}.hero h1{font-size:clamp(30px,9.2vw,38px);line-height:.98;margin:12px 0 8px}.hero h2{font-size:19px}.hero p{font-size:14.5px}.trust-row{gap:6px;margin:12px 0}.trust-row span{font-size:12px;padding:7px 9px}.hero-ctas{gap:8px}.hero-ctas .btn{width:100%;min-height:43px}.hero-visual{display:none}.section{padding:28px 0}.section-head h2{font-size:27px}.filter-row{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:8px}.filter-row button{white-space:nowrap}.card-grid{grid-template-columns:1fr 1fr;gap:10px}.material-card{padding:12px}.card-image{height:82px}.material-card h3{font-size:17px}.material-card p{font-size:13px}.chips{display:none}.service-grid,.steps-grid,.benefits-grid{grid-template-columns:1fr}.quote-overlay{align-items:flex-end;padding:0}.quote-modal{width:100vw;max-height:90dvh;border-radius:22px 22px 0 0;padding:17px 14px 13px}.quote-modal h2{font-size:28px}.qty-controls{grid-template-columns:48px minmax(110px,1fr) 48px}.qty-controls>button{width:48px;height:48px;font-size:30px}.qty-input-wrap input{height:48px;font-size:24px!important}.fine-controls{top:5px;bottom:5px;right:6px}.fine-controls button{width:28px;font-size:14px}.extras-icons{grid-template-columns:repeat(2,1fr)}.extras-icons label{min-height:62px;font-size:12.5px}.form-two-col{grid-template-columns:1fr}.mobile-bar{display:grid}.site-footer{padding-bottom:95px}.footer-grid{grid-template-columns:1fr}}
 @media(max-width:390px){.brand-logo{width:114px}.hero h1{font-size:29px}.card-grid{grid-template-columns:1fr}.qty-controls{grid-template-columns:46px minmax(104px,1fr) 46px}.qty-controls>button{width:46px;height:46px}.unit-row label{font-size:14px}}
 
-/* =========================================================
-   VEDMAN V2.5 — logo + compact spacing polish
-   2026-06-17
-   ========================================================= */
-html,body{max-width:100%;overflow-x:hidden}.site-header{padding:0}.header-inner{min-height:74px;height:auto;gap:18px}.brand{min-width:220px;line-height:1;gap:0}.brand-logo{width:240px;max-width:240px;max-height:72px;height:auto;object-fit:contain;object-position:left center;display:block}.brand span{font-size:12px;margin-top:0;color:#55645a;white-space:nowrap}.hero{padding:24px 0 20px}.section{padding:24px 0}.section-head{margin-bottom:14px}.compact-head{margin-bottom:12px}.card-grid,.service-grid,.steps-grid,.benefits-grid{gap:12px}.material-card,.service-grid article,.steps-grid div,.benefits-grid div{padding:14px}.featured-service{padding:16px;margin-bottom:14px}.media-card{height:320px}.site-footer{padding:26px 0 30px}.quote-modal{padding:18px}.hero h1{margin:12px 0 8px}.hero p{margin-bottom:12px}.trust-row{margin:12px 0}.filter-row{margin-bottom:14px}.card-image{height:104px;margin-bottom:10px}
-@media(max-width:1080px){.header-inner{min-height:66px}.brand{min-width:190px}.brand-logo{width:205px;max-height:62px}.media-card{height:260px}.hero{padding:22px 0 22px}.section{padding:24px 0}}
-@media(max-width:700px){.container{width:min(100% - 24px,1140px)}.header-inner{min-height:58px;height:auto}.brand{min-width:0}.brand-logo{width:150px;max-width:150px;max-height:48px}.brand span{display:none}.mobile-menu{top:58px}.hero{padding:18px 0 22px}.section{padding:22px 0}.section-head{margin-bottom:12px}.section-head h2{margin:6px 0 6px}.card-grid{gap:9px}.material-card{padding:11px}.card-image{height:76px}.quote-modal{padding:16px 13px 13px}.extras-icons{gap:6px}.mobile-bar{left:7px;right:7px;bottom:7px}}
-@media(max-width:390px){.brand-logo{width:138px;max-height:44px}.section{padding:20px 0}.hero{padding:16px 0 20px}.card-grid{grid-template-columns:1fr}}
+/* V2.5 — kompaktāka cenas forma + m³ kalkulators */
+:root{
+  --green:#18b84f;
+  --green-dark:#0f7f3a;
+  --green-soft:#e8f8ee;
+}
+.quote-modal{
+  width:min(94vw,560px);
+  max-height:88dvh;
+  padding:18px;
+}
+#quoteForm{gap:8px}
+#quoteForm label{gap:4px;font-size:13.5px}
+#quoteForm input,#quoteForm textarea{padding:9px 11px;border-radius:12px;font-size:14.5px}
+.quote-modal h2{font-size:30px}
+.modal-sub{margin-bottom:10px}.form-line-title,.unit-label{font-size:13.5px}.qty-section{gap:6px}
+.qty-controls.compact-qty{
+  display:grid;
+  grid-template-columns:46px minmax(120px,1fr) 46px;
+  align-items:center;
+  gap:8px;
+}
+.qty-controls.compact-qty .qty-btn{
+  width:46px;
+  height:46px;
+  min-width:46px;
+  border:0;
+  border-radius:13px;
+  background:#111821;
+  color:#fff;
+  font-size:28px;
+  font-weight:950;
+  line-height:1;
+}
+.qty-controls.compact-qty input{
+  height:46px;
+  text-align:center;
+  font-size:24px!important;
+  font-weight:950;
+  padding:6px 34px 6px 10px!important;
+}
+.qty-help{font-size:11.5px;color:#64706a;line-height:1.25}
+.unit-cards{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+}
+.unit-card{
+  position:relative;
+  min-height:44px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:#fff;
+  display:flex!important;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  color:#111;
+  font-weight:950!important;
+  cursor:pointer;
+}
+.unit-card input{position:absolute;opacity:0;pointer-events:none}
+.unit-card:has(input:checked){
+  background:linear-gradient(135deg,var(--green),var(--green-dark));
+  color:#fff;
+  border-color:var(--green-dark);
+  box-shadow:0 8px 18px rgba(24,184,79,.18);
+}
+.unit-icon{font-size:18px;line-height:1}
+.calc-toggle{
+  width:100%;
+  border:1px solid #dceee3;
+  background:#f4fbf6;
+  color:#193b25;
+  border-radius:13px;
+  padding:10px 12px;
+  font-weight:900;
+  text-align:left;
+  font-size:13.5px;
+}
+.calc-toggle.active{
+  background:rgba(24,184,79,.12);
+  border-color:var(--green);
+}
+.volume-calculator{
+  border:1px solid #dceee3;
+  background:#fbfefc;
+  border-radius:16px;
+  padding:10px;
+  display:grid;
+  gap:8px;
+}
+.calc-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+}
+.calc-result{
+  min-height:34px;
+  border-radius:12px;
+  background:#eef8f1;
+  color:#174024;
+  display:flex;
+  align-items:center;
+  padding:8px 10px;
+  font-weight:900;
+  font-size:13.5px;
+}
+.calc-apply{
+  border:0;
+  border-radius:13px;
+  background:linear-gradient(135deg,var(--green),var(--green-dark));
+  color:#fff;
+  min-height:42px;
+  font-weight:950;
+}
+.extras-icons{grid-template-columns:repeat(5,1fr);gap:6px}.extras-icons label{min-height:62px;padding:6px 4px}.extra-icon{font-size:20px}.send-btn{padding:12px;border-radius:15px}.unknown-volume,.fine-controls{display:none!important}
+
+@media(max-width:700px){
+  .quote-modal{width:100vw;max-height:90dvh;padding:16px 13px 12px}
+  .quote-modal h2{font-size:27px}.modal-sub{font-size:13px}
+  .qty-controls.compact-qty{grid-template-columns:44px minmax(110px,1fr) 44px;gap:7px}
+  .qty-controls.compact-qty .qty-btn{width:44px;height:44px;min-width:44px;font-size:26px}
+  .qty-controls.compact-qty input{height:44px;font-size:22px!important}
+  .unit-card{min-height:42px;font-size:14px!important}.calc-grid{grid-template-columns:1fr 1fr 1fr;gap:6px}.calc-grid label{font-size:12.5px!important}.calc-grid input{padding:8px!important}.extras-icons{grid-template-columns:repeat(2,1fr)}.extras-icons label{min-height:58px}.form-two-col{grid-template-columns:1fr 1fr;gap:7px}
+}
+@media(max-width:420px){
+  .calc-grid{grid-template-columns:1fr}.form-two-col{grid-template-columns:1fr}.unit-cards{grid-template-columns:1fr 1fr}.quote-modal{max-height:92dvh}
+}
+
+/* V2.6 FIX: real SVG logo, compact calculator modal */
+.brand-logo{width:150px;max-height:42px;object-fit:contain}.footer-logo{width:260px;max-width:100%;height:auto;object-fit:contain}.site-footer .footer-grid>div:first-child{min-width:0}.site-footer p{max-width:560px;line-height:1.35;white-space:normal;overflow:visible}
+.quote-modal{width:min(94vw,560px);padding:16px 18px;max-height:88dvh}.quote-modal h2{font-size:28px}.modal-sub{margin-bottom:8px}#quoteForm{gap:7px}#quoteForm label{gap:4px;font-size:13px}#quoteForm input,#quoteForm textarea{padding:8px 10px;border-radius:11px;font-size:14px}#quoteForm textarea{min-height:46px}.qty-controls{grid-template-columns:42px minmax(125px,1fr) 42px;gap:7px}.qty-controls>button{width:42px;height:42px;border-radius:12px;font-size:25px}.qty-input-wrap input{height:42px!important;font-size:22px!important;padding:6px 36px 6px 10px!important}.fine-controls{right:5px;top:4px;bottom:4px;gap:2px}.fine-controls button{width:25px;border-radius:6px;font-size:11px}.qty-help{font-size:11px}.unit-row{grid-template-columns:1fr 1fr;gap:7px}.unit-row label{min-height:38px;font-size:14px}.calc-panel{display:none;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:6px}.calc-panel.active{display:grid}.calc-panel label{font-size:12px!important}.calc-result{grid-column:1/-1;font-weight:900;color:var(--green-dark);background:#f1faf4;border:1px solid #d7efdf;border-radius:11px;padding:7px 9px}.extras-icons{grid-template-columns:repeat(5,1fr);gap:6px}.extras-icons label{min-height:58px;font-size:11.5px;padding:6px 4px}.extra-icon{font-size:19px}.send-btn{padding:11px;border-radius:13px}.unknown-volume{font-size:13px;padding:8px 10px!important}
+@media(max-width:700px){.footer-logo{width:210px}.quote-modal{max-height:91dvh;padding:14px 12px 12px}.quote-modal h2{font-size:25px}.qty-controls{grid-template-columns:40px minmax(105px,1fr) 40px}.qty-controls>button{width:40px;height:40px;font-size:24px}.qty-input-wrap input{height:40px!important;font-size:20px!important}.unit-row label{min-height:37px}.calc-panel{grid-template-columns:1fr 1fr}.calc-panel label:nth-child(3){grid-column:1/-1}.extras-icons{grid-template-columns:repeat(3,1fr)}.extras-icons label{min-height:54px}.brand-logo{width:132px}}
+@media(max-width:390px){.extras-icons{grid-template-columns:repeat(2,1fr)}.quote-modal{padding:12px 10px}.footer-logo{width:190px}}
+
+
+/* V2.7 FIX: pilna Pasūtīt/Uzzini cenu izvēlne + kompaktāka forma */
+#quoteForm select{width:100%;border:1px solid #d8e3dc;border-radius:11px;padding:8px 36px 8px 10px;background:#fff;color:#111;font-size:14px;font-weight:850;outline:none;appearance:auto;-webkit-appearance:menulist}
+#quoteForm select:focus{border-color:var(--green);box-shadow:0 0 0 4px rgba(22,185,73,.10)}
+.quote-modal{width:min(94vw,540px);padding:15px 17px;max-height:88dvh}
+.quote-modal h2{font-size:26px}.modal-sub{font-size:13px;margin-bottom:7px}
+#quoteForm{gap:7px}#quoteForm label{font-size:13px;gap:4px}
+#quoteForm input,#quoteForm textarea{padding:8px 10px;border-radius:11px;font-size:14px}
+.qty-controls.compact-qty{grid-template-columns:40px minmax(112px,1fr) 40px;gap:7px}
+.qty-controls.compact-qty .qty-btn{width:40px;height:40px;min-width:40px;border-radius:11px;font-size:24px}
+.qty-controls.compact-qty input{height:40px;font-size:21px!important;padding:6px 10px!important;text-align:center;font-weight:950}
+.qty-help{font-size:10.5px}.unit-cards{grid-template-columns:1fr 1fr;gap:7px}.unit-card{min-height:39px;font-size:13.5px}.calc-toggle{padding:8px 10px;font-size:13px}.calc-grid{gap:6px}.calc-grid input{padding:7px 8px!important}.extras-icons{gap:6px}.extras-icons label{min-height:54px;font-size:11px}.extra-icon{font-size:18px}.send-btn{padding:11px}
+@media(max-width:700px){#quoteForm select{font-size:13.5px;padding:8px 34px 8px 10px}.quote-modal{max-height:91dvh;padding:13px 11px 12px}.quote-modal h2{font-size:24px}.qty-controls.compact-qty{grid-template-columns:38px minmax(96px,1fr) 38px}.qty-controls.compact-qty .qty-btn{width:38px;height:38px;font-size:22px}.qty-controls.compact-qty input{height:38px;font-size:19px!important}.calc-grid{grid-template-columns:1fr 1fr}.calc-grid label:nth-child(3){grid-column:1/-1}.extras-icons{grid-template-columns:repeat(3,1fr)}.extras-icons label{min-height:52px}.form-two-col{grid-template-columns:1fr 1fr;gap:7px}}
+@media(max-width:390px){.extras-icons{grid-template-columns:repeat(2,1fr)}.form-two-col{grid-template-columns:1fr}.quote-modal{padding:12px 10px}}
