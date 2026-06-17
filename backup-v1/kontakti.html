@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Sazinies ar AMAPU SIA vedman.lv — +371 22312828, WhatsApp, e-pasts. Beramās kravas Rīgā un Latvijā."/>
+  <link rel="canonical" href="https://vedman.lv/kontakti.html"/>
+  <title>Kontakti — AMAPU SIA | VEDMAN.LV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body data-page="contact">
+<div id="nav-root"></div>
+
+<div class="breadcrumb"><div class="container"><div class="breadcrumb-inner">
+  <a href="index.html">Sākums</a><span>›</span><span class="current">Kontakti</span>
+</div></div></div>
+
+<section style="padding:60px 0">
+  <div class="container">
+    <div class="tag">Sazinies</div>
+    <h1 class="section-title">Kontakti un <span>pasūtījums</span></h1>
+    <p class="section-sub">Atbildam ātri · WhatsApp · Telefons · E-pasts</p>
+
+    <!-- Kontaktu kartiņas -->
+    <div class="contact-grid" style="margin-bottom:48px">
+      <a href="https://wa.me/37122312828" class="contact-card" target="_blank" rel="noopener">
+        <div class="contact-icon">💬</div>
+        <div><div class="contact-label">WhatsApp (ātrākais)</div><div class="contact-val">+371 22312828</div><p style="color:var(--muted);font-size:13px;margin-top:4px">Nosūtiet foto vai aprakstu — atbildēsim ātri!</p></div>
+      </a>
+      <a href="tel:+37122312828" class="contact-card">
+        <div class="contact-icon">📞</div>
+        <div><div class="contact-label">Tālrunis</div><div class="contact-val">+371 22312828</div><p style="color:var(--muted);font-size:13px;margin-top:4px">P–Sv no 7:00 līdz 21:00</p></div>
+      </a>
+      <a href="mailto:ufomar21@gmail.com" class="contact-card">
+        <div class="contact-icon">✉️</div>
+        <div><div class="contact-label">E-pasts</div><div class="contact-val" style="font-size:16px">ufomar21@gmail.com</div><p style="color:var(--muted);font-size:13px;margin-top:4px">ufomar@inbox.lv</p></div>
+      </a>
+      <a href="sms:+37122312828" class="contact-card">
+        <div class="contact-icon">📱</div>
+        <div><div class="contact-label">SMS</div><div class="contact-val">+371 22312828</div><p style="color:var(--muted);font-size:13px;margin-top:4px">Norādiet materiālu, daudzumu, adresi</p></div>
+      </a>
+    </div>
+
+    <!-- Pasūtījuma forma -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start" class="product-layout">
+      <div>
+        <h2 class="section-title" style="font-size:28px;margin-bottom:8px">📋 Pasūtījuma <span>forma</span></h2>
+        <p style="color:var(--muted);margin-bottom:24px;font-size:14px">Aizpildiet formu un mēs sazināsimies ar jums tuvākajā laikā.</p>
+
+        <div class="notice">
+          <strong>⚡ Ātrāk:</strong> Nosūtiet WhatsApp ziņu — atbildam 15 minūšu laikā!
+          <br><a href="https://wa.me/37122312828" style="color:var(--green);font-weight:600" target="_blank" rel="noopener">→ Rakstīt WhatsApp</a>
+        </div>
+
+        <!-- Formspree forma — nomainiet YOUR_FORM_ID -->
+        <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" style="margin-top:24px" onsubmit="return handleFormSubmit(event)">
+          <input type="hidden" name="_subject" value="Pasūtījums no vedman.lv kontaktu lapas"/>
+          <input type="hidden" name="_replyto" value=""/>
+
+          <div class="form-group">
+            <label class="form-label">Vārds, uzvārds *</label>
+            <input type="text" name="name" class="form-input" placeholder="Jānis Bērziņš" required/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Tālrunis *</label>
+            <input type="tel" name="phone" class="form-input" placeholder="+371 XXXXXXXX" required/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">E-pasts</label>
+            <input type="email" name="email" class="form-input" placeholder="epasts@gmail.com"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Pakalpojums *</label>
+            <select name="service" class="form-input form-select" required>
+              <option value="">— izvēlieties pakalpojumu —</option>
+              <optgroup label="Beramkravas">
+                <option>Dolomīta šķembas</option>
+                <option>Granīta šķembas</option>
+                <option>Grants</option>
+                <option>Smilts</option>
+                <option>Melnzeme (sijātā)</option>
+                <option>Melnzeme (nesijātā)</option>
+                <option>Frēzēts asfalts / drupināts betons</option>
+              </optgroup>
+              <optgroup label="Manipulators">
+                <option>Manipulators ar greiferi</option>
+                <option>Demontāža</option>
+                <option>Koku serviss / zaru izvešana</option>
+              </optgroup>
+              <optgroup label="Kokmateriāli">
+                <option>Dēļi</option>
+                <option>Brusas</option>
+                <option>Sijas</option>
+              </optgroup>
+              <option>Cits</option>
+            </select>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+            <div class="form-group">
+              <label class="form-label">Daudzums (m³)</label>
+              <input type="text" name="amount" class="form-input" placeholder="piem. 5 m³"/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Vēlamais datums</label>
+              <input type="date" name="date" class="form-input"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Piegādes adrese *</label>
+            <input type="text" name="address" class="form-input" placeholder="Iela, mājas nr., Rīga vai cita pilsēta" required/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Papildu informācija</label>
+            <textarea name="message" class="form-textarea" placeholder="Papildinformācija, piezīmes, jautājumi..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-green" style="width:100%;justify-content:center;padding:15px;font-size:15px">
+            📤 Nosūtīt pasūtījumu
+          </button>
+          <div id="formMsg" style="display:none;margin-top:12px;padding:12px;background:var(--green-glow);border:1px solid var(--border2);color:var(--green);font-size:14px">
+            ✅ Paldies! Pasūtījums saņemts. Sazināsimies tuvākajā laikā.
+          </div>
+        </form>
+      </div>
+
+      <div>
+        <h2 class="section-title" style="font-size:24px;margin-bottom:20px">📍 Darba <span>zona</span></h2>
+        <div class="info-grid" style="grid-template-columns:1fr;gap:2px;margin-bottom:24px">
+          <div class="info-block">
+            <h3>🏙 Rīga</h3>
+            <p style="font-size:13px">Visi Rīgas rajoni un pagastaname. Piegāde tajā pašā dienā.</p>
+          </div>
+          <div class="info-block">
+            <h3>🌊 Ogre</h3>
+            <p style="font-size:13px">Ogre un tuvākā apkārtne. Piegāde 1–2 dienu laikā.</p>
+          </div>
+          <div class="info-block">
+            <h3>🇱🇻 Visa Latvija</h3>
+            <p style="font-size:13px">Piegāde visā Latvijā — sazinieties, lai uzzinātu cenu un laiku.</p>
+          </div>
+        </div>
+
+        <h3 style="font-family:var(--font-head);font-size:18px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px">Seko mums</h3>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <a href="https://www.facebook.com/profile.php?id=61563519773146" class="btn btn-outline" target="_blank" rel="noopener" style="justify-content:flex-start">📘 Facebook — AMAPU SIA</a>
+          <a href="https://www.instagram.com/vedman.lv" class="btn btn-outline" target="_blank" rel="noopener" style="justify-content:flex-start">📸 Instagram — @vedman.lv</a>
+          <a href="https://www.tiktok.com/@vedmanlv" class="btn btn-outline" target="_blank" rel="noopener" style="justify-content:flex-start">🎵 TikTok — @vedmanlv</a>
+        </div>
+
+        <div style="margin-top:24px;background:var(--bg2);border:1px solid var(--border);padding:20px">
+          <div class="contact-label" style="margin-bottom:8px">📋 UZŅĒMUMA DATI</div>
+          <p style="font-size:13px;color:var(--muted);line-height:1.8">
+            Uzņēmums: AMAPU SIA<br>
+            Tālrunis: +371 22312828<br>
+            E-pasts: ufomar21@gmail.com<br>
+            Darbības zona: Rīga, Ogre, Latvija<br>
+            Darba laiks: P–Sv 7:00–21:00
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-root"></div>
+<div id="order-root"></div>
+<script src="js/nav.js"></script>
+<script>
+function handleFormSubmit(e) {
+  const form = document.getElementById('contactForm');
+  const action = form.action;
+  // Check if Formspree ID is set
+  if (action.includes('YOUR_FORM_ID')) {
+    e.preventDefault();
+    // Fallback: send via WhatsApp
+    const name = form.querySelector('[name=name]').value;
+    const phone = form.querySelector('[name=phone]').value;
+    const service = form.querySelector('[name=service]').value;
+    const address = form.querySelector('[name=address]').value;
+    const msg = encodeURIComponent(`Pasūtījums no vedman.lv\nVārds: ${name}\nTālrunis: ${phone}\nPakalpojums: ${service}\nAdrese: ${address}`);
+    window.open('https://wa.me/37122312828?text='+msg, '_blank');
+    return false;
+  }
+  // If Formspree ID is set, show success message
+  setTimeout(()=>{
+    document.getElementById('formMsg').style.display = 'block';
+    form.reset();
+  }, 500);
+  return true;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Grants piegāde Rīgā un Latvijā. Frakcijas 0–4, 0–16, 0–32 mm. Ceļu pamati, drenāža. AMAPU SIA — vedman.lv. +371 22312828"/>
+  <link rel="canonical" href="https://vedman.lv/grants.html"/>
+  <title>Grants ar piegādi Rīgā un Latvijā | VEDMAN.LV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body data-page="grants">
+<div id="nav-root"></div>
+
+<div class="breadcrumb"><div class="container"><div class="breadcrumb-inner">
+  <a href="index.html">Sākums</a><span>›</span><span class="current">Grants</span>
+</div></div></div>
+
+<section id="grants" style="padding:60px 0">
+  <div class="container">
+    <div class="tag">Beramkravas</div>
+    <h1 class="section-title">Grants ar <span>piegādi</span></h1>
+    <p class="section-sub">Rīgā · Ogrē · Visā Latvijā · +371 22312828</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:48px" class="product-layout">
+      <div>
+        <p style="color:var(--muted);margin-bottom:18px;line-height:1.75">
+          Grants ir smilts un oļu dabisks maisījums, kas iegūts no karjeriem. Tas ir neaizstājams materiāls ceļu un laukumu pamatu veidošanā, drenāžas sistēmās un būvniecības procesos. Savukārt grants ir smilts un oļu maisījums, kas pieejams dažādās frakcijās un nodrošina labu ūdens caurlaidību un stabilitāti.
+        </p>
+        <table class="frakcijas-table">
+          <thead><tr><th>Frakcija</th><th>Izmērs</th><th>Pielietojums</th></tr></thead>
+          <tbody>
+            <tr><td class="green">Smalka</td><td>0–4 mm</td><td>Betona maisīšanai, smalkajiem darbiem</td></tr>
+            <tr><td class="green">Vidēja</td><td>0–16 mm</td><td>Ceļu būves pamati, laukumi</td></tr>
+            <tr><td class="green">Rupja</td><td>0–32 mm</td><td>Lielāki pamati, piebraucamie ceļi</td></tr>
+            <tr><td class="green">Drenāžas</td><td>8–16 mm</td><td>Drenāžas sistēmas, filtri</td></tr>
+          </tbody>
+        </table>
+        <div class="notice" style="margin-top:20px"><strong>💡 Padoms:</strong> Grants ir ideāls kā pamatslānis zem šķembām vai bruģa — tas nodrošina stabilu pamatu un novērš iegrimi.</div>
+        <div style="display:flex;gap:10px;margin-top:24px;flex-wrap:wrap">
+          <a href="https://wa.me/37122312828?text=Sveiki!%20Interesē%20grants%20piegāde." class="btn btn-green" target="_blank" rel="noopener">💬 Pasūtīt</a>
+          <a href="tel:+37122312828" class="btn btn-outline">📞 22 312 828</a>
+        </div>
+      </div>
+      <div>
+        <img src="granst.jpeg" alt="Grants piegāde Rīgā" style="width:100%;height:300px;object-fit:cover;margin-bottom:4px"/>
+        <img src="grants6.jpeg" alt="Grants ar pašizgāzēju" style="width:100%;height:160px;object-fit:cover"/>
+        <div class="kalk-wrap" style="margin-top:24px">
+          <div class="kalk-title">🧮 Kalkulators</div>
+          <div class="kalk-row">
+            <div class="kalk-label">Daudzums (m³)</div>
+            <div class="kalk-controls">
+              <button class="kalk-btn" onclick="kalkChange('g_m3',-1)">−</button>
+              <input type="number" class="kalk-val" id="g_m3" value="5" min="1" oninput="kalkCalc('g')"/>
+              <button class="kalk-btn" onclick="kalkChange('g_m3',1)">+</button>
+            </div>
+          </div>
+          <div class="kalk-row">
+            <div class="kalk-label">Frakcija</div>
+            <select class="kalk-select" id="g_mat" onchange="kalkCalc('g')">
+              <option value="15">Grants 0–4 mm</option>
+              <option value="14">Grants 0–16 mm</option>
+              <option value="13">Grants 0–32 mm</option>
+              <option value="16">Drenāžas grants 8–16 mm</option>
+            </select>
+          </div>
+          <div class="kalk-row">
+            <div class="kalk-label">Piegādes zona</div>
+            <select class="kalk-select" id="g_zone" onchange="kalkCalc('g')">
+              <option value="0">Rīga</option><option value="15">Ogre (+15€)</option>
+              <option value="25">Jūrmala / Jelgava (+25€)</option><option value="40">Cita Latvija (+40€)</option>
+            </select>
+          </div>
+          <div class="kalk-result">
+            <div><div class="kalk-result-label">Orientējošā cena</div><div class="kalk-result-price" id="g_price">75€</div></div>
+            <div style="font-size:12px;color:var(--muted);text-align:right">ar PVN<br>+ piegāde</div>
+          </div>
+          <a id="g_wa_link" href="#" class="kalk-wa" target="_blank" rel="noopener">💬 Pasūtīt WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-root"></div>
+<div id="order-root"></div>
+<script src="js/nav.js"></script>
+<script>
+function kalkChange(id,d){const e=document.getElementById(id);e.value=Math.max(1,parseInt(e.value||1)+d);kalkCalc('g');}
+function kalkCalc(p){const m=parseInt(document.getElementById(p+'_m3').value)||1,mat=parseInt(document.getElementById(p+'_mat').value)||15,z=parseInt(document.getElementById(p+'_zone').value)||0,t=m*mat+z;document.getElementById(p+'_price').textContent=t+'€';const mn=document.getElementById(p+'_mat').options[document.getElementById(p+'_mat').selectedIndex].text,zn=document.getElementById(p+'_zone').options[document.getElementById(p+'_zone').selectedIndex].text;document.getElementById(p+'_wa_link').href='https://wa.me/37122312828?text='+encodeURIComponent(`Sveiki! Vēlos pasūtīt:\nMateriāls: ${mn}\nDaudzums: ${m} m³\nPiegāde: ${zn}\nOrientējošā cena: ${t}€\nAdrese: `);}
+kalkCalc('g');
+</script>
+</body>
+</html>

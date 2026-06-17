@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Frēzēts asfalts un drupināts betons ar piegādi Rīgā. Ceļu pamati, brauktuves. AMAPU SIA +371 22312828"/>
+  <link rel="canonical" href="https://vedman.lv/asfalts.html"/>
+  <title>Frēzēts Asfalts & Drupināts Betons ar piegādi | VEDMAN.LV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body data-page="asfalts">
+<div id="nav-root"></div>
+
+<div class="breadcrumb"><div class="container"><div class="breadcrumb-inner">
+  <a href="index.html">Sākums</a><span>›</span><span class="current">Frēzēts asfalts</span>
+</div></div></div>
+
+<section id="asfalts" style="padding:60px 0">
+  <div class="container">
+    <div class="tag">Beramkravas</div>
+    <h1 class="section-title">Frēzēts asfalts un <span>drupināts betons</span></h1>
+    <p class="section-sub">Ekonomisks · Izturīgs · Rīgā un Latvijā · +371 22312828</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:40px" class="product-layout">
+      <div>
+        <p style="color:var(--muted);margin-bottom:18px;line-height:1.75">
+          Frēzēts asfalts ir atgriezenisks materiāls, kas iegūts no vecajiem asfalta segumiem. Tas ir ekonomisks un videi draudzīgs risinājums privāto ceļu, braukšanas laukumu un pamatņu nostiprināšanai. Pēc iestrādes un kompaktēšanas veido cietu, ūdensizturīgu segumu.
+        </p>
+        <p style="color:var(--muted);margin-bottom:20px;line-height:1.75">
+          Drupināts betons (būvgruži) ir piemērots kā pamata materiāls, lai nostiprinātu mīksto grunti pirms šķembu vai asfalta uzklāšanas.
+        </p>
+
+        <table class="frakcijas-table">
+          <thead><tr><th>Materiāls</th><th>Pielietojums</th><th>Priekšrocība</th></tr></thead>
+          <tbody>
+            <tr><td class="green">Frēzēts asfalts</td><td>Brauktuves, pagalmi, autostāvvietas</td><td>Laba saistamība, ātri kompaktējas</td></tr>
+            <tr><td class="green">Drupināts betons</td><td>Pamatslānis, nestabila grunts nostiprināšana</td><td>Liela izturība, lēts</td></tr>
+            <tr><td class="green">Maisījums</td><td>Vispārēja ceļu uzlabošana</td><td>Optimāla cenas/kvalitātes attiecība</td></tr>
+          </tbody>
+        </table>
+
+        <div class="notice" style="margin-top:20px">
+          <strong>💰 Ekonomiski:</strong> Frēzēts asfalts un drupināts betons ir 30–50% lētāks par jaunu šķembu, vienlaikus nodrošinot labu rezultātu privātās brauktuvēs un laukumos.
+        </div>
+
+        <div style="display:flex;gap:10px;margin-top:24px;flex-wrap:wrap">
+          <a href="https://wa.me/37122312828?text=Sveiki!%20Interesē%20frēzēts%20asfalts%20vai%20drupināts%20betons." class="btn btn-green" target="_blank" rel="noopener">💬 Pasūtīt</a>
+          <a href="tel:+37122312828" class="btn btn-outline">📞 22 312 828</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="kalk-wrap">
+          <div class="kalk-title">🧮 Kalkulators</div>
+          <div class="kalk-row">
+            <div class="kalk-label">Daudzums (m³)</div>
+            <div class="kalk-controls">
+              <button class="kalk-btn" onclick="kalkChange('a_m3',-1)">−</button>
+              <input type="number" class="kalk-val" id="a_m3" value="10" min="1" oninput="kalkCalc('a')"/>
+              <button class="kalk-btn" onclick="kalkChange('a_m3',1)">+</button>
+            </div>
+          </div>
+          <div class="kalk-row">
+            <div class="kalk-label">Materiāls</div>
+            <select class="kalk-select" id="a_mat" onchange="kalkCalc('a')">
+              <option value="10">Frēzēts asfalts</option>
+              <option value="9">Drupināts betons / būvgruži</option>
+              <option value="11">Maisījums asfalts + betons</option>
+            </select>
+          </div>
+          <div class="kalk-row">
+            <div class="kalk-label">Piegādes zona</div>
+            <select class="kalk-select" id="a_zone" onchange="kalkCalc('a')">
+              <option value="0">Rīga</option><option value="15">Ogre (+15€)</option>
+              <option value="25">Jūrmala / Jelgava (+25€)</option><option value="40">Cita Latvija (+40€)</option>
+            </select>
+          </div>
+          <div class="kalk-result">
+            <div><div class="kalk-result-label">Orientējošā cena</div><div class="kalk-result-price" id="a_price">100€</div></div>
+          </div>
+          <a id="a_wa_link" href="#" class="kalk-wa" target="_blank" rel="noopener">💬 Pasūtīt WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-root"></div>
+<div id="order-root"></div>
+<script src="js/nav.js"></script>
+<script>
+function kalkChange(id,d){const e=document.getElementById(id);e.value=Math.max(1,parseInt(e.value||1)+d);kalkCalc('a');}
+function kalkCalc(p){const m=parseInt(document.getElementById(p+'_m3').value)||1,mat=parseInt(document.getElementById(p+'_mat').value)||10,z=parseInt(document.getElementById(p+'_zone').value)||0,t=m*mat+z;document.getElementById(p+'_price').textContent=t+'€';const mn=document.getElementById(p+'_mat').options[document.getElementById(p+'_mat').selectedIndex].text,zn=document.getElementById(p+'_zone').options[document.getElementById(p+'_zone').selectedIndex].text;document.getElementById(p+'_wa_link').href='https://wa.me/37122312828?text='+encodeURIComponent(`Sveiki! Vēlos pasūtīt:\nMateriāls: ${mn}\nDaudzums: ${m} m³\nPiegāde: ${zn}\nOrientējošā cena: ${t}€\nAdrese: `);}
+kalkCalc('a');
+</script>
+</body>
+</html>
