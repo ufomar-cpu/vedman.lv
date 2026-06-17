@@ -1,14 +1,19 @@
-# VEDMAN V2.2 Compact
+# VEDMAN V2.4 Polished
 
-Uzlabojumi:
-- dzīvāka zaļā krāsa (#16C24A);
-- kompaktāks hero un sekciju augstums;
-- salabots horizontālais scroll mobilajos;
-- kompaktāks “Uzzini cenu” logs;
-- m³ un t atdalīti no “Nezinu daudzumu”;
-- +/- pogas maina pa veseliem cipariem;
-- manuāli laukā var ievadīt 0.1, 3.2 utt.;
-- papildpakalpojumi pārvērsti ikonās ar uzrakstiem;
-- labāka iPhone, Android, Mac, Windows saderība.
+Gala pulēšanas versija pirms publiskas vērtēšanas.
 
-Augšupielādē GitHub repo saknē visu mapes saturu.
+Izmaiņas:
+- pareizais VEDMAN logo kā atsevišķs logo fails, nevis ekrānšāviņš;
+- kompaktāks hero un sekcijas;
+- samazinātas tukšās atstarpes;
+- salabots horizontālais overflow iPhone/Android/Mac/Windows pārlūkiem;
+- dzīvāks zaļais tonis;
+- kompakta “Uzzini cenu” forma;
+- m³ un tonnas kā atsevišķas vienības, “Nezinu daudzumu” atsevišķi;
+- +/− maina par veselu 1, bultiņas precizē par 0.1;
+- papildpakalpojumi kā ikonu kartītes.
+
+Augšupielāde GitHub:
+1. Izpako ZIP.
+2. Repo saknē aizvieto esošos failus ar šīs mapes saturu.
+3. Commit: `VEDMAN V2.4 polished`.
