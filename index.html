@@ -33,7 +33,7 @@
   <header class="site-header" id="top">
     <div class="container header-inner">
       <a href="#top" class="brand" aria-label="VEDMAN sākums">
-        <img class="brand-logo" src="assets/logo/vedman-logo-optimized.png" alt="VEDMAN" />
+        <img class="brand-logo" src="assets/logo/vedman-logo.png" alt="VEDMAN" />
         <small>Beramie materiāli • Tehnika • Piegāde</small>
       </a>
       <nav class="desktop-nav" aria-label="Galvenā navigācija">
@@ -265,7 +265,7 @@
         <div class="faq-list">
           <details><summary>Vai piegādājat visā Latvijā?</summary><p>Jā, piegādes un pakalpojumus nodrošinām visā Latvijā pēc saskaņošanas.</p></details>
           <details><summary>Vai daudzumu var ierakstīt ar decimāldaļām?</summary><p>Jā. Uzzini cenu formā var ierakstīt 0.1, 0.25, 3.3, 12.75 un citus daudzumus.</p></details>
-          <details><summary>Vai var izvēlēties tonnas vai m³?</summary><p>Jā, formā var pārslēgt starp m³, tonnām vai izvēlēties “nezinu”.</p></details>
+          <details><summary>Vai var izvēlēties tonnas vai m³?</summary><p>Jā, formā var pārslēgt starp m³ un tonnām. Ja daudzums nav zināms, var atzīmēt “Nezinu daudzumu”.</p></details>
           <details><summary>Vai manipulators var strādāt šaurās vietās?</summary><p>Jā, iespējami darbi šaurās vietās, pāri žogam un ar materiāla izlīdzināšanu.</p></details>
         </div>
       </div>
@@ -312,11 +312,11 @@
         <label>Frakcija / tips<input id="quoteFraction" placeholder="0–32, sijāta, nesijāta..." /></label>
         <div class="qty-section compact-qty">
           <div class="form-line-title">Daudzums</div>
-          <div class="qty-controls"><button type="button" id="qtyMinus" aria-label="Samazināt daudzumu">−</button><input id="quoteQty" type="number" inputmode="decimal" step="0.1" min="0" value="0" /><button type="button" id="qtyPlus" aria-label="Palielināt daudzumu">+</button></div>
-          <small class="qty-help">Raksti arī 0.1 / 3.2. Pogas +/- maina pa veselam ciparam.</small>
+          <div class="qty-controls"><button type="button" id="qtyMinus" aria-label="Samazināt daudzumu par 1">−</button><div class="qty-input-wrap"><input id="quoteQty" type="number" inputmode="decimal" step="0.1" min="0" value="0" /><div class="fine-controls" aria-label="Smalkā korekcija"><button type="button" id="qtyFinePlus" aria-label="Palielināt par 0.1">▲</button><button type="button" id="qtyFineMinus" aria-label="Samazināt par 0.1">▼</button></div></div><button type="button" id="qtyPlus" aria-label="Palielināt daudzumu par 1">+</button></div>
+          <small class="qty-help">Pogas − / + maina pa 1. Bultiņas lauka malā maina pa 0.1.</small>
           <div class="unit-label">Mērvienība</div>
           <div class="unit-row unit-row-2"><label><input type="radio" name="unit" value="m³" checked /> m³</label><label><input type="radio" name="unit" value="tonnas" /> t</label></div>
-          <label class="unknown-volume"><input type="checkbox" id="unknownVolume" value="Nezinu tilpumu" /> ❓ Nezinu daudzumu / vajag palīdzēt aprēķināt</label>
+          <label class="unknown-volume"><input type="checkbox" id="unknownVolume" value="Nezinu tilpumu" /> ❓ Nezinu daudzumu — vajag palīdzēt aprēķināt</label>
         </div>
         <label>Objekta adrese<input id="quoteAddress" placeholder="Iela, māja, pilsēta" /></label>
         <fieldset class="extras extras-icons"><legend>Papildus pakalpojumi</legend>

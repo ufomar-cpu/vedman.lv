@@ -51,6 +51,8 @@ function formatQty(num) {
 }
 $('#qtyPlus')?.addEventListener('click', () => { qtyInput.value = formatQty(normaliseQty(qtyInput.value) + 1); });
 $('#qtyMinus')?.addEventListener('click', () => { qtyInput.value = formatQty(Math.max(0, normaliseQty(qtyInput.value) - 1)); });
+$('#qtyFinePlus')?.addEventListener('click', () => { qtyInput.value = formatQty(normaliseQty(qtyInput.value) + 0.1); });
+$('#qtyFineMinus')?.addEventListener('click', () => { qtyInput.value = formatQty(Math.max(0, normaliseQty(qtyInput.value) - 0.1)); });
 qtyInput?.addEventListener('input', () => { if (Number(qtyInput.value) < 0) qtyInput.value = 0; });
 
 $('#quoteForm')?.addEventListener('submit', e => {
