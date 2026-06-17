@@ -170,7 +170,7 @@ $('#quoteForm')?.addEventListener('submit', e => {
   const extras = extrasList.join(', ') || 'Nav norādīts';
   const qty = normaliseQty(qtyInput.value);
   const qtyText = qty > 0 ? `${formatQty(qty)} ${unit}` : `Nav precizēts (${unit})`;
-  const msg = `*PASŪTĪJUMS — mainamies.lv / VEDMAN*\n\n` +
+  const msg = `*PASŪTĪJUMS — vedman.lv*\n\n` +
     `📦 Materiāls / pakalpojums:\n${materialInput.value || 'Nav norādīts'}\n\n` +
     `📏 Frakcija / tips:\n${fractionInput.value || 'Nav norādīts'}\n\n` +
     `🚚 Daudzums:\n${qtyText}\n\n` +
