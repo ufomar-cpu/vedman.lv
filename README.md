@@ -1,13 +1,14 @@
-# VEDMAN V2.5 Compact Logo Polish
+# VEDMAN V2.8 Full Code
 
-Gatavs publicēšanai GitHub Pages repo root.
+Kas salabots:
+- Header un footer izmanto pareizo SVG logo ar melno iekšējo kontūru, zelta ārējo kontūru un kroni.
+- Logo avotiem pievienots cache-bust `?v=2.8`, lai Safari/Chrome nerāda veco logo.
+- Uzzini cenu / Pasūtīt izvēlnei ir pilns materiālu un pakalpojumu saraksts.
+- WhatsApp teksts atkal ir `PASŪTĪJUMS — vedman.lv`.
+- Pielikts viss projekts vienā mapē augšupielādei GitHub repo root.
 
-## Izmaiņas pret V2.4
-- Logo fails `assets/logo/vedman-logo.png` pārstrādāts: noņemts baltais fons/tukšais laukums, atstāts VEDMAN + kronis.
-- Kronis saglabāts tajā pašā vizuālajā vietā kā esošajā mājaslapā.
-- Samazinātas tukšās atstarpes header, hero, sadaļās, kartītēs un footer.
-- Pievienota aizsardzība pret horizontālo scroll.
-- Saglabāta esošā V2.4 struktūra un funkcionalitāte.
-
-## Upload
-Iekopē šīs mapes saturu repo root un publicē no `main / root`.
+Upload instrukcija:
+1. Izpako ZIP.
+2. GitHub repo root aizvieto visu saturu ar šīs mapes saturu.
+3. Commit: `VEDMAN V2.8 full code logo and menu fix`.
+4. Pēc deploy atver vedman.lv ar hard refresh: Cmd+Shift+R.
