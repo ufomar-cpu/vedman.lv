@@ -1,14 +1,9 @@
-# VEDMAN V2.9 Deep Fix
+# VEDMAN V3.1 Compact Mobile Fix
 
-Pilna vienfaila versija, lai GitHub rootā nekas nesaplīst.
-
-Izmaiņas:
-- Inline SVG logo: vairs netiek lietots PNG/JPG screenshot logo.
-- Footer un header logo vienāds, ar melno kontūru.
-- Uzzini cenu izvēlne: pilns materiālu/pakalpojumu saraksts.
-- + / - maina par 1; input step=0.1 smalkai korekcijai.
-- m³ un tonnas ir 2 ikonu pogas.
-- "Nezinu daudzumu" ir kalkulators: garums × platums × biezums cm = m³.
-- Papildus opcijas ir ikonu pogas.
-- Kompaktākas atstarpes, kartītes, hero un modal.
-- Nav ārēju CSS/JS atkarību, izņemot Google fontu.
+Labots:
+- Samazinātas atstarpes visās sekcijās.
+- Bottom bar vairs nepārklāj saturu tik agresīvi: body mobile padding-bottom 88px.
+- Pakalpojumu ikonas aizstātas ar SVG ikonām, ne emoji.
+- Process kartes kompaktākas.
+- Grants satur tikai: Skalota 0-4, Neskalota 0-4, Dabīgā.
+- Pasūtījuma formā grants 0-16 un 0-32 nav.
