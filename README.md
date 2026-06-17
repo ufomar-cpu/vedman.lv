@@ -1,14 +1,13 @@
-# VEDMAN V2.2 Compact
+# VEDMAN V2.5 Compact Logo Polish
 
-Uzlabojumi:
-- dzīvāka zaļā krāsa (#16C24A);
-- kompaktāks hero un sekciju augstums;
-- salabots horizontālais scroll mobilajos;
-- kompaktāks “Uzzini cenu” logs;
-- m³ un t atdalīti no “Nezinu daudzumu”;
-- +/- pogas maina pa veseliem cipariem;
-- manuāli laukā var ievadīt 0.1, 3.2 utt.;
-- papildpakalpojumi pārvērsti ikonās ar uzrakstiem;
-- labāka iPhone, Android, Mac, Windows saderība.
+Gatavs publicēšanai GitHub Pages repo root.
 
-Augšupielādē GitHub repo saknē visu mapes saturu.
+## Izmaiņas pret V2.4
+- Logo fails `assets/logo/vedman-logo.png` pārstrādāts: noņemts baltais fons/tukšais laukums, atstāts VEDMAN + kronis.
+- Kronis saglabāts tajā pašā vizuālajā vietā kā esošajā mājaslapā.
+- Samazinātas tukšās atstarpes header, hero, sadaļās, kartītēs un footer.
+- Pievienota aizsardzība pret horizontālo scroll.
+- Saglabāta esošā V2.4 struktūra un funkcionalitāte.
+
+## Upload
+Iekopē šīs mapes saturu repo root un publicē no `main / root`.
