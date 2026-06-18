@@ -6,6 +6,7 @@
 <title>VEDMAN — Šķembas, Smilts, Grants, Melnzeme</title>
 <meta name="description" content="Šķembas, smilts, grants, melnzeme, asfalts un manipulatora pakalpojumi ar piegādi Rīgā, Ogrē un visā Latvijā.">
 <link rel="canonical" href="https://vedman.lv/">
+<link rel="icon" type="image/png" href="assets/favicon.png?v=33">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
@@ -35,15 +36,14 @@ svg,img{display:block;max-width:100%}
 .container{width:min(var(--max),calc(100% - 30px));margin:auto}
 
 /* TRUE SVG LOGO — no image cache */
-.logo-svg{width:220px;height:auto;overflow:visible}
-.footer .logo-svg{width:230px}
-.logo-text{font-family:Inter,Arial,sans-serif;font-weight:900;letter-spacing:-4px}
-.logo-ved-fill{fill:#fff}
-.logo-man-fill{fill:#0a9530}
-.logo-black{stroke:#050505;stroke-width:2.2;paint-order:stroke fill}
-.logo-gold{stroke:var(--gold);stroke-width:7.2;paint-order:stroke fill}
-.logo-crown{transform-origin:360px 34px;transform:rotate(-30deg)}
-.logo-glow{filter:drop-shadow(0 2px 1px rgba(0,0,0,.45))}
+.logo-img{
+  width:238px;
+  height:auto;
+  display:block;
+  object-fit:contain;
+  filter:drop-shadow(0 2px 1px rgba(0,0,0,.35));
+}
+.footer .logo-img{width:260px}
 
 /* HEADER */
 .header{
@@ -387,17 +387,17 @@ textarea{min-height:54px;resize:vertical}
 
 /* MOBILE */
 @media(max-width:1050px){
-  .logo-svg{width:180px}
+  .logo-img{width:205px}
   .nav{display:none}
   .hero-grid{grid-template-columns:1fr}
   .materials-grid{grid-template-columns:repeat(3,1fr)}
   .footer-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:720px){
-  body{padding-bottom:76px}
+  body{padding-bottom:82px}
   .container{width:min(100% - 24px,var(--max))}
-  .header-inner{min-height:54px}
-  .logo-svg{width:148px}
+  .header-inner{min-height:60px}
+  .logo-img{width:178px}
   .head-actions .btn-green,.phone{display:none}
 
   .hero{padding:14px 0 10px}
@@ -445,7 +445,7 @@ textarea{min-height:54px;resize:vertical}
 
   .footer{padding:18px 0 12px}
   .footer-grid{grid-template-columns:1fr;gap:14px}
-  .footer .logo-svg{width:185px}
+  .footer .logo-img{width:210px}
 
   .form-grid,.calc-grid{grid-template-columns:1fr}
   .addons{grid-template-columns:1fr 1fr}
@@ -468,20 +468,11 @@ textarea{min-height:54px;resize:vertical}
 </head>
 
 <body>
+<!-- V3.3 REAL LOGO: uses assets/vedman-logo-final.png?v=33, no inline SVG imitation, no old logo file. -->
 <header class="header">
   <div class="container header-inner">
     <a href="#" aria-label="VEDMAN">
-      <svg class="logo-svg logo-glow" viewBox="0 0 420 96">
-        <text x="8" y="66" font-size="58" class="logo-text logo-gold logo-black logo-ved-fill">VED</text>
-        <text x="136" y="66" font-size="58" class="logo-text logo-gold logo-black logo-man-fill">MAN</text>
-        <g class="logo-crown">
-          <path d="M322 23 L333 7 L346 24 L360 7 L371 24 L371 39 L322 39 Z" fill="#d5ad3f" stroke="#050505" stroke-width="2.2"/>
-          <path d="M325 34 H368" stroke="#8b6b1d" stroke-width="3"/>
-          <circle cx="333" cy="7" r="4" fill="#ffd56a" stroke="#050505" stroke-width="1.4"/>
-          <circle cx="360" cy="7" r="4" fill="#ffd56a" stroke="#050505" stroke-width="1.4"/>
-          <circle cx="371" cy="24" r="4" fill="#ffd56a" stroke="#050505" stroke-width="1.4"/>
-        </g>
-      </svg>
+      <img class="logo-img" src="assets/vedman-logo-final.png?v=33" alt="VEDMAN">
     </a>
     <nav class="nav">
       <a class="active" href="#">Sākums</a>
@@ -578,17 +569,7 @@ textarea{min-height:54px;resize:vertical}
 <footer class="footer" id="kontakti">
   <div class="container footer-grid">
     <div>
-      <svg class="logo-svg logo-glow" viewBox="0 0 420 96">
-        <text x="8" y="66" font-size="58" class="logo-text logo-gold logo-black logo-ved-fill">VED</text>
-        <text x="136" y="66" font-size="58" class="logo-text logo-gold logo-black logo-man-fill">MAN</text>
-        <g class="logo-crown">
-          <path d="M322 23 L333 7 L346 24 L360 7 L371 24 L371 39 L322 39 Z" fill="#d5ad3f" stroke="#050505" stroke-width="2.2"/>
-          <path d="M325 34 H368" stroke="#8b6b1d" stroke-width="3"/>
-          <circle cx="333" cy="7" r="4" fill="#ffd56a" stroke="#050505" stroke-width="1.4"/>
-          <circle cx="360" cy="7" r="4" fill="#ffd56a" stroke="#050505" stroke-width="1.4"/>
-          <circle cx="371" cy="24" r="4" fill="#ffd56a" stroke="#050505" stroke-width="1.4"/>
-        </g>
-      </svg>
+      <img class="logo-img" src="assets/vedman-logo-final.png?v=33" alt="VEDMAN">
     </div>
     <div><h3>Kontakti</h3><a href="tel:+37122312828">22312828</a><a href="tel:+37120080098">20080098</a></div>
     <div><h3>Darbības laiks</h3><p>P.–Pk. 07:00–18:00<br>Sest. 08:00–16:00</p></div>
