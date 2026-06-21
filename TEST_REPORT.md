@@ -11,5 +11,3 @@
 - PASS: forma pieslēgta pogām
 - PASS: m3 kalkulators
 - PASS: SEO faili
-
-Upload visu ZIP saturu GitHub repo saknē.

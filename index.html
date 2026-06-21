@@ -6,7 +6,7 @@
 <title>VEDMAN — Šķembas, Smilts, Grants, Melnzeme</title>
 <meta name="description" content="Šķembas, smilts, grants, melnzeme, asfalts un manipulatora pakalpojumi ar piegādi Rīgā, Ogrē un visā Latvijā.">
 <link rel="canonical" href="https://vedman.lv/">
-<link rel="icon" type="image/png" href="favicon.png?v=40">
+<link rel="icon" type="image/png" href="favicon.png?v=50">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
@@ -464,22 +464,47 @@ textarea{min-height:54px;resize:vertical}
   .bottom-bar .main{background:var(--green);color:white;border:2px solid var(--gold)}
 }
 @media(min-width:721px){.bottom-bar{display:none}}
+
+/* V3.5 double-checked controls + gallery */
+.qty-row{grid-template-columns:54px 1fr 54px!important;gap:8px!important}
+.qty-btn{width:54px!important;height:54px!important;border-radius:14px!important;font-size:32px!important;line-height:1!important;box-shadow:0 8px 18px rgba(0,0,0,.16)!important}
+#amount{min-height:54px!important;font-size:28px!important}
+.unit-card{min-height:50px!important;font-size:16px!important}
+.calc-toggle{min-height:44px!important;font-size:14px!important}
+.gallery-tabs{display:flex;gap:7px;overflow:auto;margin-bottom:10px;scrollbar-width:none}
+.gallery-tabs::-webkit-scrollbar{display:none}
+.gallery-filter{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 12px;font-weight:900;white-space:nowrap;cursor:pointer}
+.gallery-filter.active{background:var(--green);border-color:var(--green);color:#fff}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.gallery-card{background:#fff;border:1px solid var(--line);border-radius:15px;padding:10px;box-shadow:0 5px 15px rgba(0,0,0,.05)}
+.gallery-card img{width:100%;height:150px;object-fit:cover;border-radius:11px;background:#e7ece7}
+.gallery-card h3{margin:8px 0 4px;font-size:16px;font-weight:900}
+.gallery-card p{margin:0;color:var(--muted);font-size:13px;font-weight:700;line-height:1.35}
+.empty-gallery{background:#fff;border:1px dashed #cfd7cf;border-radius:15px;padding:18px;color:var(--muted);font-weight:800}
+@media(max-width:720px){
+  .gallery-grid{grid-template-columns:1fr 1fr;gap:7px}
+  .gallery-card{padding:7px}
+  .gallery-card img{height:105px}
+  .gallery-card h3{font-size:13.5px}
+  .gallery-card p{font-size:11.5px}
+}
+
 </style>
 </head>
 
 <body>
-<!-- V3.3 REAL LOGO: uses vedman-logo.png?v=40, no inline SVG imitation, no old logo file. -->
+<!-- V3.3 REAL LOGO: uses vedman-logo.png?v=50, no inline SVG imitation, no old logo file. -->
 <header class="header">
   <div class="container header-inner">
     <a href="#" aria-label="VEDMAN">
-      <img class="logo-img" src="vedman-logo.png?v=40" alt="VEDMAN">
+      <img class="logo-img" src="vedman-logo.png?v=50" alt="VEDMAN">
     </a>
     <nav class="nav">
       <a class="active" href="#">Sākums</a>
       <a href="#materiali">Materiāli</a>
       <a href="#pakalpojumi">Pakalpojumi</a>
-      <a href="#kontakti">Kontakti</a>
-    <a href="privacy.html">Privātums</a></nav>
+      <a href="#galerija">Galerija</a><a href="#kontakti">Kontakti</a>
+    <a href="admin.html">Admin</a><a href="privacy.html">Privātums</a></nav>
     <div class="head-actions">
       <button class="btn btn-green js-open" type="button">Uzzini cenu</button>
       <a class="phone" href="tel:+37122312828">22312828</a>
@@ -557,6 +582,20 @@ textarea{min-height:54px;resize:vertical}
   </div>
 </section>
 
+
+<section class="section" id="galerija">
+  <div class="container">
+    <p class="section-kicker">Galerija</p>
+    <h2 class="section-title">Reāli darbi un materiāli</h2>
+    <div class="gallery-tabs" id="galleryTabs">
+      <button class="gallery-filter active" type="button" data-gallery-filter="all">Visi</button>
+    </div>
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="empty-gallery">Galerija gatava. Pievieno bildes mapēs <b>/gallery/grants/</b>, <b>/gallery/manipulators/</b> u.c. un atjauno <b>gallery.json</b> ar admin paneli.</div>
+    </div>
+  </div>
+</section>
+
 <section class="cta-strip">
   <div class="container cta-grid">
     <a class="cta-item" href="tel:+37122312828"><span class="cta-circle"><svg viewBox="0 0 24 24" fill="none"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1A19.5 19.5 0 0 1 5.2 13 19.8 19.8 0 0 1 2.1 4.3 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6.4 6.4l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z" stroke-width="2"/></svg></span><span><small>Zvanīt</small><b>22312828</b></span></a>
@@ -569,7 +608,7 @@ textarea{min-height:54px;resize:vertical}
 <footer class="footer" id="kontakti">
   <div class="container footer-grid">
     <div>
-      <img class="logo-img" src="vedman-logo.png?v=40" alt="VEDMAN">
+      <img class="logo-img" src="vedman-logo.png?v=50" alt="VEDMAN">
     </div>
     <div><h3>Kontakti</h3><a href="tel:+37122312828">22312828</a><a href="tel:+37120080098">20080098</a></div>
     <div><h3>Darbības laiks</h3><p>P.–Pk. 07:00–18:00<br>Sest. 08:00–16:00</p></div>
@@ -721,7 +760,30 @@ ${comment||"Nav"}`;
 
   window.open("https://wa.me/37122312828?text="+encodeURIComponent(msg),"_blank");
 });
+
+async function loadGallery(){
+  const tabs=document.getElementById("galleryTabs");
+  const grid=document.getElementById("galleryGrid");
+  if(!tabs||!grid)return;
+  try{
+    const res=await fetch("gallery.json?v=50",{cache:"no-store"});
+    const data=await res.json();
+    const cats=data.categories||[];
+    const items=data.items||[];
+    tabs.innerHTML='<button class="gallery-filter active" type="button" data-gallery-filter="all">Visi</button>'+cats.map(c=>`<button class="gallery-filter" type="button" data-gallery-filter="${c.id}">${c.title}</button>`).join("");
+    function render(filter="all"){
+      const filtered=filter==="all"?items:items.filter(i=>i.category===filter);
+      grid.innerHTML=filtered.length?filtered.map(i=>`<article class="gallery-card"><img src="${i.src}" alt="${i.title||''}" loading="lazy"><h3>${i.title||''}</h3><p>${i.description||''}</p></article>`).join(""):'<div class="empty-gallery">Šajā kategorijā vēl nav bilžu.</div>';
+    }
+    tabs.querySelectorAll(".gallery-filter").forEach(btn=>btn.addEventListener("click",()=>{tabs.querySelectorAll(".gallery-filter").forEach(b=>b.classList.remove("active"));btn.classList.add("active");render(btn.dataset.galleryFilter);}));
+    render();
+  }catch(e){
+    grid.innerHTML='<div class="empty-gallery">Galerijas dati vēl nav pievienoti. Atver admin.html un sagatavo gallery.json.</div>';
+  }
+}
+
 fillMain();
+loadGallery();
 </script>
 </body>
 </html>

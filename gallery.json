@@ -1,0 +1,50 @@
+{
+  "categories": [
+    {
+      "id": "skembas",
+      "title": "Šķembas",
+      "description": ""
+    },
+    {
+      "id": "grants",
+      "title": "Grants",
+      "description": ""
+    },
+    {
+      "id": "smilts",
+      "title": "Smilts",
+      "description": ""
+    },
+    {
+      "id": "melnzeme",
+      "title": "Melnzeme",
+      "description": ""
+    },
+    {
+      "id": "manipulators",
+      "title": "Manipulators",
+      "description": ""
+    },
+    {
+      "id": "zemes-darbi",
+      "title": "Zemes darbi",
+      "description": ""
+    },
+    {
+      "id": "koku-serviss",
+      "title": "Koku serviss",
+      "description": ""
+    },
+    {
+      "id": "objekti",
+      "title": "Objekti",
+      "description": ""
+    },
+    {
+      "id": "pirms-pec",
+      "title": "Pirms / Pēc",
+      "description": ""
+    }
+  ],
+  "items": []
+}
