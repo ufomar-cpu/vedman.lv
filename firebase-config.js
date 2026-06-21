@@ -1,14 +1,10 @@
 window.VEDMAN_FIREBASE_CONFIG = {
-  apiKey: "PASTE_API_KEY_HERE",
+  apiKey: "AIzaSyC0iJ2yGDjHQxF1zF3tA5sXCIotIVrSkII",
   authDomain: "vedman-lv.firebaseapp.com",
   projectId: "vedman-lv",
   storageBucket: "vedman-lv.firebasestorage.app",
-  messagingSenderId: "PASTE_MESSAGING_SENDER_ID_HERE",
-  appId: "PASTE_APP_ID_HERE"
+  messagingSenderId: "143284478436",
+  appId: "1:143284478436:web:9f88dc71f22fb2d98927f1"
 };
 
-window.VEDMAN_FIREBASE_READY =
-  window.VEDMAN_FIREBASE_CONFIG.apiKey &&
-  !window.VEDMAN_FIREBASE_CONFIG.apiKey.includes("PASTE_") &&
-  window.VEDMAN_FIREBASE_CONFIG.appId &&
-  !window.VEDMAN_FIREBASE_CONFIG.appId.includes("PASTE_");
+window.VEDMAN_FIREBASE_READY = true;
