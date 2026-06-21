@@ -1,17 +1,19 @@
-# VEDMAN V3.7 Final Code — DOUBLE CHECK
+# VEDMAN V4 Firebase Gallery Ready
 
-- PASS: internal black arrows inside amount
-- PASS: no bottom fine arrow row
-- PASS: hidden black admin square
-- PASS: visible admin nav removed
-- PASS: footer compacted
-- PASS: logo v80
-- PASS: quote wired
-- PASS: grants cleaned
-- PASS: panel exists
-- PASS: no admin.html
-- PASS: robots disallow panel
+Admin:
+- URL: /vedman-panel.html
+- Lietotājs: admin
+- Parole: vedman2026
 
-Iekļauts: melnas ▲▼ bultiņas daudzuma lodziņā, slēpts melns admin kvadrāts labajā apakšā, apakšējais info panelis kompaktāks.
+Pirms upload strādā:
+1. Aizpildi `firebase-config.js` ar Firebase Web App config.
+2. Firebase Console → Firestore Rules un Storage Rules ieliec noteikumus no `FIREBASE_RULES.txt`.
+3. Atver /vedman-panel.html.
+4. Upload foto/video.
 
-Upload visu ZIP saturu GitHub repo saknē.
+Foto:
+- JPG/PNG/WebP → WEBP, max 1600px, kvalitāte 80%.
+- HEIC pārlūkos nav stabils bez papildbibliotēkas; iPhone iestatījumos izvēlies Most Compatible vai konvertē uz JPG.
+
+Video:
+- MOV/MP4 tiek augšupielādēts Firebase. Klienta pārlūks video droši nesaspiež bez servera/FFmpeg.
