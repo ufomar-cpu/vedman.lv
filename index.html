@@ -6,7 +6,7 @@
 <title>VEDMAN — Šķembas, Smilts, Grants, Melnzeme</title>
 <meta name="description" content="Šķembas, smilts, grants, melnzeme, asfalts un manipulatora pakalpojumi ar piegādi Rīgā, Ogrē un visā Latvijā.">
 <link rel="canonical" href="https://vedman.lv/">
-<link rel="icon" type="image/png" href="assets/favicon.png?v=33">
+<link rel="icon" type="image/png" href="favicon.png?v=40">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
@@ -468,18 +468,18 @@ textarea{min-height:54px;resize:vertical}
 </head>
 
 <body>
-<!-- V3.3 REAL LOGO: uses assets/vedman-logo-final.png?v=33, no inline SVG imitation, no old logo file. -->
+<!-- V3.3 REAL LOGO: uses vedman-logo.png?v=40, no inline SVG imitation, no old logo file. -->
 <header class="header">
   <div class="container header-inner">
     <a href="#" aria-label="VEDMAN">
-      <img class="logo-img" src="assets/vedman-logo-final.png?v=33" alt="VEDMAN">
+      <img class="logo-img" src="vedman-logo.png?v=40" alt="VEDMAN">
     </a>
     <nav class="nav">
       <a class="active" href="#">Sākums</a>
       <a href="#materiali">Materiāli</a>
       <a href="#pakalpojumi">Pakalpojumi</a>
       <a href="#kontakti">Kontakti</a>
-    </nav>
+    <a href="privacy.html">Privātums</a></nav>
     <div class="head-actions">
       <button class="btn btn-green js-open" type="button">Uzzini cenu</button>
       <a class="phone" href="tel:+37122312828">22312828</a>
@@ -569,13 +569,13 @@ textarea{min-height:54px;resize:vertical}
 <footer class="footer" id="kontakti">
   <div class="container footer-grid">
     <div>
-      <img class="logo-img" src="assets/vedman-logo-final.png?v=33" alt="VEDMAN">
+      <img class="logo-img" src="vedman-logo.png?v=40" alt="VEDMAN">
     </div>
     <div><h3>Kontakti</h3><a href="tel:+37122312828">22312828</a><a href="tel:+37120080098">20080098</a></div>
     <div><h3>Darbības laiks</h3><p>P.–Pk. 07:00–18:00<br>Sest. 08:00–16:00</p></div>
     <div><h3>Apmaksa</h3><p>Skaidra nauda<br>Bankas pārskaitījums<br>Ar PVN / Bez PVN</p></div>
   </div>
-  <div class="container copy"><span>© VEDMAN.LV</span><span>Rīga • Ogre • Visa Latvija</span></div>
+  <div class="container copy"><span>© VEDMAN.LV</span><span>AMAPU SIA • Rīga • Ogre • Visa Latvija</span></div>
 </footer>
 
 <div class="bottom-bar">
@@ -696,7 +696,7 @@ document.getElementById("sendBtn").addEventListener("click",()=>{
 
   if(!material){alert("Izvēlies materiālu vai pakalpojumu.");return;}
 
-  const msg=`*PASŪTĪJUMS — vedman.lv*
+  const msg=`*PASŪTĪJUMS — VEDMAN*
 
 📦 Materiāls / pakalpojums:
 ${material}${sub?" — "+sub:""}
