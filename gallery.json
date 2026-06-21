@@ -3,47 +3,52 @@
     {
       "id": "skembas",
       "title": "Šķembas",
-      "description": ""
+      "description": "Dolomīta un granīta šķembas."
     },
     {
       "id": "grants",
       "title": "Grants",
-      "description": ""
+      "description": "Grants ceļiem, drenāžai un pamatnēm."
     },
     {
       "id": "smilts",
       "title": "Smilts",
-      "description": ""
+      "description": "Mazgāta, nemazgāta un pieberamā smilts."
     },
     {
       "id": "melnzeme",
       "title": "Melnzeme",
-      "description": ""
+      "description": "Sijāta un nesijāta melnzeme."
+    },
+    {
+      "id": "betons",
+      "title": "Betons",
+      "description": "Betona piegāde un saistītie darbi."
     },
     {
       "id": "manipulators",
       "title": "Manipulators",
-      "description": ""
+      "description": "Manipulatora pakalpojumi."
     },
     {
       "id": "zemes-darbi",
       "title": "Zemes darbi",
-      "description": ""
+      "description": "Rakšana, līdzināšana un teritorijas sagatavošana."
     },
     {
       "id": "koku-serviss",
       "title": "Koku serviss",
-      "description": ""
+      "description": "Zari, celmi, baļķi un koku serviss."
     },
     {
       "id": "objekti",
       "title": "Objekti",
-      "description": ""
+      "description": "Realizētie objekti."
     },
     {
       "id": "pirms-pec",
       "title": "Pirms / Pēc",
-      "description": ""
+      "description": "Darbu rezultāti pirms un pēc."
     }
   ],
   "items": []

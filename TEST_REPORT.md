@@ -1,13 +1,16 @@
-# VEDMAN V3.5 Gallery + Controls — Double Check
+# VEDMAN V3.6 Step 7 Final — DOUBLE CHECK
 
-- PASS: logo saknē ar v50
-- PASS: galerijas sadaļa
-- PASS: admin panelis
-- PASS: 9 galerijas kategorijas
-- PASS: mapes izveidotas
-- PASS: lielākas +/− pogas
-- PASS: grants bez 0-16/0-32
-- PASS: nav mainamies
-- PASS: forma pieslēgta pogām
-- PASS: m3 kalkulators
-- PASS: SEO faili
+- PASS: logo final file exists
+- PASS: footer-safe logo
+- PASS: no visible admin nav
+- PASS: hidden admin gear
+- PASS: panel login
+- PASS: fine arrows
+- PASS: browser spinners removed
+- PASS: gallery has betons
+- PASS: grants cleaned
+- PASS: no mainamies
+- PASS: quote still wired
+- PASS: admin disallowed robots
+
+Admin: ⚙ footerī. Lietotājs admin, parole vedman2026.

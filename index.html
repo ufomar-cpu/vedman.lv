@@ -6,7 +6,7 @@
 <title>VEDMAN — Šķembas, Smilts, Grants, Melnzeme</title>
 <meta name="description" content="Šķembas, smilts, grants, melnzeme, asfalts un manipulatora pakalpojumi ar piegādi Rīgā, Ogrē un visā Latvijā.">
 <link rel="canonical" href="https://vedman.lv/">
-<link rel="icon" type="image/png" href="favicon.png?v=50">
+<link rel="icon" type="image/png" href="favicon.png?v=70">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
@@ -489,22 +489,41 @@ textarea{min-height:54px;resize:vertical}
   .gallery-card p{font-size:11.5px}
 }
 
+
+/* V3.6 Step 7 final polish */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button{ -webkit-appearance:none; margin:0; }
+input[type=number]{ -moz-appearance:textfield; appearance:textfield; }
+.qty-row{grid-template-columns:58px 1fr 58px!important;gap:9px!important;align-items:center!important}
+.qty-btn{width:58px!important;height:58px!important;border-radius:16px!important;font-size:34px!important;line-height:1!important}
+#amount{min-height:58px!important;font-size:30px!important}
+.fine-step-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.fine-step-btn{min-height:42px;border:1px solid #d8ddd8;border-radius:12px;background:#fff;font-weight:900;cursor:pointer}
+.fine-step-btn span{font-size:18px}
+.footer{position:relative}
+.admin-dot{position:absolute;right:12px;bottom:8px;width:20px;height:20px;display:grid;place-items:center;opacity:.13;font-size:14px;color:#fff;text-decoration:none;border-radius:50%}
+.admin-dot:hover{opacity:.55;background:rgba(255,255,255,.08)}
+section.section{padding-top:10px!important;padding-bottom:10px!important}.process{padding-top:8px!important;padding-bottom:10px!important}
+.service-card,.process-card{padding:10px 13px!important}
+.footer .logo-img{content:url("vedman-logo-footer.png?v=70");width:250px!important;max-width:100%!important;height:auto!important}
+@media(max-width:720px){.qty-row{grid-template-columns:56px 1fr 56px!important}.qty-btn{width:56px!important;height:56px!important;font-size:33px!important}#amount{min-height:56px!important;font-size:28px!important}.footer .logo-img{width:220px!important}}
+
 </style>
 </head>
 
 <body>
-<!-- V3.3 REAL LOGO: uses vedman-logo.png?v=50, no inline SVG imitation, no old logo file. -->
+<!-- V3.3 REAL LOGO: uses vedman-logo.png?v=70, no inline SVG imitation, no old logo file. -->
 <header class="header">
   <div class="container header-inner">
     <a href="#" aria-label="VEDMAN">
-      <img class="logo-img" src="vedman-logo.png?v=50" alt="VEDMAN">
+      <img class="logo-img" src="vedman-logo.png?v=70" alt="VEDMAN">
     </a>
     <nav class="nav">
       <a class="active" href="#">Sākums</a>
       <a href="#materiali">Materiāli</a>
       <a href="#pakalpojumi">Pakalpojumi</a>
       <a href="#galerija">Galerija</a><a href="#kontakti">Kontakti</a>
-    <a href="admin.html">Admin</a><a href="privacy.html">Privātums</a></nav>
+    <a href="privacy.html">Privātums</a></nav>
     <div class="head-actions">
       <button class="btn btn-green js-open" type="button">Uzzini cenu</button>
       <a class="phone" href="tel:+37122312828">22312828</a>
@@ -608,14 +627,14 @@ textarea{min-height:54px;resize:vertical}
 <footer class="footer" id="kontakti">
   <div class="container footer-grid">
     <div>
-      <img class="logo-img" src="vedman-logo.png?v=50" alt="VEDMAN">
+      <img class="logo-img" src="vedman-logo.png?v=70" alt="VEDMAN">
     </div>
     <div><h3>Kontakti</h3><a href="tel:+37122312828">22312828</a><a href="tel:+37120080098">20080098</a></div>
     <div><h3>Darbības laiks</h3><p>P.–Pk. 07:00–18:00<br>Sest. 08:00–16:00</p></div>
     <div><h3>Apmaksa</h3><p>Skaidra nauda<br>Bankas pārskaitījums<br>Ar PVN / Bez PVN</p></div>
   </div>
   <div class="container copy"><span>© VEDMAN.LV</span><span>AMAPU SIA • Rīga • Ogre • Visa Latvija</span></div>
-</footer>
+<a class="admin-dot" href="vedman-panel.html" aria-label="Admin login" title="Admin">⚙</a></footer>
 
 <div class="bottom-bar">
   <a href="tel:+37122312828">📞 Zvans</a>
@@ -632,7 +651,7 @@ textarea{min-height:54px;resize:vertical}
     <div class="form-grid">
       <div class="field"><label>Materiāls / pakalpojums</label><select id="mainCat"></select></div>
       <div class="field"><label>Frakcija / tips</label><select id="subCat"></select></div>
-      <div class="field full"><label>Daudzums</label><div class="qty-row"><button class="qty-btn" id="minusBtn" type="button">−</button><input id="amount" type="number" inputmode="decimal" min="0" step="0.1" value="0"><button class="qty-btn" id="plusBtn" type="button">+</button></div><div class="help">+ / − maina par 1. Ievades lauka mazās bultiņas precizē par 0.1.</div></div>
+      <div class="field full"><label>Daudzums</label><div class="qty-row"><button class="qty-btn" id="minusBtn" type="button">−</button><input id="amount" type="number" inputmode="decimal" min="0" step="0.1" value="0"><button class="qty-btn" id="plusBtn" type="button">+</button></div><div class="fine-step-row"><button type="button" class="fine-step-btn" id="fineMinus"><span>▼</span> −0.1</button><button type="button" class="fine-step-btn" id="finePlus"><span>▲</span> +0.1</button></div><div class="help">Lielās pogas maina par 1. Mazās ▲/▼ pogas precizē par 0.1.</div></div>
       <div class="field full"><label>Mērvienība</label><div class="unit-cards"><button type="button" class="unit-card active" data-unit="m³">📦 m³</button><button type="button" class="unit-card" data-unit="t">⚖️ tonnas</button></div><button type="button" class="calc-toggle" id="calcToggle">🧮 Nezinu daudzumu — aprēķināt m³ pēc izmēriem</button><div class="calc-box" id="calcBox"><div class="calc-grid"><div><label>Garums, m</label><input id="calcL" type="number" step="0.1" placeholder="10"></div><div><label>Platums, m</label><input id="calcW" type="number" step="0.1" placeholder="4"></div><div><label>Biezums, cm</label><input id="calcD" type="number" step="1" placeholder="15"></div></div><div class="calc-result" id="calcResult">m³ = garums × platums × biezums / 100</div><button type="button" class="apply-calc" id="applyCalc">Ielikt aprēķinu daudzumā</button></div></div>
       <div class="field full"><label>Objekta adrese</label><input id="address" placeholder="Iela, māja, pilsēta"></div>
       <div class="field full"><label>Papildus</label><div class="addons"><button type="button" class="addon" data-extra="Pāri žogam"><span>🏗️</span>Pāri<br>žogam</button><button type="button" class="addon" data-extra="Šaura vieta"><span>🚧</span>Šaura<br>vieta</button><button type="button" class="addon" data-extra="Izlīdzināt"><span>📏</span>Izlīdzināt</button><button type="button" class="addon" data-extra="Steidzami"><span>⚡</span>Steidzami</button><button type="button" class="addon" data-extra="Vajag konsultāciju"><span>☎️</span>Vajag<br>konsultāciju</button></div></div>
@@ -688,8 +707,13 @@ modal.addEventListener("click",e=>{if(e.target===modal)closeQuote();});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeQuote();});
 mainCat.addEventListener("change",()=>updateSub());
 
-document.getElementById("plusBtn").addEventListener("click",()=>amount.value=String(Math.max(0,(parseFloat(amount.value||"0")||0)+1)));
-document.getElementById("minusBtn").addEventListener("click",()=>amount.value=String(Math.max(0,(parseFloat(amount.value||"0")||0)-1)));
+document.getElementById("plusBtn").addEventListener("click",()=>amount.value=(Math.max(0,(parseFloat(amount.value||"0")||0)+1)).toFixed(1));
+document.getElementById("minusBtn").addEventListener("click",()=>amount.value=(Math.max(0,(parseFloat(amount.value||"0")||0)-1)).toFixed(1));
+
+
+const finePlus=document.getElementById("finePlus"), fineMinus=document.getElementById("fineMinus");
+if(finePlus)finePlus.addEventListener("click",()=>{amount.value=(Math.max(0,(parseFloat(amount.value||"0")||0)+0.1)).toFixed(1)});
+if(fineMinus)fineMinus.addEventListener("click",()=>{amount.value=(Math.max(0,(parseFloat(amount.value||"0")||0)-0.1)).toFixed(1)});
 
 document.querySelectorAll(".unit-card").forEach(btn=>{
   btn.addEventListener("click",()=>{
@@ -766,7 +790,7 @@ async function loadGallery(){
   const grid=document.getElementById("galleryGrid");
   if(!tabs||!grid)return;
   try{
-    const res=await fetch("gallery.json?v=50",{cache:"no-store"});
+    const res=await fetch("gallery.json?v=70",{cache:"no-store"});
     const data=await res.json();
     const cats=data.categories||[];
     const items=data.items||[];

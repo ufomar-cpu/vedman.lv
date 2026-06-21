@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /vedman-panel.html
+Sitemap: https://vedman.lv/sitemap.xml
