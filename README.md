@@ -3,7 +3,7 @@
 Admin:
 - URL: /vedman-panel.html
 - Lietotājs: admin
-- Parole: vedman2026
+- Parole: admin123
 
 Pirms upload strādā:
 1. Aizpildi `firebase-config.js` ar Firebase Web App config.
@@ -17,3 +17,10 @@ Foto:
 
 Video:
 - MOV/MP4 tiek augšupielādēts Firebase. Klienta pārlūks video droši nesaspiež bez servera/FFmpeg.
+
+
+V4.0.1 labojumi:
+- firebase-config.js aizpildīts ar VEDMAN-LV projekta vērtībām.
+- index.html Firebase galerijas ielāde palaista pēc Firebase moduļa inicializācijas.
+- footer logo pārslēgts uz vedman-logo.png.
+- vedman-logo-footer.png vairs nav vajadzīgs.

@@ -16,7 +16,7 @@
   <label>Parole</label><input id="loginPass" type="password" autocomplete="current-password" placeholder="parole">
   <button class="btn green" id="loginBtn" style="width:100%;margin-top:14px">Ieiet</button>
   <div class="error" id="loginError">Nepareizi dati</div>
-  <p class="hint">Login: <b>admin</b> / <b>vedman2026</b></p>
+  <p class="hint">Pagaidu login. Pēc testa nomainīt uz Firebase Auth.</p>
 </div>
 
 <div id="app" class="wrap">
@@ -47,13 +47,13 @@
 apiKey, authDomain, projectId, storageBucket, messagingSenderId, appId</div></div>
 </div>
 
-<script src="firebase-config.js?v=100"></script>
+<script src="firebase-config.js?v=101"></script>
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL, deleteObject } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-storage.js";
 import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, query, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 
-const ADMIN_USER="admin", ADMIN_PASS="vedman2026";
+const ADMIN_USER="admin", ADMIN_PASS="admin123";
 function doLogin(){const u=document.getElementById("loginUser").value.trim(),p=document.getElementById("loginPass").value.trim();if(u===ADMIN_USER&&p===ADMIN_PASS){sessionStorage.setItem("vedmanAdmin","1");document.getElementById("login").style.display="none";document.getElementById("app").style.display="block";initFirebasePanel()}else document.getElementById("loginError").style.display="block"}
 document.getElementById("loginBtn").addEventListener("click",doLogin);document.getElementById("loginPass").addEventListener("keydown",e=>{if(e.key==="Enter")doLogin()});
 

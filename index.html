@@ -505,7 +505,7 @@ input[type=number]{ -moz-appearance:textfield; appearance:textfield; }
 .admin-dot:hover{opacity:.55;background:rgba(255,255,255,.08)}
 section.section{padding-top:10px!important;padding-bottom:10px!important}.process{padding-top:8px!important;padding-bottom:10px!important}
 .service-card,.process-card{padding:10px 13px!important}
-.footer .logo-img{content:url("vedman-logo-footer.png?v=100");width:250px!important;max-width:100%!important;height:auto!important}
+.footer .logo-img{content:url("vedman-logo.png?v=101");width:250px!important;max-width:100%!important;height:auto!important}
 @media(max-width:720px){.qty-row{grid-template-columns:56px 1fr 56px!important}.qty-btn{width:56px!important;height:56px!important;font-size:33px!important}#amount{min-height:56px!important;font-size:28px!important}.footer .logo-img{width:220px!important}}
 
 
@@ -558,7 +558,7 @@ section.section{padding-top:10px!important;padding-bottom:10px!important}.proces
 <header class="header">
   <div class="container header-inner">
     <a href="#" aria-label="VEDMAN">
-      <img class="logo-img" src="vedman-logo.png?v=100" alt="VEDMAN">
+      <img class="logo-img" src="vedman-logo.png?v=101" alt="VEDMAN">
     </a>
     <nav class="nav">
       <a class="active" href="#">Sākums</a>
@@ -669,7 +669,7 @@ section.section{padding-top:10px!important;padding-bottom:10px!important}.proces
 <footer class="footer" id="kontakti">
   <div class="container footer-grid">
     <div>
-      <img class="logo-img" src="vedman-logo.png?v=100" alt="VEDMAN">
+      <img class="logo-img" src="vedman-logo.png?v=101" alt="VEDMAN">
     </div>
     <div><h3>Kontakti</h3><a href="tel:+37122312828">22312828</a><a href="tel:+37120080098">20080098</a></div>
     <div><h3>Darbības laiks</h3><p>P.–Pk. 07:00–18:00<br>Sest. 08:00–16:00</p></div>
@@ -840,7 +840,7 @@ async function loadGallery(){
   const grid=document.getElementById("galleryGrid");
   if(!tabs||!grid)return;
   try{
-    const res=await fetch("gallery.json?v=100",{cache:"no-store"});
+    const res=await fetch("gallery.json?v=101",{cache:"no-store"});
     const data=await res.json();
     const cats=data.categories||[];
     const items=data.items||[];
@@ -857,10 +857,9 @@ async function loadGallery(){
 }
 
 fillMain();
-loadGallery();
 </script>
 
-<script src="firebase-config.js?v=100"></script>
+<script src="firebase-config.js?v=101"></script>
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
 import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
@@ -895,6 +894,10 @@ window.loadFirebaseGallery = async function(){
     console.warn("Firebase gallery fallback:", e);
     return false;
   }
+}
+
+if (typeof loadGallery === "function") {
+  loadGallery();
 }
 </script>
 </body>
