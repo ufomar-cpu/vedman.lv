@@ -5,72 +5,374 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>VEDMAN Panel</title>
 <style>
-*{box-sizing:border-box}body{font-family:Arial,sans-serif;background:#f4f6f2;margin:0;color:#111}.wrap{max-width:1120px;margin:auto;padding:20px}.logo{height:54px;object-fit:contain}.login{max-width:400px;margin:70px auto;background:#fff;border:1px solid #dfe5df;border-radius:18px;padding:22px;box-shadow:0 8px 24px rgba(0,0,0,.08)}label{font-weight:900;font-size:13px;display:block;margin:12px 0 5px}input,select,textarea{width:100%;padding:12px;border:1px solid #d8ddd8;border-radius:10px;font-size:16px;background:#fff}textarea{min-height:70px}.btn{border:0;border-radius:999px;min-height:44px;padding:0 18px;font-weight:900;cursor:pointer}.green{background:#18bf3f;color:#fff;border:2px solid #d6aa2f}.dark{background:#111;color:#fff}.light{background:#fff;border:1px solid #d8ddd8}.danger{background:#b00020;color:#fff}.error{color:#b00020;font-weight:900;display:none;margin-top:10px}#app{display:none}.top{display:flex;justify-content:space-between;align-items:center;gap:12px}.card{background:#fff;border:1px solid #dfe5df;border-radius:18px;padding:16px;margin:12px 0;box-shadow:0 8px 24px rgba(0,0,0,.06)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.hint{color:#555;line-height:1.45}.small{font-size:12px;color:#777}.ok{display:none;background:#e9f8ee;border:1px solid #b8e7c4;color:#075d1e;padding:10px;border-radius:10px;margin-top:10px;font-weight:900}.drop{border:2px dashed #b8c7b8;border-radius:16px;padding:20px;text-align:center;background:#f9fbf9}.drop.drag{border-color:#18bf3f;background:#effaf1}.progress{height:10px;background:#e3e8e3;border-radius:999px;overflow:hidden;margin-top:10px;display:none}.progress span{display:block;height:100%;width:0;background:#18bf3f}.list{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.item{border:1px solid #dfe5df;border-radius:14px;background:#fff;padding:10px}.item img,.item video{width:100%;height:130px;object-fit:cover;border-radius:10px;background:#eee}.item h3{margin:8px 0 4px}.item p{font-size:13px;color:#555;word-break:break-word}.code{background:#111;color:#fff;border-radius:12px;padding:12px;white-space:pre-wrap;overflow:auto}.status{padding:10px;border-radius:12px;background:#fff7df;border:1px solid #ead181;color:#665000;font-weight:800}.status.ready{background:#e9f8ee;border-color:#b8e7c4;color:#075d1e}@media(max-width:720px){.grid,.list{grid-template-columns:1fr}.top{flex-direction:column;align-items:flex-start}.login{margin:35px 12px}}
+*{box-sizing:border-box}body{font-family:Arial,sans-serif;background:#f4f6f2;margin:0;color:#111}.wrap{max-width:1120px;margin:auto;padding:20px}.logo{height:54px}.login{max-width:400px;margin:70px auto;background:#fff;border:1px solid #dfe5df;border-radius:18px;padding:22px;box-shadow:0 8px 24px rgba(0,0,0,.08)}label{font-weight:900;font-size:13px;display:block;margin:12px 0 5px}input,select{width:100%;padding:12px;border:1px solid #d8ddd8;border-radius:10px;font-size:16px}.btn{border:0;border-radius:999px;min-height:44px;padding:0 18px;font-weight:900;cursor:pointer}.green{background:#18bf3f;color:#fff;border:2px solid #d6aa2f}.light{background:#fff;border:1px solid #d8ddd8}.danger{background:#b00020;color:#fff}.error{color:#b00020;font-weight:900;display:none;margin-top:10px}#app{display:none}.top{display:flex;justify-content:space-between;align-items:center}.card{background:#fff;border:1px solid #dfe5df;border-radius:18px;padding:16px;margin:12px 0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.small{font-size:12px;color:#777}.ok{display:none;background:#e9f8ee;border:1px solid #b8e7c4;color:#075d1e;padding:10px;border-radius:10px;margin-top:10px;font-weight:900}.drop{border:2px dashed #b8c7b8;border-radius:16px;padding:20px;text-align:center;background:#f9fbf9}.drop.drag{border-color:#18bf3f;background:#effaf1}.progress{height:10px;background:#e3e8e3;border-radius:999px;overflow:hidden;margin-top:10px;display:none}.progress span{display:block;height:100%;width:0;background:#18bf3f}.list{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.item{border:1px solid #dfe5df;border-radius:14px;background:#fff;padding:10px}.item img,.item video{width:100%;height:130px;object-fit:cover;border-radius:10px;background:#eee}.item h3{margin:8px 0 4px}.item p{font-size:13px;color:#555;word-break:break-word}.code{background:#111;color:#fff;border-radius:12px;padding:12px}.status{padding:10px;border-radius:12px;background:#fff7df;border:1px solid #ead181;color:#665000;font-weight:800}.status.ready{background:#e9f8ee;border-color:#b8e7c4;color:#075d1e}@media(max-width:720px){.grid,.list{grid-template-columns:1fr}.top{flex-direction:column;align-items:flex-start}.login{margin:35px 12px}}
 </style>
 </head>
 <body>
+
 <div id="login" class="login">
   <img src="vedman-logo.png?v=100" class="logo" alt="VEDMAN">
   <h1>Admin login</h1>
-  <label>Lietotājs</label><input id="loginUser" autocomplete="username" placeholder="admin">
-  <label>Parole</label><input id="loginPass" type="password" autocomplete="current-password" placeholder="parole">
+  <label>Lietotājs</label>
+  <input id="loginUser" placeholder="admin">
+  <label>Parole</label>
+  <input id="loginPass" type="password" placeholder="parole">
   <button class="btn green" id="loginBtn" style="width:100%;margin-top:14px">Ieiet</button>
   <div class="error" id="loginError">Nepareizi dati</div>
-  <p class="hint">Pagaidu login. Pēc testa nomainīt uz Firebase Auth.</p>
 </div>
 
 <div id="app" class="wrap">
-  <div class="top"><img src="vedman-logo.png?v=100" class="logo" alt="VEDMAN"><a class="btn light" href="index.html">Atpakaļ uz lapu</a></div>
+  <div class="top">
+    <img src="vedman-logo.png?v=100" class="logo" alt="VEDMAN">
+    <a class="btn light" href="index.html">Atpakaļ uz lapu</a>
+  </div>
+
   <h1>Firebase galerijas panelis</h1>
   <div id="firebaseStatus" class="status">Pārbaudu Firebase config...</div>
 
   <div class="card">
     <h2>Augšupielādēt foto / video</h2>
+
     <div class="grid">
-      <div><label>Kategorija</label><select id="category"></select></div>
-      <div><label>Nosaukums</label><input id="title" placeholder="Grants piegāde Ogrē"></div>
-      <div style="grid-column:1/-1"><label>Apraksts</label><input id="description" placeholder="Piegāde privātmājai, 8 m³"></div>
+      <div>
+        <label>Kategorija</label>
+        <select id="category"></select>
+      </div>
+      <div>
+        <label>Nosaukums</label>
+        <input id="title" placeholder="Grants piegāde Ogrē">
+      </div>
+      <div style="grid-column:1/-1">
+        <label>Apraksts</label>
+        <input id="description" placeholder="Piegāde privātmājai, 8 m³">
+      </div>
     </div>
+
     <label>Faili</label>
     <div id="drop" class="drop">
       <p><b>Ievelc failus šeit</b> vai izvēlies no telefona/datora</p>
       <input id="files" type="file" multiple accept="image/*,video/*,.heic,.heif,.mov,.mp4">
-      <p class="small">JPG/PNG/WebP automātiski: max 1600px, WEBP, kvalitāte 80%. HEIC pārlūks ne vienmēr konvertē — drošāk iPhone Camera iestatījumos izvēlēties Most Compatible.</p>
+      <p class="small">Bildes automātiski tiek samazinātas līdz max 1600px un WEBP 80% kvalitātē.</p>
     </div>
-    <div class="actions"><button class="btn green" id="uploadBtn">Augšupielādēt Firebase</button><button class="btn light" id="refreshBtn">Atjaunot sarakstu</button></div>
+
+    <div class="actions">
+      <button class="btn green" id="uploadBtn">Augšupielādēt Firebase</button>
+      <button class="btn light" id="refreshBtn">Atjaunot sarakstu</button>
+    </div>
+
     <div class="progress" id="progress"><span></span></div>
-    <div class="ok" id="okMsg">Gatavs.</div><div class="error" id="errMsg"></div>
+    <div class="ok" id="okMsg">Gatavs.</div>
+    <div class="error" id="errMsg"></div>
   </div>
 
-  <div class="card"><h2>Firebase galerijas ieraksti</h2><div class="list" id="list"></div></div>
-  <div class="card"><h2>Ja config vēl nav ielikts</h2><div class="code">Atver firebase-config.js un ielīmē Firebase Web App config:
-apiKey, authDomain, projectId, storageBucket, messagingSenderId, appId</div></div>
+  <div class="card">
+    <h2>Firebase galerijas ieraksti</h2>
+    <div class="list" id="list"></div>
+  </div>
+
+  <div class="card" id="configHelp">
+    <h2>Ja config vēl nav ielikts</h2>
+    <div class="code">Atver firebase-config.js un ielīmē Firebase Web App config.</div>
+  </div>
 </div>
 
-<script src="/firebase-config.js?v=300"></script>
+<script src="/firebase-config.js?v=500"></script>
+
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL, deleteObject } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-storage.js";
 import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, query, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 
-const ADMIN_USER="admin", ADMIN_PASS="admin123";
-function doLogin(){const u=document.getElementById("loginUser").value.trim(),p=document.getElementById("loginPass").value.trim();if(u===ADMIN_USER&&p===ADMIN_PASS){sessionStorage.setItem("vedmanAdmin","1");document.getElementById("login").style.display="none";document.getElementById("app").style.display="block";initFirebasePanel()}else document.getElementById("loginError").style.display="block"}
-document.getElementById("loginBtn").addEventListener("click",doLogin);document.getElementById("loginPass").addEventListener("keydown",e=>{if(e.key==="Enter")doLogin()});
+const ADMIN_USER="admin";
+const ADMIN_PASS="admin123";
 
-const CATEGORIES=[["skembas","Šķembas"],["grants","Grants"],["smilts","Smilts"],["melnzeme","Melnzeme"],["betons","Betons"],["manipulators","Manipulators"],["zemes-darbi","Zemes darbi"],["koku-serviss","Koku serviss"],["objekti","Objekti"],["video","Video"]];
-const cat=document.getElementById("category");cat.innerHTML=CATEGORIES.map(c=>`<option value="${c[0]}">${c[1]}</option>`).join("");
-let app,storage,db,firebaseOK=false;const status=document.getElementById("firebaseStatus"),list=document.getElementById("list"),progress=document.getElementById("progress"),bar=progress.querySelector("span"),ok=document.getElementById("okMsg"),err=document.getElementById("errMsg");
-function showErr(msg){err.style.display="block";err.textContent=msg}function clearMsg(){err.style.display="none";ok.style.display="none"}
-async function initFirebasePanel(){if(!window.VEDMAN_FIREBASE_READY){status.textContent="Firebase config vēl nav ielikts failā firebase-config.js.";return}try{app=initializeApp(window.VEDMAN_FIREBASE_CONFIG);storage=getStorage(app);db=getFirestore(app);firebaseOK=true;status.textContent="Firebase savienots. Var augšupielādēt.";status.classList.add("ready");await loadList()}catch(e){status.textContent="Firebase kļūda: "+e.message}}
-function safeName(name){return (name.toLowerCase().replace(/\.[^.]+$/,"").replace(/[^a-z0-9āčēģīķļņōŗšūž-]+/gi,"-").replace(/-+/g,"-").replace(/^-|-$/g,"")||"vedman")+"-"+Date.now()}
-function canCanvasCompress(file){return file.type.startsWith("image/")&&!file.name.toLowerCase().match(/\.heic|\.heif$/)}
-function imageToWebp(file,maxWidth=1600,quality=0.80){return new Promise((resolve,reject)=>{const img=new Image(),url=URL.createObjectURL(file);img.onload=()=>{URL.revokeObjectURL(url);let w=img.width,h=img.height;if(w>maxWidth){h=Math.round(h*maxWidth/w);w=maxWidth}const canvas=document.createElement("canvas");canvas.width=w;canvas.height=h;canvas.getContext("2d").drawImage(img,0,0,w,h);canvas.toBlob(blob=>blob?resolve(blob):reject(new Error("WEBP kompresija neizdevās")),"image/webp",quality)};img.onerror=()=>{URL.revokeObjectURL(url);reject(new Error("Attēlu nevar nolasīt. HEIC drošāk konvertēt uz JPG iPhone iestatījumos."))};img.src=url})}
-async function uploadOne(file,i,total){const category=cat.value,title=document.getElementById("title").value.trim()||CATEGORIES.find(c=>c[0]===category)[1],description=document.getElementById("description").value.trim();const isVideo=file.type.startsWith("video/")||file.name.toLowerCase().match(/\.mov|\.mp4$/);let uploadBlob=file,ext=isVideo?(file.name.toLowerCase().endsWith(".mov")?".mov":".mp4"):".webp",mime=isVideo?(file.type||"video/mp4"):"image/webp";if(!isVideo&&canCanvasCompress(file)){uploadBlob=await imageToWebp(file,1600,0.80)}else if(!isVideo){ext=file.name.toLowerCase().match(/\.heic|\.heif$/)?".heic":".jpg";mime=file.type||"image/jpeg"}const filename=safeName(file.name)+ext,path=`${category}/${filename}`,storageRef=ref(storage,path),task=uploadBytesResumable(storageRef,uploadBlob,{contentType:mime,customMetadata:{originalName:file.name,category}});await new Promise((resolve,reject)=>{task.on("state_changed",snap=>{bar.style.width=Math.min(100,((i+snap.bytesTransferred/snap.totalBytes)/total)*100)+"%"},reject,resolve)});const url=await getDownloadURL(storageRef);await addDoc(collection(db,"gallery"),{category,title,description,url,path,type:mime,originalName:file.name,sizeOriginal:file.size,sizeOptimized:uploadBlob.size,createdAt:serverTimestamp()})}
-document.getElementById("uploadBtn").addEventListener("click",async()=>{clearMsg();if(!firebaseOK){showErr("Firebase nav savienots. Pārbaudi firebase-config.js.");return}const files=[...document.getElementById("files").files];if(!files.length){showErr("Izvēlies vismaz vienu failu.");return}progress.style.display="block";bar.style.width="0%";try{for(let i=0;i<files.length;i++)await uploadOne(files[i],i,files.length);ok.textContent="Augšupielāde pabeigta.";ok.style.display="block";document.getElementById("files").value="";bar.style.width="100%";await loadList()}catch(e){showErr(e.message)}});
-async function loadList(){if(!firebaseOK)return;const q=query(collection(db,"gallery"),orderBy("createdAt","desc")),snap=await getDocs(q),items=[];snap.forEach(d=>items.push({id:d.id,...d.data()}));list.innerHTML=items.length?items.map(i=>{const isVideo=(i.type||"").startsWith("video");const media=isVideo?`<video src="${i.url}" controls preload="metadata"></video>`:`<img src="${i.url}" loading="lazy">`;return `<div class="item">${media}<h3>${i.title||""}</h3><p>${i.description||""}</p><p><b>${i.category}</b><br>${i.originalName||""}<br>${Math.round((i.sizeOptimized||0)/1024)} KB</p><button class="btn danger" data-id="${i.id}" data-path="${i.path}">Dzēst</button></div>`}).join(""):"<p>Vēl nav ierakstu.</p>";list.querySelectorAll("button[data-id]").forEach(btn=>btn.addEventListener("click",async()=>{if(!confirm("Dzēst šo ierakstu un failu?"))return;await deleteDoc(doc(db,"gallery",btn.dataset.id));try{await deleteObject(ref(storage,btn.dataset.path))}catch(e){}await loadList()}))}
+function doLogin(){
+  const u=document.getElementById("loginUser").value.trim();
+  const p=document.getElementById("loginPass").value.trim();
+
+  if(u===ADMIN_USER && p===ADMIN_PASS){
+    sessionStorage.setItem("vedmanAdmin","1");
+    document.getElementById("login").style.display="none";
+    document.getElementById("app").style.display="block";
+    initFirebasePanel();
+  }else{
+    document.getElementById("loginError").style.display="block";
+  }
+}
+
+document.getElementById("loginBtn").addEventListener("click",doLogin);
+document.getElementById("loginPass").addEventListener("keydown",e=>{
+  if(e.key==="Enter") doLogin();
+});
+
+const CATEGORIES=[
+  ["skembas","Šķembas"],
+  ["grants","Grants"],
+  ["smilts","Smilts"],
+  ["melnzeme","Melnzeme"],
+  ["betons","Betons"],
+  ["manipulators","Manipulators"],
+  ["zemes-darbi","Zemes darbi"],
+  ["koku-serviss","Koku serviss"],
+  ["objekti","Objekti"],
+  ["video","Video"]
+];
+
+const cat=document.getElementById("category");
+cat.innerHTML=CATEGORIES.map(c=>`<option value="${c[0]}">${c[1]}</option>`).join("");
+
+let app,storage,db,firebaseOK=false;
+
+const status=document.getElementById("firebaseStatus");
+const list=document.getElementById("list");
+const progress=document.getElementById("progress");
+const bar=progress.querySelector("span");
+const ok=document.getElementById("okMsg");
+const err=document.getElementById("errMsg");
+const configHelp=document.getElementById("configHelp");
+
+function showErr(msg){
+  err.style.display="block";
+  err.textContent=msg;
+}
+
+function clearMsg(){
+  err.style.display="none";
+  ok.style.display="none";
+}
+
+async function initFirebasePanel(){
+  if(!window.VEDMAN_FIREBASE_READY || !window.VEDMAN_FIREBASE_CONFIG){
+    status.textContent="Firebase config vēl nav ielikts failā firebase-config.js.";
+    configHelp.style.display="block";
+    return;
+  }
+
+  try{
+    app=initializeApp(window.VEDMAN_FIREBASE_CONFIG);
+    storage=getStorage(app);
+    db=getFirestore(app);
+    firebaseOK=true;
+
+    status.textContent="Firebase savienots. Var augšupielādēt.";
+    status.classList.add("ready");
+    configHelp.style.display="none";
+
+    await loadList();
+  }catch(e){
+    status.textContent="Firebase kļūda: "+e.message;
+  }
+}
+
+function safeName(name){
+  return (
+    name.toLowerCase()
+    .replace(/\.[^.]+$/,"")
+    .replace(/[^a-z0-9āčēģīķļņōŗšūž-]+/gi,"-")
+    .replace(/-+/g,"-")
+    .replace(/^-|-$/g,"") || "vedman"
+  )+"-"+Date.now();
+}
+
+function canCanvasCompress(file){
+  return file.type.startsWith("image/") && !file.name.toLowerCase().match(/\.heic|\.heif$/);
+}
+
+function imageToWebp(file,maxWidth=1600,quality=0.80){
+  return new Promise((resolve,reject)=>{
+    const img=new Image();
+    const url=URL.createObjectURL(file);
+
+    img.onload=()=>{
+      URL.revokeObjectURL(url);
+
+      let w=img.width;
+      let h=img.height;
+
+      if(w>maxWidth){
+        h=Math.round(h*maxWidth/w);
+        w=maxWidth;
+      }
+
+      const canvas=document.createElement("canvas");
+      canvas.width=w;
+      canvas.height=h;
+      canvas.getContext("2d").drawImage(img,0,0,w,h);
+
+      canvas.toBlob(blob=>{
+        if(blob) resolve(blob);
+        else reject(new Error("WEBP kompresija neizdevās"));
+      },"image/webp",quality);
+    };
+
+    img.onerror=()=>{
+      URL.revokeObjectURL(url);
+      reject(new Error("Attēlu nevar nolasīt. HEIC drošāk konvertēt uz JPG."));
+    };
+
+    img.src=url;
+  });
+}
+
+async function uploadOne(file,i,total){
+  const category=cat.value;
+  const title=document.getElementById("title").value.trim() || CATEGORIES.find(c=>c[0]===category)[1];
+  const description=document.getElementById("description").value.trim();
+
+  const isVideo=file.type.startsWith("video/") || file.name.toLowerCase().match(/\.mov|\.mp4$/);
+
+  let uploadBlob=file;
+  let ext=isVideo ? (file.name.toLowerCase().endsWith(".mov")?".mov":".mp4") : ".webp";
+  let mime=isVideo ? (file.type || "video/mp4") : "image/webp";
+
+  if(!isVideo && canCanvasCompress(file)){
+    uploadBlob=await imageToWebp(file,1600,0.80);
+  }else if(!isVideo){
+    ext=file.name.toLowerCase().match(/\.heic|\.heif$/)?".heic":".jpg";
+    mime=file.type || "image/jpeg";
+  }
+
+  const filename=safeName(file.name)+ext;
+  const path=`${category}/${filename}`;
+  const storageRef=ref(storage,path);
+
+  const task=uploadBytesResumable(storageRef,uploadBlob,{
+    contentType:mime,
+    customMetadata:{
+      originalName:file.name,
+      category
+    }
+  });
+
+  await new Promise((resolve,reject)=>{
+    task.on("state_changed",
+      snap=>{
+        bar.style.width=Math.min(100,((i+snap.bytesTransferred/snap.totalBytes)/total)*100)+"%";
+      },
+      reject,
+      resolve
+    );
+  });
+
+  const url=await getDownloadURL(storageRef);
+
+  await addDoc(collection(db,"gallery"),{
+    category,
+    title,
+    description,
+    url,
+    path,
+    type:mime,
+    originalName:file.name,
+    sizeOriginal:file.size,
+    sizeOptimized:uploadBlob.size,
+    createdAt:serverTimestamp()
+  });
+}
+
+document.getElementById("uploadBtn").addEventListener("click",async()=>{
+  clearMsg();
+
+  if(!firebaseOK){
+    showErr("Firebase nav savienots. Pārbaudi firebase-config.js.");
+    return;
+  }
+
+  const files=[...document.getElementById("files").files];
+
+  if(!files.length){
+    showErr("Izvēlies vismaz vienu failu.");
+    return;
+  }
+
+  progress.style.display="block";
+  bar.style.width="0%";
+
+  try{
+    for(let i=0;i<files.length;i++){
+      await uploadOne(files[i],i,files.length);
+    }
+
+    ok.textContent="Augšupielāde pabeigta.";
+    ok.style.display="block";
+    document.getElementById("files").value="";
+    bar.style.width="100%";
+
+    await loadList();
+  }catch(e){
+    showErr(e.message);
+  }
+});
+
+async function loadList(){
+  if(!firebaseOK) return;
+
+  const q=query(collection(db,"gallery"),orderBy("createdAt","desc"));
+  const snap=await getDocs(q);
+  const items=[];
+
+  snap.forEach(d=>items.push({id:d.id,...d.data()}));
+
+  list.innerHTML=items.length ? items.map(i=>{
+    const isVideo=(i.type || "").startsWith("video");
+    const media=isVideo
+      ? `<video src="${i.url}" controls preload="metadata"></video>`
+      : `<img src="${i.url}" loading="lazy" alt="${i.title || "VEDMAN galerija"}">`;
+
+    return `
+      <div class="item">
+        ${media}
+        <h3>${i.title || ""}</h3>
+        <p>${i.description || ""}</p>
+        <p><b>${i.category}</b><br>${i.originalName || ""}<br>${Math.round((i.sizeOptimized || 0)/1024)} KB</p>
+        <button class="btn danger" data-id="${i.id}" data-path="${i.path}">Dzēst</button>
+      </div>
+    `;
+  }).join("") : "<p>Vēl nav ierakstu.</p>";
+
+  list.querySelectorAll("button[data-id]").forEach(btn=>{
+    btn.addEventListener("click",async()=>{
+      if(!confirm("Dzēst šo ierakstu un failu?")) return;
+
+      await deleteDoc(doc(db,"gallery",btn.dataset.id));
+
+      try{
+        await deleteObject(ref(storage,btn.dataset.path));
+      }catch(e){}
+
+      await loadList();
+    });
+  });
+}
+
 document.getElementById("refreshBtn").addEventListener("click",loadList);
-const drop=document.getElementById("drop");["dragenter","dragover"].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add("drag")}));["dragleave","drop"].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove("drag")}));drop.addEventListener("drop",e=>{document.getElementById("files").files=e.dataTransfer.files});
-if(sessionStorage.getItem("vedmanAdmin")==="1"){document.getElementById("login").style.display="none";document.getElementById("app").style.display="block";initFirebasePanel()}
+
+const drop=document.getElementById("drop");
+
+["dragenter","dragover"].forEach(ev=>{
+  drop.addEventListener(ev,e=>{
+    e.preventDefault();
+    drop.classList.add("drag");
+  });
+});
+
+["dragleave","drop"].forEach(ev=>{
+  drop.addEventListener(ev,e=>{
+    e.preventDefault();
+    drop.classList.remove("drag");
+  });
+});
+
+drop.addEventListener("drop",e=>{
+  document.getElementById("files").files=e.dataTransfer.files;
+});
+
+if(sessionStorage.getItem("vedmanAdmin")==="1"){
+  document.getElementById("login").style.display="none";
+  document.getElementById("app").style.display="block";
+  initFirebasePanel();
+}
 </script>
+
 </body>
 </html>
