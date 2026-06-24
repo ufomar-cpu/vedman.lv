@@ -71,6 +71,6 @@ async function loadList(){if(!firebaseOK)return;const q=query(collection(db,"gal
 document.getElementById("refreshBtn").addEventListener("click",loadList);
 const drop=document.getElementById("drop");["dragenter","dragover"].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add("drag")}));["dragleave","drop"].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove("drag")}));drop.addEventListener("drop",e=>{document.getElementById("files").files=e.dataTransfer.files});
 if(sessionStorage.getItem("vedmanAdmin")==="1"){document.getElementById("login").style.display="none";document.getElementById("app").style.display="block";initFirebasePanel()}
-<script src="firebase-config.js?v=101"></script>
+</script>
 </body>
 </html>
