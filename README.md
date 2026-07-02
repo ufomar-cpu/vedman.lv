@@ -3,7 +3,7 @@
 Admin:
 - URL: /vedman-panel.html
 - Lietotājs: admin
-- Parole: admin123
+- Parole: vedman123
 
 Pirms upload strādā:
 1. Aizpildi `firebase-config.js` ar Firebase Web App config.
