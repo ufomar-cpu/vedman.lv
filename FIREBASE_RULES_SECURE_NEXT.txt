@@ -1,23 +1,15 @@
-NEXT STEP SECURE RULES — pēc Firebase Authentication pieslēgšanas
+SUPERSEDED — Phase C RBAC rules are now canonical in FIREBASE_RULES.txt.
+Deploy Firestore + Storage sections from that file in Firebase Console.
+
+Summary (see FIREBASE_RULES.txt for full rules):
 
 Firestore:
-rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    match /gallery/{docId} {
-      allow read: if true;
-      allow write: if request.auth != null;
-    }
-  }
-}
+- gallery: public read; create/update for active owner|admin|editor; delete for active owner|admin
+- users: self-read; owner/admin manage users; owner-only delete user docs
 
 Storage:
-rules_version = '2';
-service firebase.storage {
-  match /b/{bucket}/o {
-    match /{allPaths=**} {
-      allow read: if true;
-      allow write: if request.auth != null;
-    }
-  }
-}
+- public read
+- create/update for active owner|admin|editor (Firestore users/{uid} lookup)
+- delete for active owner|admin only
+
+Rollback: git tag pre-phase-c-rules or restore open rules from git history (SECURITY_IMPLEMENTATION_PLAN.md §11).

@@ -98,7 +98,9 @@ service cloud.firestore {
 
 4. **Publish**.
 
-**Storage rules:** leave as in `FIREBASE_RULES.txt` (open read/write) until Phase C.
+**Storage rules:** leave open (see old `FIREBASE_RULES.txt` in git history) until Phase C is deployed.
+
+**After Phase C:** replace **both** Firestore and Storage rules with the Phase C RBAC blocks in `FIREBASE_RULES.txt` (see §9 below). The interim `users` read-only block is included in the full Phase C Firestore rules.
 
 ---
 
@@ -153,12 +155,46 @@ To disable access without deleting Auth user: set `isActive` to `false`.
 
 ---
 
+## 9. Phase C — Deploy RBAC rules (Firestore + Storage)
+
+**Prerequisites (Phase A–B validated):**
+
+- [ ] Owner Auth login works on production
+- [ ] `users/{ownerUid}` exists with `role: owner`, `isActive: true`
+- [ ] Upload/delete tested with open rules
+
+**Deploy steps:**
+
+1. Open **`FIREBASE_RULES.txt`** in this repo — copy the **Firestore Rules** block (from `rules_version` through closing `}`).
+2. Firebase Console → **Firestore Database** → **Rules** → paste → **Publish**.
+3. Copy the **Storage Rules** block from the same file.
+4. Firebase Console → **Storage** → **Rules** → paste → **Publish**.
+5. Smoke test (see `VALIDATION_CHECKLIST.md` §5–11): owner upload/delete, editor upload without delete, public `index.html` gallery still loads.
+
+**What changes:**
+
+| Resource | Before (Phase B) | After (Phase C) |
+|----------|------------------|-----------------|
+| `gallery` read | public | public (unchanged) |
+| `gallery` write | open | active owner/admin/editor only |
+| `gallery` delete | open | active owner/admin only |
+| Storage read | public | public (unchanged) |
+| Storage write | open | active owner/admin/editor only |
+| Storage delete | open | active owner/admin only |
+| `users` | interim self-read | full RBAC (self-read + owner/admin manage) |
+
+**Rollback:** restore open rules from git commit before Phase C, or see `SECURITY_IMPLEMENTATION_PLAN.md` §11.
+
+---
+
 ## Quick checklist
 
 - [ ] Email/Password enabled
 - [ ] `vedman.lv` in authorized domains
 - [ ] Owner Auth user created; UID copied
 - [ ] `users/{uid}` with `role: owner`, `isActive: true`
-- [ ] Interim `users` read rule published
+- [ ] Interim `users` read rule published (Phase B)
 - [ ] Panel login tested; upload/delete work for owner
 - [ ] (Optional) Editor user tested — no delete UI
+- [ ] Phase C RBAC rules deployed from `FIREBASE_RULES.txt`
+- [ ] Post–Phase C smoke test passed

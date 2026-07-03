@@ -1,10 +1,89 @@
+VEDMAN Phase C — RBAC Firestore + Storage rules (project: vedman-lv)
+Deploy both rule sets in Firebase Console after Phase A–B bootstrap is complete.
+Public site: gallery read + Storage read stay open. WhatsApp/SEO unchanged (no Firebase).
+
 Firestore Rules:
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function userPath() {
+      return /databases/$(database)/documents/users/$(request.auth.uid);
+    }
+
+    function userExists() {
+      return isSignedIn() && exists(userPath());
+    }
+
+    function userData() {
+      return get(userPath()).data;
+    }
+
+    function isActiveUser() {
+      return userExists() && userData().isActive == true;
+    }
+
+    function role() {
+      return userData().role;
+    }
+
+    function isOwner() {
+      return isActiveUser() && role() == 'owner';
+    }
+
+    function isAdmin() {
+      return isActiveUser() && role() == 'admin';
+    }
+
+    function isEditor() {
+      return isActiveUser() && role() == 'editor';
+    }
+
+    function isOwnerOrAdmin() {
+      return isOwner() || isAdmin();
+    }
+
+    function canUploadGallery() {
+      return isOwner() || isAdmin() || isEditor();
+    }
+
+    function canDeleteGallery() {
+      return isOwnerOrAdmin();
+    }
+
+    match /users/{userId} {
+      allow read: if isSignedIn() && (
+        request.auth.uid == userId ||
+        isOwnerOrAdmin()
+      );
+
+      allow create: if isOwnerOrAdmin()
+        && request.resource.data.role in ['owner', 'admin', 'editor']
+        && request.resource.data.isActive is bool
+        && (isOwner() || request.resource.data.role != 'owner');
+
+      allow update: if isOwnerOrAdmin()
+        && (isOwner() || resource.data.role != 'owner')
+        && request.resource.data.role in ['owner', 'admin', 'editor']
+        && request.resource.data.isActive is bool
+        && (isOwner() || request.resource.data.role != 'owner');
+
+      allow delete: if isOwner();
+    }
+
     match /gallery/{docId} {
       allow read: if true;
-      allow write: if true;
+
+      allow create: if canUploadGallery()
+        && request.resource.data.keys().hasAll(['category', 'url', 'createdAt']);
+
+      allow update: if canUploadGallery();
+
+      allow delete: if canDeleteGallery();
     }
   }
 }
@@ -13,9 +92,39 @@ Storage Rules:
 rules_version = '2';
 service firebase.storage {
   match /b/{bucket}/o {
+
+    function userDoc() {
+      return firestore.get(/databases/(default)/documents/users/$(request.auth.uid));
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isActiveUser() {
+      return isSignedIn()
+        && firestore.exists(/databases/(default)/documents/users/$(request.auth.uid))
+        && userDoc().data.isActive == true;
+    }
+
+    function role() {
+      return userDoc().data.role;
+    }
+
+    function canUpload() {
+      return isActiveUser() && role() in ['owner', 'admin', 'editor'];
+    }
+
+    function canDelete() {
+      return isActiveUser() && role() in ['owner', 'admin'];
+    }
+
     match /{allPaths=**} {
       allow read: if true;
-      allow write: if true;
+
+      allow create, update: if canUpload();
+
+      allow delete: if canDelete();
     }
   }
 }
