@@ -4,7 +4,8 @@
 
 - **URL:** `/vedman-panel.html`
 - **Auth:** Firebase Email/Password (no credentials in this repo)
-- **Setup:** follow **`FIREBASE_USERS_BOOTSTRAP.md`** — create Auth users and Firestore `users/{uid}` documents with roles (`owner`, `admin`, `editor`)
+- **Setup:** follow **`docs/FIREBASE_USERS_BOOTSTRAP.md`** — create Auth users and Firestore `users/{uid}` documents with roles (`owner`, `admin`, `editor`)
+- Planning and security docs: **`docs/`**
 
 ### Roles (panel)
 
@@ -14,12 +15,12 @@
 | admin   | ✓      | ✓               |
 | editor  | ✓      | ✗               |
 
-Full server-side RBAC (Firestore + Storage rules) is planned in Phase C — see `SECURITY_IMPLEMENTATION_PLAN.md`.
+Full server-side RBAC (Firestore + Storage rules) is planned in Phase C — see `docs/SECURITY_IMPLEMENTATION_PLAN.md`.
 
 ## Before first upload
 
 1. Fill `firebase-config.js` with your Firebase Web App config.
-2. Complete **`FIREBASE_USERS_BOOTSTRAP.md`** (Auth, `users` docs, interim Firestore rule for role lookup).
+2. Complete **`docs/FIREBASE_USERS_BOOTSTRAP.md`** (Auth, `users` docs, interim Firestore rule for role lookup).
 3. Keep Firestore/Storage rules from **`FIREBASE_RULES.txt`** until Phase C secure rules are deployed.
 4. Open `/vedman-panel.html` and sign in with your Firebase user.
 

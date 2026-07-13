@@ -1,0 +1,65 @@
+
+*{box-sizing:border-box}
+html,body{margin:0;overflow-x:hidden}
+body{
+  font-family:Inter,Arial,sans-serif;
+  background:var(--bg);
+  color:#101310;
+  -webkit-font-smoothing:antialiased;
+}
+a{text-decoration:none;color:inherit}
+button,input,select,textarea{font:inherit}
+svg,img{display:block;max-width:100%}
+.container{width:min(var(--max),calc(100% - 30px));margin:auto}
+
+/* TRUE SVG LOGO — no image cache */
+.logo-img{
+  width:238px;
+  height:auto;
+  display:block;
+  object-fit:contain;
+  filter:drop-shadow(0 2px 1px rgba(0,0,0,.35));
+}
+.footer .logo-img{width:260px}
+
+/* HEADER */
+.header{
+  position:sticky;
+  top:0;
+  z-index:80;
+  background:rgba(244,246,242,.97);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(0,0,0,.08);
+}
+.header-inner{
+  min-height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.nav{display:flex;gap:21px;font-size:13px;font-weight:900;text-transform:uppercase}
+.nav a:hover,.nav a.active{color:var(--green2)}
+.head-actions{display:flex;gap:10px;align-items:center}
+.phone{font-weight:900;color:#111;white-space:nowrap}
+.btn{
+  border:0;
+  border-radius:999px;
+  min-height:42px;
+  padding:0 18px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  font-weight:900;
+  cursor:pointer;
+  white-space:nowrap;
+}
+.btn-green{
+  background:linear-gradient(#25d653,#089321);
+  color:white;
+  border:2px solid var(--gold);
+  box-shadow:0 8px 18px rgba(24,191,63,.22);
+}
+.btn-light{background:#fff;border:1px solid var(--line);color:#111}
+
