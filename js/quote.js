@@ -15,11 +15,21 @@ function updateSub(sel=""){
   subCat.innerHTML=arr.length?arr.map(v=>`<option value="${v}">${v}</option>`).join(""):'<option value="">Nav jāizvēlas</option>';
   if(sel) subCat.value=sel;
 }
-function openQuote(material="",sub=""){
+function openQuote(material="",sub="",preferredUnit=""){
   modal.classList.add("open");
   if(material){mainCat.value=material;updateSub(sub);}
+  if(preferredUnit){
+    unit=preferredUnit;
+    document.querySelectorAll(".unit-card").forEach(b=>{
+      b.classList.toggle("active",b.dataset.unit===preferredUnit);
+    });
+  }
+  document.body.style.overflow="hidden";
 }
-function closeQuote(){modal.classList.remove("open");}
+function closeQuote(){
+  modal.classList.remove("open");
+  document.body.style.overflow="";
+}
 
 document.querySelectorAll(".js-open,[data-material]").forEach(el=>{
   el.addEventListener("click",()=>openQuote(el.dataset.material||"",el.dataset.sub||""));
@@ -78,6 +88,9 @@ document.getElementById("applyCalc").addEventListener("click",()=>{
 });
 
 document.getElementById("sendBtn").addEventListener("click",()=>{
+  const sendBtn=document.getElementById("sendBtn");
+  if(sendBtn.disabled)return;
+
   const material=mainCat.value;
   const sub=subCat.value;
   const address=document.getElementById("address").value.trim();
@@ -111,7 +124,20 @@ ${phone||"Nav norādīts"}
 📝 Komentārs:
 ${comment||"Nav"}`;
 
-  window.open("https://wa.me/37122312828?text="+encodeURIComponent(msg),"_blank");
+  const waUrl="https://wa.me/37122312828?text="+encodeURIComponent(msg);
+  sendBtn.disabled=true;
+  const hint=document.getElementById("waFallback");
+  const hintLink=document.getElementById("waFallbackLink");
+  if(hintLink)hintLink.href=waUrl;
+  if(hint)hint.classList.remove("visible");
+  const popup=window.open(waUrl,"_blank");
+  if(!popup){
+    if(hint)hint.classList.add("visible");
+    else if(confirm("Pārlūks bloķēja jaunu logu. Atvērt WhatsApp šajā logā?")){
+      window.location.href=waUrl;
+    }
+  }
+  setTimeout(()=>{sendBtn.disabled=false;},2000);
 });
 
 fillMain();
