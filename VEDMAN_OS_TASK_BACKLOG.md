@@ -15,18 +15,19 @@
 
 ## P0 — Pilot critical path
 
-### VOS-001 — Phase 0 repository and knowledge audit
+### VOS-001 — Phase 0 repository and knowledge audit ✅ COMPLETED
 
 | Field | Value |
 |-------|-------|
+| **Status** | **Completed** 2026-07-16 |
 | **Priority** | P0 |
 | **Business value** | Prevents building on wrong assumptions; baseline metrics |
 | **Risk** | Low |
 | **Complexity** | 2 |
 | **Dependencies** | None |
 | **Owner approval** | ✓ sign-off on audit findings |
-| **Files likely affected** | `docs/VEDMAN_OS_PHASE0_AUDIT.md` (new), [docs/VALIDATION_CHECKLIST.md](docs/VALIDATION_CHECKLIST.md) |
-| **Acceptance criteria** | Catalog slugs mapped to MATERIAL_INDEX; all `[TBD]` counted; security gap list; M1/M7 baseline notes |
+| **Deliverables** | [docs/VOS_001_REPOSITORY_AUDIT.md](docs/VOS_001_REPOSITORY_AUDIT.md) · [docs/VOS_001_FILE_MAP.md](docs/VOS_001_FILE_MAP.md) · [docs/VOS_001_DATA_SOURCE_MAP.md](docs/VOS_001_DATA_SOURCE_MAP.md) · [docs/VOS_001_BLOCKERS_AND_DECISIONS.md](docs/VOS_001_BLOCKERS_AND_DECISIONS.md) |
+| **Acceptance criteria** | Catalog slugs mapped to MATERIAL_INDEX; all `[TBD]` counted; security gap list; M1/M7 baseline notes — **met** |
 
 ---
 
