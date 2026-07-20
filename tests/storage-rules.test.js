@@ -16,11 +16,9 @@ import {
   uploadString,
   getBytes,
   listAll,
-  deleteObject,
-  connectStorageEmulator,
-  getStorage
+  deleteObject
 } from "firebase/storage";
-import { doc, getDoc, setDoc, getFirestore, connectFirestoreEmulator } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const PROJECT_ID = "vedman-lv-test";
@@ -77,13 +75,10 @@ async function setupEnv() {
   });
 
   await env.withSecurityRulesDisabled(async (ctx) => {
-    const app = ctx.app();
-    const fs = getFirestore(app);
-    connectFirestoreEmulator(fs, "127.0.0.1", 8080);
-    await seedUsers(fs);
+    const db = ctx.firestore();
+    await seedUsers(db);
 
-    const storage = getStorage(app, `gs://${BUCKET}`);
-    connectStorageEmulator(storage, "127.0.0.1", 9199);
+    const storage = ctx.storage();
     await uploadString(ref(storage, "studio/published/demo-slug.json"), "{}", "raw", {
       contentType: "application/json"
     });
@@ -106,32 +101,25 @@ async function setupEnv() {
 
 async function runTests(env) {
   const anon = env.unauthenticatedContext();
-  const anonStorage = getStorage(anon.app(), `gs://${BUCKET}`);
-  connectStorageEmulator(anonStorage, "127.0.0.1", 9199);
+  const anonStorage = anon.storage();
 
   const editorCtx = env.authenticatedContext(USERS.editor.uid, { email: "editor@test.lv" });
-  const editorStorage = getStorage(editorCtx.app(), `gs://${BUCKET}`);
-  connectStorageEmulator(editorStorage, "127.0.0.1", 9199);
+  const editorStorage = editorCtx.storage();
 
   const adminCtx = env.authenticatedContext(USERS.admin.uid, { email: "admin@test.lv" });
-  const adminStorage = getStorage(adminCtx.app(), `gs://${BUCKET}`);
-  connectStorageEmulator(adminStorage, "127.0.0.1", 9199);
+  const adminStorage = adminCtx.storage();
 
   const ownerCtx = env.authenticatedContext(USERS.owner.uid, { email: "owner@test.lv" });
-  const ownerStorage = getStorage(ownerCtx.app(), `gs://${BUCKET}`);
-  connectStorageEmulator(ownerStorage, "127.0.0.1", 9199);
+  const ownerStorage = ownerCtx.storage();
 
   const unknownCtx = env.authenticatedContext(USERS.unknown.uid, { email: "bad@test.lv" });
-  const unknownStorage = getStorage(unknownCtx.app(), `gs://${BUCKET}`);
-  connectStorageEmulator(unknownStorage, "127.0.0.1", 9199);
+  const unknownStorage = unknownCtx.storage();
 
   const inactiveCtx = env.authenticatedContext(USERS.inactive.uid, { email: "inactive@test.lv" });
-  const inactiveStorage = getStorage(inactiveCtx.app(), `gs://${BUCKET}`);
-  connectStorageEmulator(inactiveStorage, "127.0.0.1", 9199);
+  const inactiveStorage = inactiveCtx.storage();
 
   const missingCtx = env.authenticatedContext("uid-missing", { email: "missing@test.lv" });
-  const missingStorage = getStorage(missingCtx.app(), `gs://${BUCKET}`);
-  connectStorageEmulator(missingStorage, "127.0.0.1", 9199);
+  const missingStorage = missingCtx.storage();
 
   // ANONYMOUS
   await track("anon: draft read denied", () =>
