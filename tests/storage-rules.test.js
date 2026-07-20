@@ -11,9 +11,6 @@ import {
   assertSucceeds
 } from "@firebase/rules-unit-testing";
 import {
-  doc,
-  getDoc,
-  setDoc,
   ref,
   uploadBytes,
   uploadString,
@@ -23,8 +20,7 @@ import {
   connectStorageEmulator,
   getStorage
 } from "firebase/storage";
-import { getFirestore, connectFirestoreEmulator } from "firebase/firestore";
-import { initializeApp } from "firebase/app";
+import { doc, getDoc, setDoc, getFirestore, connectFirestoreEmulator } from "firebase/firestore";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const PROJECT_ID = "vedman-lv-test";
