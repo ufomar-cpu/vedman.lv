@@ -1,0 +1,341 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    // -------------------------------------------------------------------------
+    // Authorization — Firestore users/{uid} is the sole role source (fail closed)
+    // -------------------------------------------------------------------------
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function userDocument() {
+      return firestore.get(/databases/(default)/documents/users/$(request.auth.uid));
+    }
+
+    function hasUserProfile() {
+      return isSignedIn()
+        && firestore.exists(/databases/(default)/documents/users/$(request.auth.uid));
+    }
+
+    function hasValidRoleField() {
+      return hasUserProfile()
+        && userDocument().data.keys().hasAll(['role', 'isActive'])
+        && userDocument().data.role is string
+        && userDocument().data.role in ['owner', 'admin', 'editor']
+        && userDocument().data.isActive == true;
+    }
+
+    function role() {
+      return hasValidRoleField() ? userDocument().data.role : '';
+    }
+
+    function isOwner() {
+      return hasValidRoleField() && role() == 'owner';
+    }
+
+    function isAdmin() {
+      return hasValidRoleField() && role() == 'admin';
+    }
+
+    function isEditor() {
+      return hasValidRoleField() && role() == 'editor';
+    }
+
+    function canManageDrafts() {
+      return isOwner() || isAdmin() || isEditor();
+    }
+
+    function canPublish() {
+      return isOwner() || isAdmin();
+    }
+
+    function canDelete() {
+      return isOwner() || isAdmin();
+    }
+
+    // -------------------------------------------------------------------------
+    // Shared validation helpers (metadata only — not JSON/XML semantics)
+    // -------------------------------------------------------------------------
+
+    function isValidSlug(slug) {
+      return slug.matches('^[a-z0-9]+(-[a-z0-9]+)*$')
+        && slug.size() >= 1
+        && slug.size() <= 80
+        && !slug.matches('.*[/\\\\].*')
+        && !slug.matches('.*\\.\\..*');
+    }
+
+    function isValidMaterialId(materialId) {
+      return materialId.matches('^[a-z0-9][a-z0-9-]{0,79}$')
+        && !materialId.matches('.*[/\\\\].*')
+        && !materialId.matches('.*\\.\\..*');
+    }
+
+    function isDraftJsonFileName(fileName) {
+      return fileName.matches('^[a-z0-9][a-z0-9-]{0,79}\\.json$');
+    }
+
+    function isPublishedJsonFileName(fileName) {
+      return fileName.matches('^[a-z0-9]+(-[a-z0-9]+)*\\.json$');
+    }
+
+    function draftMaterialId(fileName) {
+      return fileName.replace('.json', '');
+    }
+
+    function publishedSlug(fileName) {
+      return fileName.replace('.json', '');
+    }
+
+    function isJsonContentType() {
+      return request.resource.contentType.matches('application/json.*')
+        || request.resource.contentType == 'text/json';
+    }
+
+    function isXmlOrTextContentType() {
+      return request.resource.contentType.matches('(application|text)/xml.*')
+        || request.resource.contentType.matches('text/plain.*');
+    }
+
+    function isForbiddenUploadMime() {
+      return request.resource.contentType.matches('image/svg.*')
+        || request.resource.contentType.matches('text/html.*')
+        || request.resource.contentType.matches('(application|text)/javascript.*')
+        || request.resource.contentType.matches('application/x-msdownload.*')
+        || request.resource.contentType.matches('application/x-executable.*');
+    }
+
+    function isAllowedImageMime() {
+      return request.resource.contentType in [
+        'image/jpeg',
+        'image/jpg',
+        'image/pjpeg',
+        'image/png',
+        'image/webp',
+        'image/heic',
+        'image/heif'
+      ];
+    }
+
+    function isAllowedGalleryMime() {
+      return isAllowedImageMime()
+        || request.resource.contentType in ['video/mp4', 'video/quicktime'];
+    }
+
+    function isValidMaterialImageName(fileName) {
+      return fileName.matches('^(hero|closeup|pile|truck|installed)\\.(webp|jpe?g|png|heic|heif)$');
+    }
+
+    function isValidGalleryFileName(fileName) {
+      return fileName.matches('^[a-z0-9-]{1,120}\\.(webp|jpe?g|heic|heif|mp4|mov)$')
+        && fileName.size() <= 140
+        && !fileName.matches('.*[/\\\\].*');
+    }
+
+    function isDraftJsonWrite() {
+      return isJsonContentType()
+        && request.resource.size > 0
+        && request.resource.size <= 1048576;
+    }
+
+    function isPublishedJsonWrite() {
+      return isJsonContentType()
+        && request.resource.size > 0
+        && request.resource.size <= 524288;
+    }
+
+    function isManifestJsonWrite() {
+      return isJsonContentType()
+        && request.resource.size > 0
+        && request.resource.size <= 1048576;
+    }
+
+    function isSitemapWrite() {
+      return isXmlOrTextContentType()
+        && request.resource.size > 0
+        && request.resource.size <= 262144;
+    }
+
+    function isMaterialImageWrite() {
+      return isAllowedImageMime()
+        && !isForbiddenUploadMime()
+        && request.resource.size > 0
+        && request.resource.size <= 10485760;
+    }
+
+    function isGalleryMediaWrite(fileName) {
+      return isValidGalleryFileName(fileName)
+        && isAllowedGalleryMime()
+        && !isForbiddenUploadMime()
+        && request.resource.size > 0
+        && (
+          (request.resource.contentType.matches('video/.*') && request.resource.size <= 52428800)
+          || request.resource.size <= 10485760
+        );
+    }
+
+    function galleryReadAllowed() {
+      return true;
+    }
+
+    function galleryCreateUpdateAllowed(fileName) {
+      return canManageDrafts() && isGalleryMediaWrite(fileName);
+    }
+
+    function galleryDeleteAllowed() {
+      return canDelete();
+    }
+
+    // -------------------------------------------------------------------------
+    // 1. Private draft materials — studio/materials/{materialId}.json
+    // -------------------------------------------------------------------------
+
+    match /studio/materials/{fileName} {
+      allow read: if canManageDrafts()
+        && isDraftJsonFileName(fileName)
+        && isValidMaterialId(draftMaterialId(fileName));
+
+      allow create, update: if canManageDrafts()
+        && isDraftJsonFileName(fileName)
+        && isValidMaterialId(draftMaterialId(fileName))
+        && isDraftJsonWrite();
+
+      allow delete: if canDelete()
+        && isDraftJsonFileName(fileName)
+        && isValidMaterialId(draftMaterialId(fileName));
+    }
+
+    // -------------------------------------------------------------------------
+    // 2. Public published materials — studio/published/{slug}.json
+    // -------------------------------------------------------------------------
+
+    match /studio/published/{fileName} {
+      allow read: if isPublishedJsonFileName(fileName)
+        && isValidSlug(publishedSlug(fileName));
+
+      allow create, update: if canPublish()
+        && isPublishedJsonFileName(fileName)
+        && isValidSlug(publishedSlug(fileName))
+        && isPublishedJsonWrite();
+
+      allow delete: if canDelete()
+        && isPublishedJsonFileName(fileName)
+        && isValidSlug(publishedSlug(fileName));
+    }
+
+    // -------------------------------------------------------------------------
+    // 3. Public manifest — studio/manifest.json
+    // -------------------------------------------------------------------------
+
+    match /studio/manifest.json {
+      allow read: if true;
+
+      allow create, update: if canPublish() && isManifestJsonWrite();
+
+      allow delete: if isOwner();
+    }
+
+    // -------------------------------------------------------------------------
+    // 4. Generated sitemap copy — studio/sitemap.xml
+    // -------------------------------------------------------------------------
+
+    match /studio/sitemap.xml {
+      allow read: if true;
+
+      allow create, update: if canPublish() && isSitemapWrite();
+
+      allow delete: if isOwner();
+    }
+
+    // -------------------------------------------------------------------------
+    // 5. Material passport images — materials/{slug}/{fileName}
+    // -------------------------------------------------------------------------
+
+    match /materials/{slug}/{fileName} {
+      allow read: if isValidSlug(slug) && isValidMaterialImageName(fileName);
+
+      allow create, update: if canManageDrafts()
+        && isValidSlug(slug)
+        && isValidMaterialImageName(fileName)
+        && isMaterialImageWrite();
+
+      allow delete: if canDelete()
+        && isValidSlug(slug)
+        && isValidMaterialImageName(fileName);
+    }
+
+    // -------------------------------------------------------------------------
+    // 6. Panel gallery — explicit category paths (vedman-panel.html)
+    // -------------------------------------------------------------------------
+
+    match /skembas/{fileName} {
+      allow read: if galleryReadAllowed();
+      allow create, update: if galleryCreateUpdateAllowed(fileName);
+      allow delete: if galleryDeleteAllowed();
+    }
+
+    match /grants/{fileName} {
+      allow read: if galleryReadAllowed();
+      allow create, update: if galleryCreateUpdateAllowed(fileName);
+      allow delete: if galleryDeleteAllowed();
+    }
+
+    match /smilts/{fileName} {
+      allow read: if galleryReadAllowed();
+      allow create, update: if galleryCreateUpdateAllowed(fileName);
+      allow delete: if galleryDeleteAllowed();
+    }
+
+    match /melnzeme/{fileName} {
+      allow read: if galleryReadAllowed();
+      allow create, update: if galleryCreateUpdateAllowed(fileName);
+      allow delete: if galleryDeleteAllowed();
+    }
+
+    match /betons/{fileName} {
+      allow read: if galleryReadAllowed();
+      allow create, update: if galleryCreateUpdateAllowed(fileName);
+      allow delete: if galleryDeleteAllowed();
+    }
+
+    match /manipulators/{fileName} {
+      allow read: if galleryReadAllowed();
+      allow create, update: if galleryCreateUpdateAllowed(fileName);
+      allow delete: if galleryDeleteAllowed();
+    }
+
+    match /zemes-darbi/{fileName} {
+      allow read: if galleryReadAllowed();
+      allow create, update: if galleryCreateUpdateAllowed(fileName);
+      allow delete: if galleryDeleteAllowed();
+    }
+
+    match /koku-serviss/{fileName} {
+      allow read: if galleryReadAllowed();
+      allow create, update: if galleryCreateUpdateAllowed(fileName);
+      allow delete: if galleryDeleteAllowed();
+    }
+
+    match /objekti/{fileName} {
+      allow read: if galleryReadAllowed();
+      allow create, update: if galleryCreateUpdateAllowed(fileName);
+      allow delete: if galleryDeleteAllowed();
+    }
+
+    match /video/{fileName} {
+      allow read: if galleryReadAllowed();
+      allow create, update: if galleryCreateUpdateAllowed(fileName);
+      allow delete: if galleryDeleteAllowed();
+    }
+
+    // -------------------------------------------------------------------------
+    // 7. Default deny — no global authenticated wildcard
+    // -------------------------------------------------------------------------
+
+    match /{path=**} {
+      allow read, write: if false;
+    }
+  }
+}

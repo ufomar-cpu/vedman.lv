@@ -1,0 +1,37 @@
+{
+  "slug": "test-granulas",
+  "urlSlug": "test-granulas",
+  "title": "Testa granulas 0-16",
+  "catalogMaterial": "Granulas",
+  "catalogFraction": "0-16",
+  "imageBase": "/assets/materials/test-granulas/",
+  "images": {
+    "hero": { "file": "hero.webp", "available": true, "url": "https://example.com/hero.webp", "alt": "Hero" },
+    "closeup": { "file": "closeup.webp", "available": false, "url": null, "alt": "" },
+    "pile": { "file": "pile.webp", "available": false, "url": null, "alt": "" },
+    "truck": { "file": "truck.webp", "available": false, "url": null, "alt": "" },
+    "installed": { "file": "installed.webp", "available": false, "url": null, "alt": "" }
+  },
+  "content": {
+    "eyebrow": "Beramie materiāli",
+    "description": "Testa materiāla apraksts publicētajai lapai.",
+    "typicalUse": "Testēšanai",
+    "fractionDisplay": "0–16 mm",
+    "materialType": "Granulas",
+    "applications": [{ "icon": "🏗️", "title": "Test lietojums", "text": "Orientējoši." }],
+    "recommendation": { "title": "Sazinieties", "text": "Pirms pasūtījuma." },
+    "faq": [{ "question": "Kā pasūtīt?", "answer": "WhatsApp vai tālrunis." }],
+    "related": [],
+    "seo": {
+      "metaTitle": "Testa granulas 0-16 | VEDMAN",
+      "metaDescription": "Testa granulas ar piegādi visā Latvijā.",
+      "ogTitle": "Testa granulas | VEDMAN",
+      "ogDescription": "Testa granulas ar piegādi.",
+      "keywords": "granulas test"
+    },
+    "technical": { "visible": false, "rows": [] },
+    "visibility": { "showFacts": true, "showApplications": true, "showRecommendation": true, "showFaq": true, "showTechnical": false, "showRelated": true },
+    "galleryOrder": ["hero", "closeup", "pile", "truck", "installed"],
+    "heroRole": "hero"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "vedman-lv",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:completeness": "node --test tests/completeness.test.js",
+    "test:generator": "node --test tests/generator.test.js",
+    "test:storage": "firebase emulators:exec --only auth,firestore,storage \"node --test tests/storage-rules.test.js\"",
+    "test:acceptance": "npm run test:completeness && npm run test:generator && npm run test:storage",
+    "sync:published-data": "node scripts/sync-published-data.js",
+    "generate:materials": "node scripts/generate-material-pages.js",
+    "validate:routes": "node scripts/validate-material-routes.js",
+    "verify:sitemap": "node scripts/verify-root-sitemap.js",
+    "build:site": "npm run generate:materials && npm run validate:routes && npm run verify:sitemap"
+  },
+  "devDependencies": {
+    "@firebase/rules-unit-testing": "^4.0.1",
+    "firebase": "^11.6.0",
+    "firebase-tools": "^14.0.0"
+  }
+}
