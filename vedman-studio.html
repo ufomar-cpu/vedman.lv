@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>VEDMAN Studio</title>
+<link rel="icon" type="image/png" href="assets/icons/favicon.png?v=100">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/studio.css?v=3">
+</head>
+<body class="studio-page">
+
+<div id="studioLogin" class="studio-login">
+  <img src="assets/logos/vedman-logo.png?v=101" class="logo" alt="VEDMAN">
+  <h1>VEDMAN Studio</h1>
+  <p class="hint">Materiālu pārvaldība no telefona. Firebase Auth — tās pašas tiesības kā panelī.</p>
+  <label for="studioLoginEmail">E-pasts</label>
+  <input id="studioLoginEmail" type="email" autocomplete="username" placeholder="admin@vedman.lv">
+  <label for="studioLoginPass">Parole</label>
+  <input id="studioLoginPass" type="password" autocomplete="current-password" placeholder="parole">
+  <button type="button" class="studio-btn primary block" id="studioLoginBtn" style="margin-top:14px">Ieiet</button>
+  <div class="studio-error" id="studioLoginError" hidden>Nepareizi dati</div>
+  <p class="hint" style="margin-top:16px"><a href="index.html">← Atpakaļ uz vedman.lv</a> · <a href="vedman-panel.html">Galerijas panelis</a></p>
+</div>
+
+<div id="studioApp" hidden>
+  <header class="studio-top">
+    <img src="assets/logos/vedman-logo.png?v=101" class="logo-img" alt="VEDMAN">
+    <h1>Studio</h1>
+    <span class="studio-role" id="studioRole">Owner</span>
+    <button type="button" class="studio-btn" id="studioLogout">Iziet</button>
+  </header>
+
+  <div class="studio-main" id="studioMain"></div>
+  <div class="studio-status-bar" id="studioStatus">Gaidām pieslēgšanos...</div>
+
+  <nav class="studio-nav" aria-label="Studio moduļi">
+    <button type="button" class="studio-nav-btn active" data-view="materials"><span class="ico" aria-hidden="true">📦</span>Materiāli</button>
+    <button type="button" class="studio-nav-btn" data-view="media"><span class="ico" aria-hidden="true">📷</span>Mediji</button>
+    <button type="button" class="studio-nav-btn" data-view="publish"><span class="ico" aria-hidden="true">🚀</span>Publicēt</button>
+  </nav>
+</div>
+
+
+<div class="studio-toast" id="studioToast" role="status" aria-live="polite"></div>
+
+<script src="firebase-config.js?v=501"></script>
+<script src="js/catalog-data.js?v=502"></script>
+<script type="module" src="js/studio-app.js?v=3"></script>
+</body>
+</html>

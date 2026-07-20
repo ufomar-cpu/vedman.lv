@@ -1,11 +1,58 @@
 /**
  * VEDMAN Material Passport — shared runtime
- * Reads window.VEDMAN_PASSPORT (set by per-material data script).
+ * Reads window.VEDMAN_PASSPORT (static script + optional Studio publish overlay).
  */
 (function () {
   "use strict";
 
-  var cfg = window.VEDMAN_PASSPORT;
+  function showNotFound() {
+    document.title = "Materiāls nav atrasts | VEDMAN";
+    var main = document.getElementById("main");
+    if (main) {
+      main.innerHTML = "";
+      var section = document.createElement("section");
+      section.className = "passport-section";
+      section.style.textAlign = "center";
+      section.style.padding = "48px 16px";
+      var h1 = document.createElement("h1");
+      h1.textContent = "Materiāls nav atrasts";
+      var p = document.createElement("p");
+      p.textContent = "Šī materiāla pase nav publicēta vai adrese nav pareiza.";
+      var a = document.createElement("a");
+      a.className = "btn btn-green";
+      a.href = "/index.html#materiali";
+      a.textContent = "Atpakaļ uz materiāliem";
+      section.appendChild(h1);
+      section.appendChild(p);
+      section.appendChild(a);
+      main.appendChild(section);
+    }
+  }
+
+  function boot() {
+    if (window.VEDMAN_PASSPORT_NOT_FOUND) {
+      showNotFound();
+      return;
+    }
+    var cfg = window.VEDMAN_PASSPORT;
+    if (!cfg) {
+      if (window.VEDMAN_PASSPORT_LOADED) showNotFound();
+      return;
+    }
+    if (typeof window.VEDMAN_PASSPORT_RENDER === "function" && cfg.content) {
+      window.VEDMAN_PASSPORT_RENDER(cfg);
+    }
+    runPassport(cfg);
+  }
+
+  var initPromise = window.VEDMAN_PASSPORT_INIT || Promise.resolve(window.VEDMAN_PASSPORT);
+  if (initPromise && typeof initPromise.then === "function") {
+    initPromise.then(boot).catch(function () { boot(); });
+  } else {
+    boot();
+  }
+
+  function runPassport(cfg) {
   if (!cfg) return;
 
   var LABELS = {
@@ -26,6 +73,12 @@
   function imageUrl(role) {
     var img = cfg.images && cfg.images[role];
     if (!img || !img.available) return null;
+    if (img.url) {
+      var u = String(img.url);
+      if (u.indexOf("https://") === 0 && (u.indexOf("firebasestorage") !== -1 || u.indexOf("vedman.lv") !== -1)) return u;
+      if (u.charAt(0) === "/" && u.charAt(1) !== "/") return u;
+      return null;
+    }
     var base = cfg.imageBase || "";
     if (base.charAt(0) === "/") return base + img.file;
     return base + img.file;
@@ -85,8 +138,9 @@
 
   function initHero() {
     var el = document.getElementById("passportHeroMedia");
+    var heroRole = cfg.heroRole || "hero";
     if (el) {
-      el.innerHTML = renderImage("hero", false);
+      el.innerHTML = renderImage(heroRole, false);
       attachImageFallback(el);
     }
   }
@@ -96,7 +150,7 @@
     var thumbs = document.getElementById("passportGalleryThumbs");
     if (!main || !thumbs || !cfg.images) return;
 
-    var roles = ["hero", "closeup", "pile", "truck", "installed"];
+    var roles = cfg.galleryOrder || ["hero", "closeup", "pile", "truck", "installed"];
 
     thumbs.innerHTML = roles
       .map(function (role, i) {
@@ -119,7 +173,8 @@
       })
       .join("");
 
-    main.innerHTML = renderImage("hero", false);
+    var heroRole = cfg.heroRole || "hero";
+    main.innerHTML = renderImage(heroRole, false);
     attachImageFallback(main);
     attachImageFallback(thumbs);
 
@@ -205,4 +260,5 @@
   initTech();
   initQuoteTriggers();
   initRelated();
+  }
 })();
